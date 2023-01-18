@@ -1,0 +1,10 @@
+No executable to Fermat could be found.
+The user defined environment variable FERMATPATH is not set. 
+If you want to run a Fermat executable not defined in the 
+environment variable PATH, then add the path to the Fermat 
+binary like this:
+  # sh-shell:
+  export FERMATPATH="/path/to/Fermat/binary"
+  # csh-shell:
+  setenv FERMATPATH "/path/to/Fermat/binary"
+
