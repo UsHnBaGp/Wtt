@@ -1,10 +1,76 @@
-No executable to Fermat could be found.
-The user defined environment variable FERMATPATH is not set. 
-If you want to run a Fermat executable not defined in the 
-environment variable PATH, then add the path to the Fermat 
-binary like this:
-  # sh-shell:
-  export FERMATPATH="/path/to/Fermat/binary"
-  # csh-shell:
-  setenv FERMATPATH "/path/to/Fermat/binary"
+The user defined environment variable FERMATPATH for Fermat is set:
+/space/ttpmath/tools_build/ferl6/fer64
+config/kinematics.yaml does not exist. Assume that userdefined
+system is reduced or the merge was used
 
+The directories for the temporary files, result files and the sector mapping files are: 
+./tmp
+./results
+./sectormappings
+
+*****Integral ordering*************************************
+VERSION table created successfully
+Kira database version number: 2.1
+WEIGHTBITS table created successfully
+INTEGRALORDERING table created successfully
+Kira will use the integral ordering: 1.
+Defined topology Tuserweight
+number of predefined topologies: 1
+
+***********************************************************
+Kira starts the reduction of a user defined system: multiple files
+***********************************************************
+
+***** Select equations recursively ************************
+length of mandatory list: 4
+
+***** Starting PYRED **************************************
+mandatory: 4
+Defined topology T
+directory to the masters: Tuserweight
+Number of master integrals: 2
+1 # 1
+2 # 1
+
+Number of selected equations to reduce: 2 equations
+( 0.000174 s )
+
+***** Select equations recursively ************************
+length of mandatory list: 4
+FIREFLY table created successfully
+Loading 2 equations.
+
+[1;34mFireFly info:[0m Parsed 6 functions of which 4 are distinct
+
+System loaded in 0.000072 s
+[1;34mFireFly info:[0m Precomputing tokens
+Reconstructing in: x, y
+Equation table created successfully
+Average times:
+Parsing: 3.43e-07 s
+Forward: 2.11e-06 s
+Backsubs: 1.12e-06 s
+
+*****Master integrals***********************************
+1 # 1
+2 # 1
+
+Total number of master integrals: 2
+
+The input directory is set to:
+./results
+This is a reduction with integral in weight bit notation.
+The only topology allowed is called Tuserweight automatically by Kira.
+symbol_to_replace_by_one: x in kinematics.yaml is not set. 
+Mass reconstruction is disabled.
+################################################
+kira2math: Reconstruct results
+################################################
+
+Algebraic reconstruction is switched off.
+This requested integral is a master integral: 1 # 1
+This requested integral is a master integral: 2 # 1
+unreduced integrals: 0.
+
+Total time:
+( 1 s )

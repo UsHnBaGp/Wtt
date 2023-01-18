@@ -2,95 +2,51 @@
 FireFly 2.0.3
 
 Launching 1 thread(s) with maximum bunch size 1
-Using seed 1674036297 for random numbers
+Using seed 1674051353 for random numbers
 
 Promote to new prime field: F(9223372036854775783)
 Scanning for factors
-Time for the first black-box probe: 0.000290 s
-576 function(s) will be interpolated
+Time for the first black-box probe: 0.000008 s
+4 function(s) will be interpolated
 
 Scanning for factors in x1
-Maximum degree of x1: 12
-Potential factors in x1: 5424
-Identified factors in x1: 288
+Maximum degree of x1: 1
+Potential factors in x1: 2
+Identified factors in x1: 2
+Maximum degree of x1 after factoring: 0
 Starting reconstruction of coefficients
-Completed factor scan in x1 | 67 probes in total
+Completed factor scan in x1 | 11 probes in total
 Required prime fields: 2
-Average time of the black-box probe: 0.000282 s
+Average time of the black-box probe: 0.000003 s
 
 Scanning for factors in x2
-Maximum degree of x2: 12
-Potential factors in x2: 2376
-Identified factors in x2: 0
+Maximum degree of x2: 1
+Potential factors in x2: 5
+Identified factors in x2: 5
+Maximum degree of x2 after factoring: 0
 Starting reconstruction of coefficients
-Completed factor scan in x2 | 106 probes in total
-Required prime fields: 1
-Average time of the black-box probe: 0.000278 s
-
-Scanning for factors in x3
-Maximum degree of x3: 12
-Potential factors in x3: 3732
-Identified factors in x3: 224
-Starting reconstruction of coefficients
-Completed factor scan in x3 | 193 probes in total
+Completed factor scan in x2 | 22 probes in total
 Required prime fields: 2
-Average time of the black-box probe: 0.000276 s
+Average time of the black-box probe: 0.000003 s
 
-Scanning for factors in x4
-Maximum degree of x4: 6
-Potential factors in x4: 2044
-Identified factors in x4: 0
-Starting reconstruction of coefficients
-Completed factor scan in x4 | 220 probes in total
-Required prime fields: 1
-Average time of the black-box probe: 0.000276 s
-
-Scanning for factors in x5
-Maximum degree of x5: 6
-Potential factors in x5: 2768
-Identified factors in x5: 0
-Starting reconstruction of coefficients
-Completed factor scan in x5 | 247 probes in total
-Required prime fields: 1
-Average time of the black-box probe: 0.000276 s
-
-Scanning for factors in x6
-Maximum degree of x6: 6
-Potential factors in x6: 2684
-Identified factors in x6: 0
-Starting reconstruction of coefficients
-Completed factor scan in x6 | 274 probes in total
-Required prime fields: 1
-Average time of the black-box probe: 0.000279 s
-
-Scanning for factors in x7
-Maximum degree of x7: 6
-Potential factors in x7: 2384
-Identified factors in x7: 0
-Starting reconstruction of coefficients
-Completed factor scan in x7 | 301 probes in total
-Required prime fields: 1
-Average time of the black-box probe: 0.000281 s
-
-Completed factor scan in 1.776931 s | 301 probes in total
-Average time of the black-box probe: 0.000281 s
-Found 512 factors in total
-Using optimized variable order: (x1, x2, x3, x4, x5, x6, x7)
+Completed factor scan in 0.001399 s | 22 probes in total
+Average time of the black-box probe: 0.000003 s
+Found 7 factors in total
+Using optimized variable order: (x1, x2)
 
 Scanning for a sparse shift
-Maximum degree of numerator: 14 | Maximum degree of denominator: 21
-Found a sparse shift after 7 scans
-Shift the variable tuple (0, 0, 1, 0, 0, 0, 0)
-Completed scan in 2.529655 s | 584 probes in total
-Average time of the black-box probe: 0.000272 s
+Maximum degree of numerator: 0 | Maximum degree of denominator: 0
+Found a sparse shift after 2 scans
+Shift the variable tuple (0, 0)
+Completed scan in 0.000597 s | 26 probes in total
+Average time of the black-box probe: 0.000003 s
 
 Proceeding with interpolation over prime field F(9223372036854775783)
-Probe: 79262 | Done: 0 / 576 | Requires new prime field: 576 / 576
-Completed current prime field in 5536.292547 s | 79846 probes in total
-Average time of the black-box probe: 0.000333 s
+Probe: 1 | Done: 0 / 4 | Requires new prime field: 4 / 4
+Completed current prime field in 0.000613 s | 27 probes in total
+Average time of the black-box probe: 0.000003 s
 
 Promote to new prime field: F(9223372036854775643)
-Disable shift
-Completed reconstruction in 5569.042887 s | 79847 probes in total
+Completed reconstruction in 0.003099 s | 28 probes in total
 Required prime fields: 1 + 1
-Average time of the black-box probe: 0.000333 s
+Average time of the black-box probe: 0.000003 s
