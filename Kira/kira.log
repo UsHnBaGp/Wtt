@@ -1,0 +1,142 @@
+The user defined environment variable FERMATPATH for Fermat is set:
+/space/ttpmath/tools_build/ferl6/fer64
+config/kinematics.yaml does not exist. Assume that userdefined
+system is reduced or the merge was used
+
+The directories for the temporary files, result files and the sector mapping files are: 
+./tmp
+./results
+./sectormappings
+
+*****Integral ordering*************************************
+VERSION table created successfully
+Kira database version number: 2.1
+WEIGHTBITS table created successfully
+INTEGRALORDERING table created successfully
+Kira will use the integral ordering: 1.
+Defined topology Tuserweight
+number of predefined topologies: 1
+
+***********************************************************
+Kira starts the reduction of a user defined system: multiple files
+***********************************************************
+
+***** Select equations recursively ************************
+length of mandatory list: 48
+
+***** Starting PYRED **************************************
+mandatory: 48
+Defined topology T
+directory to the masters: Tuserweight
+Number of master integrals: 24
+1  # 1
+2  # 1
+3  # 1
+4  # 1
+5  # 1
+6  # 1
+7  # 1
+8  # 1
+9  # 1
+10 # 1
+11 # 1
+12 # 1
+13 # 1
+14 # 1
+15 # 1
+16 # 1
+17 # 1
+18 # 1
+19 # 1
+20 # 1
+21 # 1
+22 # 1
+23 # 1
+24 # 1
+
+Number of selected equations to reduce: 24 equations
+( 0.01674 s )
+
+***** Select equations recursively ************************
+length of mandatory list: 48
+FIREFLY table created successfully
+Loading 24 equations.
+
+[1;34mFireFly info:[0m Parsed 600 functions of which 181 are distinct
+
+System loaded in 0.026374 s
+[1;34mFireFly info:[0m Precomputing tokens
+Reconstructing in: mt, mW, s12, s13, s14, s24, s23
+Equation table created successfully
+Average times:
+Parsing: 0.000223 s
+Forward: 5.66e-05 s
+Backsubs: 5.63e-05 s
+
+*****Master integrals***********************************
+1  # 1
+2  # 1
+3  # 1
+4  # 1
+5  # 1
+6  # 1
+7  # 1
+8  # 1
+9  # 1
+10 # 1
+11 # 1
+12 # 1
+13 # 1
+14 # 1
+15 # 1
+16 # 1
+17 # 1
+18 # 1
+19 # 1
+20 # 1
+21 # 1
+22 # 1
+23 # 1
+24 # 1
+
+Total number of master integrals: 24
+
+The input directory is set to:
+./results
+This is a reduction with integral in weight bit notation.
+The only topology allowed is called Tuserweight automatically by Kira.
+symbol_to_replace_by_one: x in kinematics.yaml is not set. 
+Mass reconstruction is disabled.
+################################################
+kira2math: Reconstruct results
+################################################
+
+Algebraic reconstruction is switched off.
+This requested integral is a master integral: 1 # 1
+This requested integral is a master integral: 2 # 1
+This requested integral is a master integral: 3 # 1
+This requested integral is a master integral: 4 # 1
+This requested integral is a master integral: 5 # 1
+This requested integral is a master integral: 6 # 1
+This requested integral is a master integral: 7 # 1
+This requested integral is a master integral: 8 # 1
+This requested integral is a master integral: 9 # 1
+This requested integral is a master integral: 10 # 1
+This requested integral is a master integral: 11 # 1
+This requested integral is a master integral: 12 # 1
+This requested integral is a master integral: 13 # 1
+This requested integral is a master integral: 14 # 1
+This requested integral is a master integral: 15 # 1
+This requested integral is a master integral: 16 # 1
+This requested integral is a master integral: 17 # 1
+This requested integral is a master integral: 18 # 1
+This requested integral is a master integral: 19 # 1
+This requested integral is a master integral: 20 # 1
+This requested integral is a master integral: 21 # 1
+This requested integral is a master integral: 22 # 1
+This requested integral is a master integral: 23 # 1
+This requested integral is a master integral: 24 # 1
+unreduced integrals: 0.
+
+Total time:
+( 5e+03 s )
