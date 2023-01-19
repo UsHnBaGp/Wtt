@@ -87,21 +87,20 @@ id UbarV(pi?,mui?) = (g_(2,p3)+mt*gi_(2))*g_(2,pi,mui);
 id UbarVC(mui?,pi?) = (g_(2,p4)-mt*gi_(2))*g_(2,mui,pi);
 .sort
 
-print;
 
 Trace4, 1;
 Trace4, 2;
 
 .sort
 
+
 *** Polarisation Sum ***
 
-id eps(pi?)*epsC(pj?)= (- pi.pi + (p5.pi)^2/mw^2);
-id eps(pi?)*epsC(pj?)=  (p5.pi)*(p5.pj)/mw^2;
+id eps(pi?)*epsC(pj?)= (- pi.pj + (p5.pi)*(p5.pj)/mw^2);
 
 .sort	
 
-
+print;
 *** Kinematics/Mandelstam Identities ***
 
 id p1.p1=0;
