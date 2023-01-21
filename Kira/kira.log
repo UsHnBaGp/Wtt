@@ -1,0 +1,82 @@
+The user defined environment variable FERMATPATH for Fermat is set:
+/space/ttpmath/tools_build/ferl6/fer64
+config/kinematics.yaml does not exist. Assume that userdefined
+system is reduced or the merge was used
+
+The directories for the temporary files, result files and the sector mapping files are: 
+./tmp
+./results
+./sectormappings
+
+*****Integral ordering*************************************
+VERSION table created successfully
+Kira database version number: 2.1
+WEIGHTBITS table created successfully
+INTEGRALORDERING table created successfully
+Kira will use the integral ordering: 1.
+Defined topology Tuserweight
+number of predefined topologies: 1
+
+***********************************************************
+Kira starts the reduction of a user defined system: multiple files
+***********************************************************
+
+***** Select equations recursively ************************
+length of mandatory list: 8
+
+***** Starting PYRED **************************************
+mandatory: 8
+Defined topology T
+directory to the masters: Tuserweight
+Number of master integrals: 4
+1 # 1
+2 # 1
+3 # 1
+4 # 1
+
+Number of selected equations to reduce: 4 equations
+( 0.000676 s )
+
+***** Select equations recursively ************************
+length of mandatory list: 8
+FIREFLY table created successfully
+Loading 4 equations.
+
+[1;34mFireFly info:[0m Parsed 16 functions of which 6 are distinct
+
+System loaded in 0.000323 s
+[1;34mFireFly info:[0m Precomputing tokens
+Reconstructing in: y, x
+Equation table created successfully
+Average times:
+Parsing: 1.64e-06 s
+Forward: 1.31e-05 s
+Backsubs: 7.28e-06 s
+
+*****Master integrals***********************************
+1 # 1
+2 # 1
+3 # 1
+4 # 1
+
+Total number of master integrals: 4
+
+The input directory is set to:
+./results
+This is a reduction with integral in weight bit notation.
+The only topology allowed is called Tuserweight automatically by Kira.
+symbol_to_replace_by_one: x in kinematics.yaml is not set. 
+Mass reconstruction is disabled.
+################################################
+kira2math: Reconstruct results
+################################################
+
+Algebraic reconstruction is switched off.
+This requested integral is a master integral: 1 # 1
+This requested integral is a master integral: 2 # 1
+This requested integral is a master integral: 3 # 1
+This requested integral is a master integral: 4 # 1
+unreduced integrals: 0.
+
+Total time:
+( 1 s )
