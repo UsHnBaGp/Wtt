@@ -1,0 +1,46 @@
+
+*** These modified files were found in JOE when it aborted on Tue Jan 24 12:11:42 2023
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+help
+
+*** File '(Unnamed)'
+/scratch/ge84fet/Wtt/.git/MERGE_MSG
+
+*** File '/scratch/ge84fet/Wtt/.git/MERGE_MSG'
+Merge branch 'main' of github.com:UsHnBaGp/Wtt
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+Merge
+
+
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
+
+*** These modified files were found in JOE when it aborted on Tue Jan 24 12:19:38 2023
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+/scratch/ge84fet/Wtt/.git/MERGE_MSG
+
+*** File '/scratch/ge84fet/Wtt/.git/MERGE_MSG'
+Merge branch 'main' of github.com:UsHnBaGp/Wtt
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+Merge
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
