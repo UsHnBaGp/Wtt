@@ -1,0 +1,650 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     25698,        642]
+NotebookOptionsPosition[     22716,        590]
+NotebookOutlinePosition[     23165,        607]
+CellTagsIndexPosition[     23122,        604]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.87811300077658*^9, 
+  3.878113003071019*^9}},ExpressionUUID->"055e0ccd-04f9-4917-86a7-\
+fc44b724b1eb"],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.8789748302068377`*^9, 3.878974831978478*^9}, {
+  3.88251693317936*^9, 3.8825169356586733`*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"be39feab-72ef-4e9a-b8ad-33f7ccd2252c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "\"\</scratch/ge84fet/Wtt/Kira\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.882516937731337*^9, 3.882517009316174*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"508c8a09-28a6-469f-9aff-fb169ee2a05e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "SetDirectory", "[", "\"\</Users/saraditsch/Desktop/Wtt/Kira\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8830252851209*^9, 3.883025327122313*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"a0794a04-1e4c-4083-8223-334d0a2b8b6a"],
+
+Cell[CellGroupData[{
+
+Cell["Matrix Inversion", "Title",
+ CellChangeTimes->{{3.882510087815831*^9, 
+  3.8825100921599493`*^9}},ExpressionUUID->"7cb34262-fcea-4631-a587-\
+bc20b943a3b2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Custom", " ", "Funktions"}]], "Subsubsection",
+ CellChangeTimes->{{3.882510882350911*^9, 
+  3.882510897909676*^9}},ExpressionUUID->"47ee0a99-1afa-47d1-b6a9-\
+d7a31932dbae"],
+
+Cell[CellGroupData[{
+
+Cell["CoefficientToKira", "Item",ExpressionUUID->"bd71f5c9-294f-4e0d-96d8-fc67ba08943e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CoefficientToKira", "[", 
+   RowBox[{"VarCoefficient_", ",", "VarWeight_Integer"}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\n", 
+   RowBox[{
+    RowBox[{"{", "KiraFileLine", "}"}], ",", "\n", "\n", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"VarCoefficient", "===", "0"}], ",", 
+       RowBox[{"Return", "[", "\"\<\>\"", "]"}]}], "]"}], ";", "\n", "\n", 
+     RowBox[{"KiraFileLine", "=", 
+      RowBox[{
+       RowBox[{"ToString", "[", "VarWeight", "]"}], "<>", "\"\<*(\>\"", "<>", 
+       
+       RowBox[{"ToString", "[", 
+        RowBox[{"VarCoefficient", ",", "InputForm"}], "]"}], "<>", 
+       "\"\<)\\n\>\""}]}], ";", "\n", 
+     RowBox[{"Return", "[", 
+      RowBox[{"StringDelete", "[", 
+       RowBox[{"KiraFileLine", ",", "\"\< \>\""}], "]"}], "]"}], ";"}]}], 
+   "\n", "\n", "]"}]}]], "Input",
+ InitializationCell->True,
+ CellLabel->"In[1]:=",ExpressionUUID->"12df28c1-0e60-4e08-955f-cabfe6c93e71"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["RelationToKira", "Item",ExpressionUUID->"0e67da77-d163-459e-91c4-0c21d07572fd"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Options", "[", "RelationToKira", "]"}], "=", 
+    RowBox[{"{", 
+     RowBox[{"Ratracer", "->", "False"}], "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"RelationToKira", "[", 
+   RowBox[{"RelationLHS0_", ",", 
+    RowBox[{"optn", ":", 
+     RowBox[{"OptionsPattern", "[", 
+      RowBox[{"{", 
+       RowBox[{"Ratracer", "->", "False"}], "}"}], "]"}]}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", "\n", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "KiraWeights", ",", "WeightCoef", ",", "LinearKiraWeightQ", ",", 
+      "NoWeightLessTermQ", ",", "KiraRelation", ",", "RatRacerRelation"}], 
+     "}"}], ",", "\n", "\n", 
+    RowBox[{
+     RowBox[{"KiraWeights", "=", 
+      RowBox[{"Union", "[", 
+       RowBox[{"Cases", "[", 
+        RowBox[{"RelationLHS0", ",", "_Global`KiraWeight", ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "Infinity"}], "}"}]}], "]"}], "]"}]}], ";", "\n", 
+     
+     RowBox[{"WeightCoef", "=", 
+      RowBox[{
+       RowBox[{"CoefficientArrays", "[", 
+        RowBox[{"RelationLHS0", ",", "KiraWeights"}], "]"}], "//", 
+       "Normal"}]}], ";", "\n", "\n", 
+     RowBox[{"(*", 
+      RowBox[{"Consistency", " ", 
+       RowBox[{"check", ":"}]}], " ", "*)"}], "\n", 
+     RowBox[{"LinearKiraWeightQ", "=", 
+      RowBox[{
+       RowBox[{"Length", "[", "WeightCoef", "]"}], "===", "2"}]}], ";", "\n", 
+     
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Not", "[", "LinearKiraWeightQ", "]"}], ",", 
+       RowBox[{
+        RowBox[{
+        "Print", "[", "\"\<Error: Equation is not linear. Check input.\>\"", 
+         "]"}], ";", " ", 
+        RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\n", 
+     RowBox[{"NoWeightLessTermQ", "=", 
+      RowBox[{
+       RowBox[{"WeightCoef", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "==", "0"}]}], ";", "\n", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"Not", "[", "NoWeightLessTermQ", "]"}], ",", 
+       RowBox[{
+        RowBox[{
+        "Print", "[", "\"\<Error: Constant term is not 0. Check input.\>\"", 
+         "]"}], ";", " ", 
+        RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";", "\n", "\n", 
+     RowBox[{"(*", 
+      RowBox[{"Remove", " ", "helper", " ", "function", " ", "KiraWeight"}], 
+      "*)"}], "\n", 
+     RowBox[{"KiraWeights", "=", 
+      RowBox[{"KiraWeights", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", "1"}], "]"}], "]"}]}], ";", "\n", 
+     RowBox[{"(*", 
+      RowBox[{"Remove", " ", "0", " ", "coefficients"}], "*)"}], "\n", 
+     RowBox[{"WeightCoef", "=", 
+      RowBox[{"WeightCoef", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", "\n", "\n", 
+     RowBox[{"(*", 
+      RowBox[{"Convert", " ", "to", " ", "Kira", " ", 
+       RowBox[{"string", ":"}]}], " ", "*)"}], "\n", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"OptionValue", "[", "Ratracer", "]"}], ",", " ", "\n", 
+       RowBox[{
+        RowBox[{"RatRacerRelation", "=", 
+         RowBox[{"StringJoin", "@", 
+          RowBox[{"MapThread", "[", 
+           RowBox[{"CoefficientToRatracer", ",", 
+            RowBox[{"{", 
+             RowBox[{"WeightCoef", ",", "KiraWeights"}], "}"}]}], "]"}]}]}], 
+        ";", "\n", 
+        RowBox[{"Return", "[", "RatRacerRelation", "]"}]}]}], "\n", "]"}], 
+     ";", "\n", "\n", 
+     RowBox[{"KiraRelation", "=", 
+      RowBox[{"StringJoin", "@", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{"CoefficientToKira", ",", 
+         RowBox[{"{", 
+          RowBox[{"WeightCoef", ",", "KiraWeights"}], "}"}]}], "]"}]}]}], ";",
+      "\n", 
+     RowBox[{"Return", "[", "KiraRelation", "]"}]}]}], "\n", 
+   "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellLabel->"In[2]:=",ExpressionUUID->"a88ec5c1-f8d6-456c-8e60-86412aaa74b3"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"KiraFriendlyMandelstam", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"1", ",", "2"}], "]"}], "->", "s12"}], ",", 
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"1", ",", "3"}], "]"}], "->", "s13"}], ",", 
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"1", ",", "4"}], "]"}], "->", "s14"}], ",", 
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"2", ",", "3"}], "]"}], "->", "s23"}], ",", 
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"2", ",", "4"}], "]"}], "->", "s24"}], ",", " ", 
+      RowBox[{
+       RowBox[{"SMP", "[", "\"\<m_W\>\"", "]"}], "->", "mW"}], ",", 
+      RowBox[{
+       RowBox[{"SMP", "[", "\"\<m_t\>\"", "]"}], "->", "mt"}]}], "}"}]}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.882523673168398*^9, 3.882523781238356*^9}, {
+   3.882523850198483*^9, 3.882523882318448*^9}, {3.8830397702399397`*^9, 
+   3.883039828752768*^9}, 3.883039931258398*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"ea411e1d-edb6-4e90-bf07-d8513d3487a6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Matrix", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "x", ",", 
+       RowBox[{"x", "-", "y"}], ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "x", ",", 
+       RowBox[{"1", "-", "x"}], ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "x", ",", 
+       RowBox[{"1", "-", "x"}], ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", "y"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"KiraWantedSolutionsFileName", "=", "\"\<WantedTest.kira\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EquationsFileName", "=", "\"\<EqsTest.kira\>\""}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.882523673168398*^9, 3.882523781238356*^9}, {
+   3.882523850198483*^9, 3.882523882318448*^9}, {3.8830397702399397`*^9, 
+   3.883039828752768*^9}, 3.883039931258398*^9, {3.8833036328973017`*^9, 
+   3.883303662593122*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"6f207f86-bdbc-4c95-923c-0dee9b8b66f3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MMatrix", "=", 
+   RowBox[{
+    RowBox[{
+    "Get", "[", "\"\</scratch/ge84fet/Wtt/Mathematica/MMatrixInitial\>\"", 
+     "]"}], "//.", "KiraFriendlyMandelstam"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.882517128734056*^9, 3.882517140534173*^9}, {
+   3.882517569438634*^9, 3.882517895706627*^9}, {3.882518196657366*^9, 
+   3.8825181971537247`*^9}, {3.882518227442746*^9, 3.8825182278245583`*^9}, {
+   3.882518305419487*^9, 3.882518351530923*^9}, {3.88251845490143*^9, 
+   3.882518455186317*^9}, {3.882520432104083*^9, 3.8825204326858053`*^9}, {
+   3.882520593690892*^9, 3.8825206026240892`*^9}, {3.882520649105104*^9, 
+   3.8825206661134443`*^9}, {3.882520881126977*^9, 3.8825208929726753`*^9}, {
+   3.882520925734002*^9, 3.882520927133872*^9}, {3.882520988678668*^9, 
+   3.882520990230831*^9}, {3.882521099563155*^9, 3.882521144758987*^9}, {
+   3.882523001496752*^9, 3.8825230030082006`*^9}, {3.882523769485346*^9, 
+   3.882523795804907*^9}, 3.8825238357181168`*^9, {3.8830244347908983`*^9, 
+   3.883024568813672*^9}, 3.883025354621068*^9, {3.883304662900185*^9, 
+   3.883304668784582*^9}},ExpressionUUID->"607ff344-da3a-454f-95a9-\
+0cef3ef84af8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MMatrix", "=", 
+   RowBox[{
+    RowBox[{
+    "Get", "[", 
+     "\"\</Users/saraditsch/Desktop/Wtt/Mathematica/MMatrixInitial\>\"", 
+     "]"}], "//.", "KiraFriendlyMandelstam"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.883025360583164*^9, 3.883025376593863*^9}, {
+  3.883304658241995*^9, 3.883304660229949*^9}, {3.8833321178466682`*^9, 
+  3.88333212010888*^9}, {3.883332463282627*^9, 3.883332467839541*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"8339428a-83b4-4627-bf23-40c729e2d4df"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Matrix", "=", "MMatrix"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"KiraWantedSolutionsFileName", "=", "\"\<Wanted.kira\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EquationsFileName", "=", "\"\<Eqs.kira\>\""}], ";"}]}], "Input",
+ CellChangeTimes->{{3.882517128734056*^9, 3.882517140534173*^9}, {
+   3.882517569438634*^9, 3.882517895706627*^9}, {3.882518196657366*^9, 
+   3.8825181971537247`*^9}, {3.882518227442746*^9, 3.8825182278245583`*^9}, {
+   3.882518305419487*^9, 3.882518351530923*^9}, {3.88251845490143*^9, 
+   3.882518455186317*^9}, {3.882520432104083*^9, 3.8825204326858053`*^9}, {
+   3.882520593690892*^9, 3.8825206026240892`*^9}, {3.882520649105104*^9, 
+   3.8825206661134443`*^9}, {3.882520881126977*^9, 3.8825208929726753`*^9}, {
+   3.882520925734002*^9, 3.882520927133872*^9}, {3.882520988678668*^9, 
+   3.882520990230831*^9}, {3.882521099563155*^9, 3.882521169825622*^9}, {
+   3.882521219961616*^9, 3.882521220378454*^9}, {3.88252314823557*^9, 
+   3.882523157698457*^9}, 3.882523357765224*^9},
+ CellLabel->"In[7]:=",ExpressionUUID->"031a21fe-beee-4ad9-8a4c-9d68bccc1170"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"Length", "[", "Matrix", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"InitKiraWeight", "[", 
+    RowBox[{"MinWeight_", ",", "MaxWeight_"}], "]"}], ":=", 
+   RowBox[{"KiraWeight", "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"MinWeight", ",", "MaxWeight"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"KiraWeights", "=", 
+   RowBox[{"InitKiraWeight", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"2", "*", "L"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GlSys", "=", 
+   RowBox[{
+    RowBox[{"KiraWeights", "[", 
+     RowBox[{"[", 
+      RowBox[{"1", ";;", "L"}], "]"}], "]"}], "-", 
+    RowBox[{"Matrix", ".", 
+     RowBox[{"KiraWeights", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"L", "+", "1"}], ";;", 
+        RowBox[{"2", "*", "L"}]}], "]"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "EquationsFileName", "]"}], ",", 
+    RowBox[{"DeleteFile", "[", "EquationsFileName", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CreateFile", "[", "EquationsFileName", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"toWrite", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"RelationToKira", "[", "#", "]"}], "&"}], ",", " ", "GlSys"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"WriteLine", "[", 
+      RowBox[{"EquationsFileName", ",", "#"}], "]"}], "&"}], ",", "toWrite"}],
+    " ", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.882507514673504*^9, 3.8825075815671587`*^9}, {
+   3.882507641176906*^9, 3.882507779876562*^9}, {3.882508950947246*^9, 
+   3.882508957814443*^9}, 3.882509338445046*^9, 3.882509466198679*^9, {
+   3.882511109202259*^9, 3.882511122832456*^9}, {3.882511315558943*^9, 
+   3.882511331773209*^9}, {3.882511362660345*^9, 3.882511369126089*^9}, {
+   3.8825116404958878`*^9, 3.8825116418022327`*^9}, 3.882516442279642*^9, {
+   3.8825170219890203`*^9, 3.882517123135357*^9}, {3.882517161182789*^9, 
+   3.882517192200309*^9}, {3.882517349978162*^9, 3.882517372346681*^9}, {
+   3.8825174650279837`*^9, 3.882517499668741*^9}, {3.88251753484645*^9, 
+   3.882517553663074*^9}, {3.8825179128859253`*^9, 3.8825179268196583`*^9}, {
+   3.882517965180863*^9, 3.882518096614375*^9}, {3.882518129897043*^9, 
+   3.882518194105196*^9}, {3.8825182671471157`*^9, 3.882518369604157*^9}, {
+   3.88251842538387*^9, 3.882518438564383*^9}, {3.882520382276948*^9, 
+   3.8825203839725943`*^9}, {3.882520415957198*^9, 3.882520427045065*^9}, {
+   3.88252051793115*^9, 3.882520527287592*^9}, 3.882520689644404*^9, {
+   3.882520751304864*^9, 3.882520806160285*^9}, {3.882520849324774*^9, 
+   3.882520872253145*^9}, {3.88252091699623*^9, 3.882520954003893*^9}, {
+   3.882521086577263*^9, 3.882521093169107*^9}, {3.882521128499814*^9, 
+   3.882521129341393*^9}, 3.882521301840394*^9, {3.882522819413805*^9, 
+   3.882522822149641*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"9e3dd6f8-487b-462c-833c-ab7f50d1507e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "KiraWantedSolutionsFileName", "]"}], ",", 
+    RowBox[{"DeleteFile", "[", "KiraWantedSolutionsFileName", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CreateFile", "[", "KiraWantedSolutionsFileName", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"WriteLine", "[", 
+      RowBox[{"KiraWantedSolutionsFileName", ",", "#"}], "]"}], "&"}], "/@", 
+    RowBox[{"ToString", "/@", 
+     RowBox[{"KiraWeights", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "\"\<kira.log\>\"", "]"}], ",", 
+    RowBox[{"DeleteFile", "[", "\"\<kira.log\>\"", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"DirectoryQ", "[", "\"\<results\>\"", "]"}], ",", 
+    RowBox[{"DeleteDirectory", "[", 
+     RowBox[{"\"\<results\>\"", ",", 
+      RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"DirectoryQ", "[", "\"\<firefly_saves\>\"", "]"}], ",", 
+    RowBox[{"DeleteDirectory", "[", 
+     RowBox[{"\"\<firefly_saves\>\"", ",", 
+      RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"DirectoryQ", "[", "\"\<sectormappings\>\"", "]"}], ",", 
+    RowBox[{"DeleteDirectory", "[", 
+     RowBox[{"\"\<sectormappings\>\"", ",", 
+      RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"DirectoryQ", "[", "\"\<tmp\>\"", "]"}], ",", 
+    RowBox[{"DeleteDirectory", "[", 
+     RowBox[{"\"\<tmp\>\"", ",", 
+      RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8636677590306892`*^9, 3.863667836693529*^9}, {
+   3.86367162522437*^9, 3.863671627511902*^9}, {3.863831704316319*^9, 
+   3.8638317473182364`*^9}, 3.8638320240233717`*^9, {3.863832570975067*^9, 
+   3.863832584553403*^9}, {3.863832755562273*^9, 3.86383275617747*^9}, {
+   3.882520671431569*^9, 3.8825206765294237`*^9}, 3.882520841037971*^9, {
+   3.882523591215365*^9, 3.882523625762334*^9}, {3.882524175698152*^9, 
+   3.882524176256186*^9}, {3.8830246663199453`*^9, 3.8830247421211157`*^9}, {
+   3.883024780177924*^9, 3.88302489241147*^9}, {3.8830394043692904`*^9, 
+   3.88303940497724*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"5bda735d-a72c-4ec4-92b1-6c40e79424b5"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Check Inversion", "Subsubsection",
+ CellChangeTimes->{{3.883039410305052*^9, 
+  3.883039421801496*^9}},ExpressionUUID->"f1c102a2-66d3-4e8b-9565-\
+52cc65d84cb6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MMatrixInv", "=", 
+   RowBox[{
+   "Get", "[", 
+    "\"\</scratch/ge84fet/Wtt/Kira/results/Tuserweight/kira_Wanted.kira.m\>\"\
+", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8830394332175922`*^9, 3.8830395477479057`*^9}, {
+   3.883040176302703*^9, 3.8830401768868017`*^9}, 3.883041786843067*^9},
+ CellLabel->"In[63]:=",ExpressionUUID->"81befdfe-33c7-4250-8c4d-55ed11857f68"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MMatrixInv", "=", 
+   RowBox[{
+   "Get", "[", 
+    "\"\</Users/saraditsch/Desktop/Wtt/Kira/ResultsInitial/Tuserweight/kira_\
+Wanted.kira.m\>\"", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8831149660087767`*^9, 3.883114990513899*^9}, {
+  3.883311147216325*^9, 3.883311147837111*^9}, {3.883332486247593*^9, 
+  3.8833325279301643`*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"f025af67-0ad5-4d02-af9d-da7bbc5787e0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MMatrixInverse", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Coefficient", "[", 
+      RowBox[{
+       RowBox[{"MMatrixInv", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "2"}], "]"}], "]"}], ",", 
+       RowBox[{"Tuserweight", "[", "j", "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "L"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "L"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8830406663196087`*^9, 3.883040785185154*^9}, {
+  3.883041083798958*^9, 3.883041118111375*^9}, {3.883041545918479*^9, 
+  3.883041743201416*^9}, {3.883041789898725*^9, 3.8830417916266937`*^9}, {
+  3.883041830259038*^9, 3.883041837899083*^9}, {3.88311502979915*^9, 
+  3.883115045001045*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"252a5dbe-1b70-4b8d-85e3-adb8d4f8f45c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Ident", "=", 
+   RowBox[{"Monitor", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"MMatrixInverse", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], " ", ".", " ", 
+        RowBox[{"Matrix", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "j"}], "]"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "24"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "24"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "j"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.883304591597292*^9, 3.883304625916544*^9}, {
+   3.8833293685331593`*^9, 3.883329394595975*^9}, {3.8833294313923397`*^9, 
+   3.883329514683557*^9}, {3.8833298411856737`*^9, 3.883329841745026*^9}, {
+   3.8833298745126534`*^9, 3.883329886211522*^9}, {3.88332992470772*^9, 
+   3.8833299319361267`*^9}, {3.883329978477461*^9, 3.883329980725872*^9}, {
+   3.883330060070238*^9, 3.883330067172352*^9}, {3.883330545418749*^9, 
+   3.883330559699408*^9}, 3.8833306033093147`*^9},
+ CellLabel->"In[30]:=",ExpressionUUID->"d0e8e6a0-bf1e-4e26-ae68-a4b655c6a1d0"],
+
+Cell[BoxData[
+ RowBox[{"Monitor", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Ident", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "//", "Together"}], "//", 
+          "Simplify"}], ")"}], "==", "0"}], ",", " ", 
+       RowBox[{"i", " ", "\"\<zero\>\""}], ",", " ", 
+       RowBox[{"i", " ", "\"\<none\>\""}]}], "]"}], " ", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", " ", 
+       RowBox[{"Lenght", "[", "Ident", "]"}]}], "}"}]}], "]"}], ",", "i"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8833300774681683`*^9, 3.8833303384240913`*^9}, {
+  3.883330644921331*^9, 3.883330660171215*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"970f912e-7d9d-4e8b-8832-14acf133b1b7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Ident", "[", 
+   RowBox[{"[", 
+    RowBox[{"1", ",", "2"}], "]"}], "]"}], "//", "Together"}]], "Input",
+ CellChangeTimes->{{3.883330706222706*^9, 3.883330713602283*^9}, {
+  3.883330961584828*^9, 3.883330964434602*^9}, {3.883331507011505*^9, 
+  3.883331510226255*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"5d186cf3-cfd7-465b-9598-1d6f40232c74"],
+
+Cell[BoxData[
+ RowBox[{"%", "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.883367858027729*^9, 3.883367861536672*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"99f45d2e-ec95-4986-a88a-30882aae4a69"],
+
+Cell[BoxData[
+ RowBox[{"Put", "[", 
+  RowBox[{
+  "Ident", ",", " ", 
+   "\"\</Users/saraditsch/Desktop/Wtt/Mathematica/Ident\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8833316784256363`*^9, 3.8833317774021263`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"4f637168-b811-4c18-b88a-c50ffc9014da"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{633, 742},
+WindowMargins->{{Automatic, 97}, {Automatic, 17}},
+TaggingRules->Association["TryRealOnly" -> False],
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (September 30, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d1fd67c7-9754-450a-9a8e-b46159e358a8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 151, 3, 30, "Input",ExpressionUUID->"055e0ccd-04f9-4917-86a7-fc44b724b1eb"],
+Cell[712, 25, 249, 4, 30, "Input",ExpressionUUID->"be39feab-72ef-4e9a-b8ad-33f7ccd2252c"],
+Cell[964, 31, 262, 5, 30, "Input",ExpressionUUID->"508c8a09-28a6-469f-9aff-fb169ee2a05e"],
+Cell[1229, 38, 272, 6, 30, "Input",ExpressionUUID->"a0794a04-1e4c-4083-8223-334d0a2b8b6a"],
+Cell[CellGroupData[{
+Cell[1526, 48, 161, 3, 98, "Title",ExpressionUUID->"7cb34262-fcea-4631-a587-bc20b943a3b2"],
+Cell[CellGroupData[{
+Cell[1712, 55, 196, 4, 44, "Subsubsection",ExpressionUUID->"47ee0a99-1afa-47d1-b6a9-d7a31932dbae"],
+Cell[CellGroupData[{
+Cell[1933, 63, 88, 0, 32, "Item",ExpressionUUID->"bd71f5c9-294f-4e0d-96d8-fc67ba08943e"],
+Cell[2024, 65, 972, 24, 257, "Input",ExpressionUUID->"12df28c1-0e60-4e08-955f-cabfe6c93e71",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3033, 94, 85, 0, 32, "Item",ExpressionUUID->"0e67da77-d163-459e-91c4-0c21d07572fd"],
+Cell[3121, 96, 3757, 99, 887, "Input",ExpressionUUID->"a88ec5c1-f8d6-456c-8e60-86412aaa74b3",
+ InitializationCell->True],
+Cell[6881, 197, 1111, 29, 94, "Input",ExpressionUUID->"ea411e1d-edb6-4e90-bf07-d8513d3487a6"],
+Cell[7995, 228, 1066, 27, 94, "Input",ExpressionUUID->"6f207f86-bdbc-4c95-923c-0dee9b8b66f3"],
+Cell[9064, 257, 1185, 20, 73, "Input",ExpressionUUID->"607ff344-da3a-454f-95a9-0cef3ef84af8"],
+Cell[10252, 279, 522, 11, 94, "Input",ExpressionUUID->"8339428a-83b4-4627-bf23-40c729e2d4df"],
+Cell[10777, 292, 1154, 19, 73, "Input",ExpressionUUID->"031a21fe-beee-4ad9-8a4c-9d68bccc1170"],
+Cell[11934, 313, 3163, 73, 220, "Input",ExpressionUUID->"9e3dd6f8-487b-462c-833c-ab7f50d1507e"],
+Cell[15100, 388, 2762, 68, 325, "Input",ExpressionUUID->"5bda735d-a72c-4ec4-92b1-6c40e79424b5"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17911, 462, 166, 3, 45, "Subsubsection",ExpressionUUID->"f1c102a2-66d3-4e8b-9565-52cc65d84cb6"],
+Cell[18080, 467, 412, 9, 94, "Input",ExpressionUUID->"81befdfe-33c7-4250-8c4d-55ed11857f68"],
+Cell[18495, 478, 452, 10, 94, "Input",ExpressionUUID->"f025af67-0ad5-4d02-af9d-da7bbc5787e0"],
+Cell[18950, 490, 856, 20, 73, "Input",ExpressionUUID->"252a5dbe-1b70-4b8d-85e3-adb8d4f8f45c"],
+Cell[19809, 512, 1159, 26, 52, "Input",ExpressionUUID->"d0e8e6a0-bf1e-4e26-ae68-a4b655c6a1d0"],
+Cell[20971, 540, 824, 22, 73, "Input",ExpressionUUID->"970f912e-7d9d-4e8b-8832-14acf133b1b7"],
+Cell[21798, 564, 381, 8, 30, "Input",ExpressionUUID->"5d186cf3-cfd7-465b-9598-1d6f40232c74"],
+Cell[22182, 574, 202, 3, 30, "Input",ExpressionUUID->"99f45d2e-ec95-4986-a88a-30882aae4a69"],
+Cell[22387, 579, 301, 7, 30, "Input",ExpressionUUID->"4f637168-b811-4c18-b88a-c50ffc9014da"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
