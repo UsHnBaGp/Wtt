@@ -4,35 +4,80 @@
 
 off statistics;
 
+*************************
 **** Things to adjust ***
+*************************
+
 #define NrDiag "2"
 #define LabelAQ "-3"
 #define LabelQ "-1"
 #define LabelAT "-2"
 #define LabelT "-4"
+#define MaxInternal "10"
+#define MaxExternal "6"
 
 .global
 
+
+*************************
 *** Definitions ***
+**************************
+
+
+index i;
 
 autodeclare symbol d;
-symbol p1,p2,p3;
-symbol q1,q2,q3;
-autodeclare symbol q,k;
+vector p1,p2,p3,p4,p5;
+vector q1,q2,q3;
+vector eps;
+symbol gs,e,imag;
+cfunction sqrt,den;
+autodeclare symbol s,m;
+autodeclare index mu,ci;
+function vbar,u,V,Ubar,T,gamma;
 
-function pol, prop, vrtx;
+autodeclare function pol, prop, vrtx;
 cfunction quark, antiquark, top, antitop, wboson, gluon;
 
 **** Declare Dummys ***
 autodeclare function helperfct;
 autodeclare symbol helpersym;
 autodeclare index helperidx;
+autodeclare vector helpervec;
+function del;
 
+***Define Table for Lorentzindeces***
 
+Table,relax lidx(1:'MaxInternal');
+#do i=1,'MaxInternal'
+	Fill lidx('i')= mu'i';
+#enddo
 
-index i;
+Table,relax lidxext(1:'MaxExternal');
+#do i=1,'MaxExternal'
+	Fill lidxext('i')= muext'i';
+#enddo
 
 .global
+
+***Define Table for Colorindeces***
+
+Table,relax cidx(1:'MaxInternal');
+#do i=1,'MaxInternal'
+	Fill cidx('i')= ci'i';
+#enddo
+
+Table,relax cidxext(1:'MaxExternal');
+#do i=1,'MaxExternal'
+	Fill cidxext('i')= ciext'i';
+#enddo
+
+.global
+
+**********************************************
+*******Import qgraph*********
+***********************************************
+
 
 *** Define diagrams ***
 
@@ -46,104 +91,74 @@ index i;
 
 .sort
 
+*** Change notation ***
+argument;
+argument;
+id q1=p3;
+id q2=p4;
+id q3=p5;
+endargument;
+endargument;
 
-**** Reconstruct massless Fermion Line ***
+***********************************************************
+******** Reconstruct Fermionlines ********************
+**********************************************************
 
-*Move start of line to left and define helper function*
+#include ReconstructFermionLines.h
 
-repeat;	
-	id vrtx(?helperfct1)*vrtx(antiquark('LabelAQ',?helpersym2),?helperfct2)=vrtx(antiquark('LabelAQ',?helpersym2),?helperfct2)*vrtx(?helperfct1);
 
+******************************************
+***** Feynman rules ****
+******************************************
+
+
+#include FeynmanRules.h
+
+**************************************
+***** ColorAlgebra ****
+**************************************
+
+id T(helperidx1?,helperidx2?,helperidx3?)*T(helperidx1?,helperidx4?,helperidx5?)=den(2)*(d_(helperidx2,helperidx5)*d_(helperidx3,helperidx4)-den(3)*d_(helperidx2,helperidx3)*d_(helperidx4,helperidx5));
+
+******************************************
+*** Kinematics/Mandelstam Identities ***
+****************************************
+
+#include FivePointKinematics.h
+
+
+*******************************
+*****Final Simplifications***
+****************************
+
+repeat;
+id den(helpersym1?)*den(helpersym2?)=den(helpersym1*helpersym2);
+id imag*imag=-1;
 endrepeat;
 
-.sort 
-
-id vrtx(antiquark('LabelAQ',helpersym1?),quark(helperidx2?,helpersym2?),?helperfct3)=vrtx(antiquark('LabelAQ',helpersym1),quark(helperidx2,helpersym2),?helperfct3)*helperfctend(helperidx2+1);
 .sort
 
-*step by step reconstruct line, go on as long as there is helperfct
+bracket d_,gs,imag;
 
-#do i = 1, 1
-*if already at end remove helper
+print[];
 
-*if next in right position move helper one further, or if last mark end of line
-if (match(helperfctend(helperidx?)*vrtx(antiquark(helperidx?,?helpersym2),?helperfct2)));
-	id helperfctend(helperidx?)*vrtx(antiquark(helperidx?,helpersym1?),quark(?helperidx2),?helperfct3)=vrtx(antiquark(helperidx,helpersym1),quark(?helperidx2),?helperfct3)*helperfctend(?helperidx2);
-	if (match(helperfctend(helperidx2?)));
-		id helperfctend(helperidx2?,helpersym2?)=helperfctend(helperidx2+1);
-	else;
-		id helperfctend(?helperidx2)=helperfctEndFermionline;
-	endif;
-*if not in right position take last to front
-else;
-	id helperfctend(helperidx?)=helperfctend(helperidx)*helperfct;
-	repeat;
-	id helperfct*vrtx(?helperfct1)=vrtx(?helperfct1)*helperfct;
-	endrepeat;
- 	id vrtx(?helperfct1)*helperfct=helperfct*vrtx(?helperfct1);
-	repeat;
-	id vrtx(?helperfct1)*helperfct*vrtx(?helperfct2)=helperfct*vrtx(?helperfct2)*vrtx(?helperfct1);
-	endrepeat;
-	id helperfct=1;
-endif;
-if (match(helperfctend(helperidx?))) redefine i "0"; 
-.sort
-#enddo
-.sort
-
-**** Reconstruct massive Fermion Line ***
-
-*Move start of line to left (until massless line) and define helper function*
-
-
-repeat;	
-	id vrtx(?helperfct1)*vrtx(antitop('LabelAT',?helpersym2),?helperfct2)=vrtx(antitop('LabelAT',?helpersym2),?helperfct2)*vrtx(?helperfct1);
-
-endrepeat;
-
-.sort 
-
-id vrtx(antitop('LabelAT',helpersym1?),top(helperidx2?,helpersym2?),?helperfct3)=vrtx(antitop('LabelAQ',helpersym1),top(helperidx2,helpersym2),?helperfct3)*helperfctend(helperidx2+1);
-.sort
-
-*if only single contribution add end of line
-
-if(match(vrtx(antitop('LabelAT',helpersym1?),top(helperidx2?,helpersym2?),?helperfct3)));
-	id 1=1;
-else;
-	id vrtx(antitop('LabelAT',helpersym1?),?helperfct3)=vrtx(antitop('LabelAT',helpersym1),?helperfct3)*helperfctEndoffermioneline;
-endif;
-
-*step by step reconstruct line, go on as long as there is helperfct
-
-#do i = 1, 1
-*if already at end remove helper
-
-*if next in right position move helper one further, or if last remove helper
-if (match(helperfctend(helperidx?)*vrtx(antitop(helperidx?,?helpersym2),?helperfct2)));
-	id helperfctend(helperidx?)*vrtx(antitop(helperidx?,helpersym1?),top(?helperidx2),?helperfct3)=vrtx(antitop(helperidx,helpersym1),top(?helperidx2),?helperfct3)*helperfctend(?helperidx2);
-	if (match(helperfctend(helperidx2?)));
-		id helperfctend(helperidx2?,helpersym2?)=helperfctend(helperidx2+1);
-	else;
-		id helperfctend(?helperidx2)=1;
-	endif;
-*if not in right position take last to front
-else;
-	id helperfctend(helperidx?)=helperfctend(helperidx)*helperfct;
-	repeat;
-	id helperfct*vrtx(?helperfct1)=vrtx(?helperfct1)*helperfct;
-	endrepeat;
- 	id vrtx(?helperfct1)*helperfct=helperfct*vrtx(?helperfct1);
-	repeat;
-	id vrtx(?helperfct1)*helperfct*vrtx(?helperfct2)=helperfct*vrtx(?helperfct2)*vrtx(?helperfct1);
-	endrepeat;
-	id helperfct=1;
-endif;
-if (match(helperfctend(helperidx?))) redefine i "0"; 
-.sort
-#enddo
-.sort
-
-print diag1, diag2;
+*#do i=1,'NrDiag'
+*#write <TreeLevelAmplitude.h> "id d'i'=%e ", diag'i';
+*#enddo
 
 .end
+
+
+
+
+*********** Notes ********
+* change den with numbers
+*imag=i_
+
+
+
+
+
+
+
+
