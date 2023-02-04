@@ -10,7 +10,7 @@ off statistics;
 autodeclare cfunction vbaru; 
 
 *massive fermions
-autodeclare cfunction UbarV;
+autodeclare cfunction VbarU;
 
 *polarization
 autodeclare cfunction eps;
@@ -38,7 +38,7 @@ autodeclare index mu;
 #include tensors.h
 
 id vbaru(i?) = vbaru(i);
-id UbarV(i?) = UbarV(i);
+id VbarU(i?) = VbarU(i);
 .store
 .sort 
 
@@ -51,11 +51,11 @@ id UbarV(i?) = UbarV(i);
 
 id eps(p?) = epsC(p);
 id vbaru(p?) = vbaruC(p);
-id UbarV = UbarVC;
-id UbarV(p?) = UbarVC(p);
-id UbarV(pi?,pj?) = UbarVC(pj,pi);
+id VbarU = VbarUC;
+id VbarU(p?) = VbarUC(p);
+id VbarU(pi?,pj?) = VbarUC(pj,pi);
 id vbaru(mui?) = vbaruC(mui);
-id UbarV(pi?,mui?) = UbarVC(mui,pi);
+id VbarU(pi?,mui?) = VbarUC(mui,pi);
 .store
 .sort
 
@@ -73,18 +73,18 @@ id UbarV(pi?,mui?) = UbarVC(mui,pi);
 
 *** Fermion Spin Sums ***
 
-id vbaru(p?) = g_(1,p2,p); 
-id vbaruC(p?)= g_(1,p1,p);
-id UbarV = g_(2,p3)+mt*gi_(2);
-id UbarVC = g_(2,p4)-mt*gi_(2);
-id UbarV(p?) = (g_(2,p3)+mt*gi_(2))*g_(2,p);
-id UbarVC(p?) = (g_(2,p4)-mt*gi_(2))*g_(2,p);
-id UbarV(pi?,pj?) = (g_(2,p3)+mt*gi_(2))*g_(2,pi,pj);
-id UbarVC(pi?,pj?) = (g_(2,p4)-mt*gi_(2))*g_(2,pi,pj);
-id vbaru(mui?) = g_(1,p2,mui); 
-id vbaruC(mui?)= g_(1,p1,mui);
-id UbarV(pi?,mui?) = (g_(2,p3)+mt*gi_(2))*g_(2,pi,mui);
-id UbarVC(mui?,pi?) = (g_(2,p4)-mt*gi_(2))*g_(2,mui,pi);
+id vbaru(p?) = g_(1,p1,p); 
+id vbaruC(p?)= g_(1,p2,p);
+id VbarU = g_(2,p3)-mt*gi_(2);
+id VbarUC = g_(2,p4)+mt*gi_(2);
+id VbarU(p?) = (g_(2,p3)-mt*gi_(2))*g_(2,p);
+id VbarUC(p?) = (g_(2,p4)+mt*gi_(2))*g_(2,p);
+id VbarU(pi?,pj?) = (g_(2,p3)-mt*gi_(2))*g_(2,pi,pj);
+id VbarUC(pi?,pj?) = (g_(2,p4)+mt*gi_(2))*g_(2,pi,pj);
+id vbaru(mui?) = g_(1,p1,mui); 
+id vbaruC(mui?)= g_(1,p2,mui);
+id VbarU(pi?,mui?) = (g_(2,p3)-mt*gi_(2))*g_(2,pi,mui);
+id VbarUC(mui?,pi?) = (g_(2,p4)+mt*gi_(2))*g_(2,mui,pi);
 .sort
 
 
@@ -165,12 +165,12 @@ b F1,...,F'lengthT',C1,...,C'lengthT';
 
 id vbaru(p?) = g_(1,p2,p); 
 id vbaruC(p?)= g_(1,p1,p);
-id UbarV = g_(2,p3)+mt*gi_(2);
-id UbarVC = g_(2,p4)-mt*gi_(2);
-id UbarV(p?) = (g_(2,p3)+mt*gi_(2))*g_(2,p);
-id UbarVC(p?) = (g_(2,p4)-mt*gi_(2))*g_(2,p);
-id UbarV(pi?,pj?) = (g_(2,p3)+mt*gi_(2))*g_(2,pi,pj);
-id UbarVC(pi?,pj?) = (g_(2,p4)-mt*gi_(2))*g_(2,pi,pj);
+id VbarU = g_(2,p3)+mt*gi_(2);
+id VbarUC = g_(2,p4)-mt*gi_(2);
+id VbarU(p?) = (g_(2,p3)+mt*gi_(2))*g_(2,p);
+id VbarUC(p?) = (g_(2,p4)-mt*gi_(2))*g_(2,p);
+id VbarU(pi?,pj?) = (g_(2,p3)+mt*gi_(2))*g_(2,pi,pj);
+id VbarUC(pi?,pj?) = (g_(2,p4)-mt*gi_(2))*g_(2,pi,pj);
 
 .sort
 

@@ -20,9 +20,9 @@ global T16=eps(p2)*vbaru(p4)*VbarU(p2);
 global T17=eps(p3)*vbaru(p3)*VbarU(p2);
 global T18=eps(p3)*vbaru(p4)*VbarU(p2);
 
-global T19=eps(p1)*vbaru(p3)*VbarU(p1,p2);
-global T20=eps(p1)*vbaru(p4)*VbarU(p1,p2);
-global T21=eps(p2)*vbaru(p3)*VbarU(p1,p2);
-global T22=eps(p2)*vbaru(p4)*VbarU(p1,p2);
-global T23=eps(p3)*vbaru(p3)*VbarU(p1,p2);
-global T24=eps(p3)*vbaru(p4)*VbarU(p1,p2);
+global T19=eps(p1)*vbaru(mu1)*VbarU(p2,mu1);
+global T20=eps(p2)*vbaru(mu2)*VbarU(p2,mu2);
+global T21=eps(p3)*vbaru(mu3)*VbarU(p2,mu3);
+global T22=eps(p1)*vbaru(mu4)*VbarU(p1,mu4);
+global T23=eps(p2)*vbaru(mu5)*VbarU(p1,mu5);
+global T24=eps(p3)*vbaru(mu6)*VbarU(p1,mu6);
