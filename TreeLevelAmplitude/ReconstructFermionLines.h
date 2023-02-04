@@ -42,10 +42,9 @@ if (match(helperfctend(helperidx?))) redefine i "0";
 #enddo
 .sort
 
-**** Reconstruct massive Fermion Line ***
+**** Reconstruct massive top line ****
 
-*Move start of line to left (until massless line) *
-
+*Move start of line to left and define helper function*
 
 repeat;	
 	id vrtx(?helperfct1)*vrtx(antitop('LabelAT',?helpervec2),?helperfct2)=vrtx(antitop('LabelAT',?helpervec2),?helperfct2)*vrtx(?helperfct1);
@@ -56,8 +55,8 @@ endrepeat;
 
 *if only single contribution add end of line otherwise introduce helperfct
 
-if(match(vrtx(antitop(helperidx1?,helpervec1?),top('LabelT',helpervec2?),?helperfct3)));
-	id vrtx(antitop(helperidx1?,helpervec1?),top('LabelT',helpervec2?),?helperfct3)=helperfctStartTopLine*vrtx(antitop(helperidx1,helpervec1),top('LabelT',helpervec2),?helperfct3)*helperfctend(helperidx1+1);
+if(match(vrtx(antitop('LabelAT',helpervec1?),top(helperidx2?,helpervec2?),?helperfct3)));
+	id vrtx(antitop('LabelAT',helpervec1?),top(helperidx2?,helpervec2?),?helperfct3)=helperfctStartTopLine*vrtx(antitop('LabelAT',helpervec1),top(helperidx2,helpervec2),?helperfct3)*helperfctend(helperidx2+1);
 ;
 else;
 	id vrtx(antitop('LabelAT',helpervec1?),?helperfct3)=helperfctStartTopLine*vrtx(antitop('LabelAT',helpervec1),?helperfct3)*helperfctEndTopLine;
@@ -66,10 +65,11 @@ endif;
 *step by step reconstruct line, go on as long as there is helperfct
 
 #do i = 1, 1
+*if already at end remove helper
 
-*if next in right position move helper one further, or if last remove helper
-if (match(helperfctend(helperidx?)*vrtx(?helperfct1,top(helperidx?,?helpervec2),?helperfct2)));
-	id helperfctend(helperidx?)*vrtx(antitop(?helperidx1),top(helperidx?,helpervec2?),?helperfct3)=vrtx(antitop(?helperidx1),top(helperidx,helpervec2),?helperfct3)*helperfctend(?helperidx1);
+*if next in right position move helper one further, or if last mark end of line
+if (match(helperfctend(helperidx?)*vrtx(antitop(helperidx?,?helpervec2),?helperfct2)));
+	id helperfctend(helperidx?)*vrtx(antitop(helperidx?,helpervec1?),top(?helperidx2),?helperfct3)=vrtx(antitop(helperidx,helpervec1),top(?helperidx2),?helperfct3)*helperfctend(?helperidx2);
 	if (match(helperfctend(helperidx2?)));
 		id helperfctend(helperidx2?,helpervec2?)=helperfctend(helperidx2+1);
 	else;
