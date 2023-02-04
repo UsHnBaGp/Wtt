@@ -9,10 +9,10 @@ off statistics;
 *************************
 
 #define NrDiag "2"
-#define LabelAQ "-3"
-#define LabelQ "-1"
-#define LabelAT "-2"
-#define LabelT "-4"
+#define LabelAQ "-1"
+#define LabelQ "-3"
+#define LabelAT "-5"
+#define LabelT "-7"
 #define MaxInternal "10"
 #define MaxExternal "6"
 
@@ -28,13 +28,12 @@ index i;
 
 autodeclare symbol d;
 vector p1,p2,p3,p4,p5;
-vector q1,q2,q3;
 vector eps;
 symbol gs,e,imag;
 cfunction sqrt,den;
 autodeclare symbol s,m;
 autodeclare index mu,ci;
-function vbar,u,V,Ubar,T,gamma;
+function vbar,u,Vbar,U,T,gamma;
 
 autodeclare function pol, prop, vrtx;
 cfunction quark, antiquark, top, antitop, wboson, gluon;
@@ -87,18 +86,9 @@ Table,relax cidxext(1:'MaxExternal');
 
 *** Import qgraph output ***
 
-#include output_GoodNotation.h
+#include output_form.h
 
 .sort
-
-*** Change notation ***
-argument;
-argument;
-id q1=p3;
-id q2=p4;
-id q3=p5;
-endargument;
-endargument;
 
 ***********************************************************
 ******** Reconstruct Fermionlines ********************
