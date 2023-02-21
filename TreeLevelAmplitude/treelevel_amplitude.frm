@@ -14,7 +14,7 @@ off statistics;
 #define LabelAT "-5"
 #define LabelT "-7"
 #define MaxInternal "10"
-#define MaxExternal "6"
+#define MaxExternal "9"
 
 .global
 
@@ -26,17 +26,20 @@ off statistics;
 
 index i;
 
+function Ubar, V;
+
 autodeclare symbol d;
-vector p1,p2,p3,p4,p5;
+vector p1,p2,p3,p4,p5,pL;
 vector eps;
-symbol gs,e,imag;
+symbol gs,gW,e,xi,imag;
 cfunction sqrt,den;
-autodeclare symbol s,m;
+autodeclare symbol s,m,epsmuw;
 autodeclare index mu,ci;
 function vbar,u,Vbar,U,T,gamma;
 
 autodeclare function pol, prop, vrtx;
 cfunction quark, antiquark, top, antitop, wboson, gluon;
+cfunction num,den,ratio;
 
 **** Declare Dummys ***
 autodeclare function helperfct;
@@ -103,18 +106,27 @@ Table,relax cidxext(1:'MaxExternal');
 
 
 #include FeynmanRules.h
+.sort
 
 **************************************
 ***** ColorAlgebra ****
 **************************************
 
-id T(helperidx1?,helperidx2?,helperidx3?)*T(helperidx1?,helperidx4?,helperidx5?)=den(2)*(d_(helperidx2,helperidx5)*d_(helperidx3,helperidx4)-den(3)*d_(helperidx2,helperidx3)*d_(helperidx4,helperidx5));
+id T(helperidx1?,helperidx2?,helperidx3?)*T(helperidx1?,helperidx4?,helperidx5?)=1/2*(d_(helperidx2,helperidx5)*d_(helperidx3,helperidx4)-1/3*d_(helperidx2,helperidx3)*d_(helperidx4,helperidx5));
+.sort
+
+Print;
+.end
 
 ******************************************
 *** Kinematics/Mandelstam Identities ***
 ****************************************
 
 #include FivePointKinematics.h
+
+factarg den;
+chainout den;
+.sort
 
 
 *******************************
@@ -123,27 +135,43 @@ id T(helperidx1?,helperidx2?,helperidx3?)*T(helperidx1?,helperidx4?,helperidx5?)
 
 repeat;
 id den(helpersym1?)*den(helpersym2?)=den(helpersym1*helpersym2);
-id imag*imag=-1;
 endrepeat;
+.sort
+bracket gs,i_,gW;
 
+#do i=1,'NrDiag'
+#write <TreeLevelAmplitude.h> "id d'i'=%e ", diag'i';
+#enddo
 .sort
 
-bracket d_,gs,imag;
 
-print[];
 
-*#do i=1,'NrDiag'
-*#write <TreeLevelAmplitude.h> "id d'i'=%e ", diag'i';
-*#enddo
+
+id d_(helperidx1?,helperidx2?)=del(helperidx1,helperidx2);
+id g_(helperidx1?,helperidx2?)=gamma(helperidx1,helperidx2);
+id i_=imag;
+.sort
+repeat id gamma(helperidx?,?helperidx1)*gamma(helperidx?,?helperidx2)=gamma(helperidx,?helperidx1,?helperidx2);
+.sort
+
+Format Mathematica;
+.sort
+factarg den;
+chainout den;
+.sort
+
+bracket gs,gW,den;  
+
+
+
+
+#create <TreeLevelAmplitude.m> 
+#do i=1,'NrDiag'
+#write <TreeLevelAmplitude.m> "d'i'=%e ", diag'i';
+#enddo
+#close <TreeLevelAmplitude.m>
 
 .end
-
-
-
-
-*********** Notes ********
-* change den with numbers
-*imag=i_
 
 
 
