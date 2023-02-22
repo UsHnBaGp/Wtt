@@ -16,10 +16,18 @@ off statistics;
 autodeclare function vbaru,VbarU,vbar,u,Vbar,U,eps,diagram,MInvFct;
 autodeclare vector p;
 function T,AA;
-cfunction den,sqrt;
-autodeclare symbol s,m,g,d,MInv;
-autodeclare index mu,ci,epsmuw;
+cfunction den,sqrt,num,ratio,del;
+autodeclare symbol s,m,g,d,MInv,helpersym,D;
+autodeclare index helperidx;
 index i,j;
+Dimension D;
+autodeclare index mu,epsmuw;
+Dimension 3;
+autodeclare index ci;
+
+symbol imag;
+
+
 .sort
 .global
 
@@ -130,7 +138,7 @@ Trace4, 2;
 
 
 **************************************
-*** Import Matrix *****
+*** Define Formfactors and Import Matrix *****
 ***********************************
 
 
@@ -150,20 +158,62 @@ sum j,1,...,'lengthT';
 #enddo
 .sort
 
-
 #do j=1, 'lengthT'
 	id MInvFct'FormFactor'('j')=MInv'FormFactor''j';
 #enddo
 .sort
 
-#include MMatrixInverseForm1.h
+
+#include MMatrixInverseForm'FormFactor'.h
 .sort
+
+********************************
+*** Simplify ***
+********************************
+
+*****+ POlyratfun on Newton*******
+bracket gs,gW,den,d_,i_;  
+.sort
+
+collect num;
+.sort
+id num(helpersym?) = ratio(helpersym,1);
+id den(helpersym?) = ratio(1,helpersym);
+.sort
+PolyRatFun ratio;
+.sort
+PolyRatFun ;
+.sort
+id ratio(helpersym1?,helpersym2?) = num(helpersym1)*den(helpersym2);
+.sort
+factarg den;
+chainout den;
+id den(helpersym1?number_) = 1/helpersym1 ;
+.sort
+id num(helpersym?)=helpersym;
+bracket gs,gW,den; 
+.sort
+
+*argument den;
+*#include Denominator.h
+*endargument;
+.sort
+
+
+*********Make look nice and Mathematica friendly *********
+id d_(?arg)=del(?arg);
+id i_=imag;
+.sort
+
+Format Mathematica;
+.sort
+
 
 *********************
 *** Write down formfactor ***
 *************************
 
-#write <Formfactor'FormFactos'.txt> "F'FormFactor'=  %E ", F'FormFactor';
+#write <Formfactor'FormFactor'.txt> "F'FormFactor'=  %E ", F'FormFactor';
 .sort
 
 

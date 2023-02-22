@@ -12,9 +12,12 @@ off statistics;
 *** Declarations ***
 ********************
 
-autodeclare symbol s,m,gs,gW,d,amp,epsmuw,imag;
+autodeclare symbol s,m,gs,gW,d,amp,epsmuw,imag,D;
 autodeclare function vbar,u ,Vbar,U;
-autodeclare index ci,mu;
+Dimension 3;
+autodeclare index ci;
+Dimension D;
+autodeclare index mu;
 autodeclare vector p,eps;
 autodeclare function gamma;
 cfunction den,del,num,ratio;
@@ -114,8 +117,8 @@ id U(p4)=g_(2,p4)+mt*gi_(2);
 id UCC(p4)=1;
 .sort
 
-trace4,1;
-trace4,2;
+tracen,1;
+tracen,2;
 .sort
 
 

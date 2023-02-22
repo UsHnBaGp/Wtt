@@ -115,8 +115,6 @@ Table,relax cidxext(1:'MaxExternal');
 id T(helperidx1?,helperidx2?,helperidx3?)*T(helperidx1?,helperidx4?,helperidx5?)=1/2*(d_(helperidx2,helperidx5)*d_(helperidx3,helperidx4)-1/3*d_(helperidx2,helperidx3)*d_(helperidx4,helperidx5));
 .sort
 
-Print;
-.end
 
 ******************************************
 *** Kinematics/Mandelstam Identities ***
@@ -124,18 +122,13 @@ Print;
 
 #include FivePointKinematics.h
 
-factarg den;
-chainout den;
-.sort
-
 
 *******************************
 *****Final Simplifications***
 ****************************
-
-repeat;
-id den(helpersym1?)*den(helpersym2?)=den(helpersym1*helpersym2);
-endrepeat;
+factarg den;
+chainout den;
+id den(helpersym1?number_) = 1/helpersym1 ;
 .sort
 bracket gs,i_,gW;
 
@@ -156,9 +149,7 @@ repeat id gamma(helperidx?,?helperidx1)*gamma(helperidx?,?helperidx2)=gamma(help
 
 Format Mathematica;
 .sort
-factarg den;
-chainout den;
-.sort
+
 
 bracket gs,gW,den;  
 
