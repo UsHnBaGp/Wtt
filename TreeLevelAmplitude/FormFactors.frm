@@ -17,7 +17,7 @@ autodeclare function vbaru,VbarU,vbar,u,Vbar,U,eps,diagram,MInvFct;
 autodeclare vector p;
 function T,AA;
 cfunction den,sqrt,num,ratio,del;
-autodeclare symbol s,m,g,d,MInv,helpersym,D;
+autodeclare symbol s,gram,m,g,d,MInv,helpersym,D;
 autodeclare index helperidx;
 index i,j;
 Dimension D;
@@ -164,7 +164,12 @@ sum j,1,...,'lengthT';
 .sort
 
 
-#include MMatrixInverseForm'FormFactor'.h
+#include MInv/MMatrixInverseForm'FormFactor'.h
+.sort
+
+
+*** Remove numerator notation since apparently not helpful***
+id num(helpersym?)=helpersym;
 .sort
 
 ********************************
@@ -172,13 +177,14 @@ sum j,1,...,'lengthT';
 ********************************
 
 *****+ POlyratfun on Newton*******
-bracket gs,gW,den,d_,i_;  
+bracket gs,gW,den,d_,i_,num;  
 .sort
 
 collect num;
 .sort
 id num(helpersym?) = ratio(helpersym,1);
 id den(helpersym?) = ratio(1,helpersym);
+print;
 .sort
 PolyRatFun ratio;
 .sort
@@ -191,7 +197,6 @@ chainout den;
 id den(helpersym1?number_) = 1/helpersym1 ;
 .sort
 id num(helpersym?)=helpersym;
-bracket gs,gW,den; 
 .sort
 
 *argument den;
@@ -207,16 +212,17 @@ id i_=imag;
 
 Format Mathematica;
 .sort
-
+bracket gs,gW,den,del,imag;
+.sort 
 
 *********************
 *** Write down formfactor ***
 *************************
-
+bracket gs,gW,den,del,imag;
 #write <Formfactor'FormFactor'.txt> "F'FormFactor'=  %E ", F'FormFactor';
 .sort
 
-
+bracket gs,gW,den,del,imag;
 print+s F1;
 .end
 
