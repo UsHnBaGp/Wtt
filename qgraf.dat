@@ -1,0 +1,28 @@
+
+ config= noblanks ;
+
+%  messages= 'msg.txt' ;
+
+ style= 'form.sty.mine' ;
+
+ output= 'output_1loop_form' ;
+ 
+ style= 'reduze.sty' ;
+ 
+ output= 'output_1loop_reduce' ;
+
+ model= 'wtt';
+
+ in= antiquark, quark, antitop, top, wboson ;
+
+ out= ;
+
+ loops= 1 ;
+
+ loop_momentum= k;
+
+ options= notadpole, onshell, nosnail ;
+
+ true= vsum[gw, 1, 1 ];
+
+
