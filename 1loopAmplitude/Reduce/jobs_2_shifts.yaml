@@ -1,7 +1,7 @@
 jobs:
   - find_diagram_shifts:
       conditional: false
-      qgraf_file: "../../../Wtt/1loopAmplitude/output_1loop_reduce.out"
+      qgraf_file: "/scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce.out"
       output_file: "my_tmp/shifts"
       info_file_form: "my_results/shifts.inc"
       names:
