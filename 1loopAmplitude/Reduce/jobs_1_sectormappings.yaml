@@ -1,0 +1,13 @@
+---
+  jobs:
+    - setup_sector_mappings:
+        conditional: false
+        find_sector_relations: true
+        find_sector_symmetries: true
+        find_zero_sectors: true
+        find_graphless_zero_sectors: true
+        minimize_graphs_by_twists: true
+        construct_minimal_graphs: true
+        minimize_target_crossings: true
+        allow_general_crossings: true
+        verify_permutation_symmetries: true

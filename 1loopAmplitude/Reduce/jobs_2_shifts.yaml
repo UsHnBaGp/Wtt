@@ -1,0 +1,12 @@
+jobs:
+  - find_diagram_shifts:
+      conditional: false
+      qgraf_file: "../../../Wtt/1loopAmplitude/doutput_1loop_reduce.out"
+      output_file: "my_tmp/shifts"
+      info_file_form: "my_results/shifts.inc"
+      names:
+        []
+      minimize_graphs_by_twists: true
+      amputate_external_legs: false
+      join_external_legs: false
+      kinematics: ""

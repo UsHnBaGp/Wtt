@@ -1,0 +1,6 @@
+integralfamilies:
+  - name: "PL1"
+    loop_momenta: [k1]
+    propagators:
+      - [ "k1", 0 ] #k1^2 - 0
+      - [ "k1+p1", mt^2 ] #(k1+p1)^2 - mt^2

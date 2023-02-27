@@ -1,0 +1,22 @@
+---
+  jobs:
+    - reduce_sectors:
+        conditional: false
+        sector_selection:
+          select_recursively:
+            - [PL1, 30]
+            - [PL2, 30]
+            - [PL3, 30]
+        solutions:
+          requested_solutions: # &req
+            - { r: [t, 5], s: [0, 2] }
+        identities:
+          sector_relations:
+            - { r: [t, 5], s: [0, 2] }
+          sector_symmetries:
+            - { r: [t, 5], s: [0, 2] }
+#        select_border_as_critical: false
+        reduzer_options:
+          num_equations_per_subjob: 1
+        num_seeds_for_identities_auxjobs: 1000
+        delete_temporary_files: true

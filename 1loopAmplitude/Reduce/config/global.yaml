@@ -1,0 +1,9 @@
+paths:
+ fermat: /space/ttpmath/tools_build/ferl6/fer64
+global_symbols:
+  space_time_dimension: "d" 
+global_options:
+  integral_ordering: rs
+
+  
+  

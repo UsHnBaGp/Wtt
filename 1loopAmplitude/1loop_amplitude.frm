@@ -34,7 +34,7 @@ symbol gs,gW,e,xi,imag;
 cfunction sqrt,den;
 autodeclare symbol s,m,epsmuw;
 autodeclare index mu,ci;
-function vbar,u,Vbar,U,T,gamma;
+function vbar,u,Vbar,U,T,gamma,f;
 
 autodeclare function pol, prop, vrtx;
 cfunction quark, antiquark, top, antitop, wboson, gluon,ghost,antighost;
@@ -121,6 +121,8 @@ id helperfctEndTopLine*vrtx(antitop(helperidx1?,helpervec1?),top(helperidx2?,hel
 
 print+s;
 .end
+
+********** END *****************
 
 **************************************
 ***** ColorAlgebra ****

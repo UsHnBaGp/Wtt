@@ -62,19 +62,6 @@ endrepeat;
 id helperfctLoop*helperfctEndLoop=1;
 
 
-
-**************
-*** Bachup, do I need this?
-***********************
-*id helperfctQuarkLine*vrtx(antiquark('LabelAQ',helpervec1?),quark(helperidx2?,helpervec2?),gluon(helperidx3?,helpervec3?))=-i_*gs*gamma(1,lidx(helperidx3))*T(cidx(helperidx3),cidxext(-'LabelAQ'),cidx(helperidx2+1))*propquark(helpervec2)*helperfctQuarkLine;
-
-*repeat;
-*id helperfctQuarkLine*vrtx(antiquark(helperidx1?,helpervec1?),quark(helperidx2?,helpervec2?),gluon(helperidx3?,helpervec3?))=-i_*gs*gamma(1,lidx(helperidx3))*T(cidx(helperidx3),cidx(helperidx1),cidx(helperidx2+1))*propquark(helpervec2)*helperfctQuarkLine;
-*endrepeat;
-
-*id helperfctQuarkLine*vrtx(antiquark(helperidx1?,helpervec1?),quark('LabelQ',helpervec2?),gluon(helperidx3?,helpervec3?))=-i_*gs*gamma(1,lidx(helperidx3))*T(cidx(helperidx3),cidx(helperidx1),cidxext(-'LabelQ'));
-**************************
-
 ***************
 *** massive line: 
 *********************
@@ -96,9 +83,9 @@ id helperfctTopLine*vrtx(antitop(helperidx1?,helpervec1?),top('LabelT',helpervec
 ************************
 **** Move Ts to front *** 
 **********************
-repeat;
-id helperfct?!{T}(?helperidx)*T(?helperidx2)=T(?helperidx2)*helperfct(?helperidx);
-endrepeat;
+*repeat;
+*id helperfct?!{T}(?helperidx)*T(?helperidx2)=T(?helperidx2)*helperfct(?helperidx);
+*endrepeat;
 .sort
 
 **********************+
@@ -106,15 +93,16 @@ endrepeat;
 ***************************
 
 ***** Wvertex ****
-*write left projector as pl***
 id vrtx(wboson)=-i_*gW*g_(1,muw);
+
+*** 3gluon vertex ***
+id vrtx (gluon (helperidx1?, helpervec1?),gluon (helperidx2?, helpervec2?),gluon (helperidx3?, helpervec3?)) = gs*f (cidx (helperidx1), cidx (helperidx2), cidx (helperidx3))*((-helperfct (helpervec1)*helperfct (lidx (helperidx3)) +helperfct (helpervec2)*helperfct (lidx ((helperidx3)))*del (lidx (helperidx1), lidx (helperidx2)) + (-helperfct (helpervec2)*helperfct (lidx (helperidx1)) +helperfct (helpervec3)*helperfct (lidx (helperidx1)))*del (lidx (helperidx2),lidx (helperidx3)) + (-helperfct (helpervec3)*helperfctlidx (helperidx2) +helperfct (helpervec1)*helperfct (lidx (helperidx2)))*del (lidx (helperidx3), lidx (helperidx1))));
+
 
 
 *replace propagators (deltafct in quark propagator already included above)*
 
 id prop(gluon(helperidx1?,helperidx2?,helpervec?))=-i_*del(cidx(helperidx1),cidx(helperidx2))*(del(lidx(helperidx1),lidx(helperidx2))*den(helpervec.helpervec)-(1-xi)*helperfctvec(helpervec)*helperfct(lidx(helperidx1))*helperfctvec(helpervec)*helperfct(lidx(helperidx2))*den((helpervec.helpervec)^2));
-id helperfctvec(helpervec?)*helperfct(helperidx?)=helpervec(helperidx);
-id del(helperidx1?,helperidx2?)=d_(helperidx1,helperidx2);
 
 
 .sort
@@ -131,6 +119,7 @@ id pol(wboson(?helperidx))=epsmuw;
 
 
 *replace spaceholderfunctions*
+id helperfctvec(helpervec?)*helperfct(helperidx?)=helpervec(helperidx);
 id del(helperidx1?,helperidx2?)=d_(helperidx1,helperidx2);
 id gamma(2,helperidx?)=g_(2,helperidx);
 id gamma(1,helperidx?)=g_(1,helperidx);

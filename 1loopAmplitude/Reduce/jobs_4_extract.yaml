@@ -1,0 +1,31 @@
+---
+jobs:
+  - select_reductions:
+      conditional: false
+      input_file: "List"
+      output_file: "my_tmp/List.sol"
+      notfound_file: "my_results/List.rest"
+      generate_crossed: false
+  - reduce_files:
+      conditional: false
+      equation_files: 
+        - "my_tmp/List.sol"
+      output_file: "my_tmp/List_2.sol"
+      reduzer_options:
+        num_equations_per_subjob: 1
+  #- reduce_files:
+      #conditional: false
+      #equation_files:
+        #- "my_tmp/List_2.sol"
+        #- "my_tmp/sel.masters.curr"
+      #output_file: "my_tmp/List_3.sol"
+      #preferred_masters_file: "masters.curr.m"
+  - export:
+      input_file: "my_tmp/List_2.sol"
+      output_file: "my_results/List.m"
+      output_format: "mma"
+  - export:
+      input_file: "my_tmp/List_2.sol"
+      output_file: "my_results/List.fcode"
+      output_format: "form"
+#        preferred_masters_file: "masters"
