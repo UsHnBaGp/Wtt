@@ -16,8 +16,6 @@ qgraf_globals:
   - " loop_momentum= k;"
   - " options= notadpole, onshell, nosnail ;"
   - " true= vsum[gw, 1, 1 ];"
-  - " true = chord[top, 0, 0];"
-  - " true = chord[quark, 0, 2];"
 
 
 #
@@ -51,6 +49,62 @@ diagram:
   name: 1
   external_legs:
     - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 3], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [4, 1], gluon_gluon: [[gluon, 3, +1, -p1-p2, 0, 1], [gluon, 3, +1, p1+p2, 0, 2]] ]
+    - [ [5, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [4, 3], quark_antiquark: [[quark, 3, -1, -k1, 0, 5], [antiquark, 3, -1, k1, 0, 6]] ]
+    - [ [3, 5], quark_antiquark: [[quark, 3, -1, -k1+p5, 0, 7], [antiquark, 3, -1, k1-p5, 0, 8]] ]
+    - [ [5, 4], quark_antiquark: [[quark, 3, -1, -k1-p1-p2, 0, 9], [antiquark, 3, -1, k1+p1+p2, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, -p1-p2, 0, 1]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, k1-p5, 0, 8], [quark, 3, -1, -k1, 0, 5], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1, 0, 6], [quark, 3, -1, -k1-p1-p2, 0, 9], [gluon, 3, +1, p1+p2, 0, 2]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1+p1+p2, 0, 10], [quark, 3, -1, -k1+p5, 0, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
+  symmetry_factor: -1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 2
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 3], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [4, 1], gluon_gluon: [[gluon, 3, +1, -p1-p2, 0, 1], [gluon, 3, +1, p1+p2, 0, 2]] ]
+    - [ [5, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [3, 4], quark_antiquark: [[quark, 3, -1, k1, 0, 5], [antiquark, 3, -1, -k1, 0, 6]] ]
+    - [ [5, 3], quark_antiquark: [[quark, 3, -1, k1-p5, 0, 7], [antiquark, 3, -1, -k1+p5, 0, 8]] ]
+    - [ [4, 5], quark_antiquark: [[quark, 3, -1, k1+p1+p2, 0, 9], [antiquark, 3, -1, -k1-p1-p2, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, -p1-p2, 0, 1]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -k1, 0, 6], [quark, 3, -1, k1-p5, 0, 7], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1-p1-p2, 0, 10], [quark, 3, -1, k1, 0, 5], [gluon, 3, +1, p1+p2, 0, 2]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p5, 0, 8], [quark, 3, -1, k1+p1+p2, 0, 9], [gluon, 3, +1, p3+p4, 0, 4]] ]
+  symmetry_factor: -1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 3
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
     - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
     - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
@@ -76,7 +130,7 @@ diagram:
 
 ---
 diagram:
-  name: 2
+  name: 4
   external_legs:
     - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -104,7 +158,7 @@ diagram:
 
 ---
 diagram:
-  name: 3
+  name: 5
   external_legs:
     - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -132,7 +186,7 @@ diagram:
 
 ---
 diagram:
-  name: 4
+  name: 6
   external_legs:
     - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -160,62 +214,6 @@ diagram:
 
 ---
 diagram:
-  name: 5
-  external_legs:
-    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
-    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
-    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
-    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
-    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
-  propagators:
-    - [ [3, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
-    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
-    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
-    - [ [5, 4], quark_antiquark: [[quark, 3, -1, k1-p3-p4, 0, 7], [antiquark, 3, -1, -k1+p3+p4, 0, 8]] ]
-    - [ [4, 5], quark_antiquark: [[quark, 3, -1, k1, 0, 9], [antiquark, 3, -1, -k1, 0, 10]] ]
-  vertices:
-    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
-    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
-    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 5]] ]
-    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1, 0, 10], [quark, 3, -1, k1-p3-p4, 0, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
-    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p3+p4, 0, 8], [quark, 3, -1, k1, 0, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
-  symmetry_factor: -1
-  num_legs_in: 5
-  num_legs_out: 0
-  num_loops: 1
-  num_propagators: 5
-  num_vertices: 5
-
----
-diagram:
-  name: 6
-  external_legs:
-    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
-    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
-    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
-    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
-    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
-  propagators:
-    - [ [3, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
-    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
-    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
-    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 7], [gluon, 3, +1, -k1+p3+p4, 0, 8]] ]
-    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1, 0, 9], [gluon, 3, +1, k1, 0, 10]] ]
-  vertices:
-    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
-    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
-    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 5]] ]
-    - [ gluon_gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 4], [gluon, 3, +1, k1-p3-p4, 0, 7], [gluon, 3, +1, -k1, 0, 9]] ]
-    - [ gluon_gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 6], [gluon, 3, +1, -k1+p3+p4, 0, 8], [gluon, 3, +1, k1, 0, 10]] ]
-  symmetry_factor: 1/2
-  num_legs_in: 5
-  num_legs_out: 0
-  num_loops: 1
-  num_propagators: 5
-  num_vertices: 5
-
----
-diagram:
   name: 7
   external_legs:
     - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
@@ -227,40 +225,12 @@ diagram:
     - [ [3, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
     - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
     - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
-    - [ [5, 4], ghost_antighost: [[ghost, 3, -1, k1-p3-p4, 0, 7], [antighost, 3, -1, -k1+p3+p4, 0, 8]] ]
-    - [ [4, 5], ghost_antighost: [[ghost, 3, -1, k1, 0, 9], [antighost, 3, -1, -k1, 0, 10]] ]
+    - [ [5, 4], quark_antiquark: [[quark, 3, -1, k1-p3-p4, 0, 7], [antiquark, 3, -1, -k1+p3+p4, 0, 8]] ]
+    - [ [4, 5], quark_antiquark: [[quark, 3, -1, k1, 0, 9], [antiquark, 3, -1, -k1, 0, 10]] ]
   vertices:
     - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
     - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
     - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 5]] ]
-    - [ antighost_ghost_gluon: [[antighost, 3, -1, -k1, 0, 10], [ghost, 3, -1, k1-p3-p4, 0, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
-    - [ antighost_ghost_gluon: [[antighost, 3, -1, -k1+p3+p4, 0, 8], [ghost, 3, -1, k1, 0, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
-  symmetry_factor: -1
-  num_legs_in: 5
-  num_legs_out: 0
-  num_loops: 1
-  num_propagators: 5
-  num_vertices: 5
-
----
-diagram:
-  name: 8
-  external_legs:
-    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
-    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
-    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
-    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
-    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
-  propagators:
-    - [ [1, 3], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
-    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
-    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
-    - [ [5, 4], quark_antiquark: [[quark, 3, -1, k1-p3-p4, 0, 7], [antiquark, 3, -1, -k1+p3+p4, 0, 8]] ]
-    - [ [4, 5], quark_antiquark: [[quark, 3, -1, k1, 0, 9], [antiquark, 3, -1, -k1, 0, 10]] ]
-  vertices:
-    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
-    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
-    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 5]] ]
     - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1, 0, 10], [quark, 3, -1, k1-p3-p4, 0, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
     - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p3+p4, 0, 8], [quark, 3, -1, k1, 0, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
   symmetry_factor: -1
@@ -272,23 +242,51 @@ diagram:
 
 ---
 diagram:
-  name: 9
+  name: 8
   external_legs:
-    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
-    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
     - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
     - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
     - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
   propagators:
-    - [ [1, 3], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [3, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
+    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+    - [ [5, 4], top_antitop: [[top, 3, -1, k1-p3-p4, mt, 7], [antitop, 3, -1, -k1+p3+p4, mt, 8]] ]
+    - [ [4, 5], top_antitop: [[top, 3, -1, k1, mt, 9], [antitop, 3, -1, -k1, mt, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 5]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1, mt, 10], [top, 3, -1, k1-p3-p4, mt, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1+p3+p4, mt, 8], [top, 3, -1, k1, mt, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+  symmetry_factor: -1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 9
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [3, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
     - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
     - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
     - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 7], [gluon, 3, +1, -k1+p3+p4, 0, 8]] ]
     - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1, 0, 9], [gluon, 3, +1, k1, 0, 10]] ]
   vertices:
-    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
     - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
-    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 5]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 5]] ]
     - [ gluon_gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 4], [gluon, 3, +1, k1-p3-p4, 0, 7], [gluon, 3, +1, -k1, 0, 9]] ]
     - [ gluon_gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 6], [gluon, 3, +1, -k1+p3+p4, 0, 8], [gluon, 3, +1, k1, 0, 10]] ]
   symmetry_factor: 1/2
@@ -302,6 +300,118 @@ diagram:
 diagram:
   name: 10
   external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [3, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
+    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+    - [ [5, 4], ghost_antighost: [[ghost, 3, -1, k1-p3-p4, 0, 7], [antighost, 3, -1, -k1+p3+p4, 0, 8]] ]
+    - [ [4, 5], ghost_antighost: [[ghost, 3, -1, k1, 0, 9], [antighost, 3, -1, -k1, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 5]] ]
+    - [ antighost_ghost_gluon: [[antighost, 3, -1, -k1, 0, 10], [ghost, 3, -1, k1-p3-p4, 0, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ antighost_ghost_gluon: [[antighost, 3, -1, -k1+p3+p4, 0, 8], [ghost, 3, -1, k1, 0, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+  symmetry_factor: -1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 11
+  external_legs:
+    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 3], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+    - [ [5, 4], quark_antiquark: [[quark, 3, -1, k1-p3-p4, 0, 7], [antiquark, 3, -1, -k1+p3+p4, 0, 8]] ]
+    - [ [4, 5], quark_antiquark: [[quark, 3, -1, k1, 0, 9], [antiquark, 3, -1, -k1, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 5]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1, 0, 10], [quark, 3, -1, k1-p3-p4, 0, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p3+p4, 0, 8], [quark, 3, -1, k1, 0, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+  symmetry_factor: -1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 12
+  external_legs:
+    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 3], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+    - [ [5, 4], top_antitop: [[top, 3, -1, k1-p3-p4, mt, 7], [antitop, 3, -1, -k1+p3+p4, mt, 8]] ]
+    - [ [4, 5], top_antitop: [[top, 3, -1, k1, mt, 9], [antitop, 3, -1, -k1, mt, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 5]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1, mt, 10], [top, 3, -1, k1-p3-p4, mt, 7], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1+p3+p4, mt, 8], [top, 3, -1, k1, mt, 9], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+  symmetry_factor: -1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 13
+  external_legs:
+    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 3], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [4, 2], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 3], [gluon, 3, +1, p3+p4, 0, 4]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 5], [gluon, 3, +1, -p3-p4, 0, 6]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 7], [gluon, 3, +1, -k1+p3+p4, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1, 0, 9], [gluon, 3, +1, k1, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 5]] ]
+    - [ gluon_gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 4], [gluon, 3, +1, k1-p3-p4, 0, 7], [gluon, 3, +1, -k1, 0, 9]] ]
+    - [ gluon_gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 6], [gluon, 3, +1, -k1+p3+p4, 0, 8], [gluon, 3, +1, k1, 0, 10]] ]
+  symmetry_factor: 1/2
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 14
+  external_legs:
     - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
     - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
@@ -328,7 +438,7 @@ diagram:
 
 ---
 diagram:
-  name: 11
+  name: 15
   external_legs:
     - [ [-1, 2], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -356,7 +466,7 @@ diagram:
 
 ---
 diagram:
-  name: 12
+  name: 16
   external_legs:
     - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 2], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -384,7 +494,175 @@ diagram:
 
 ---
 diagram:
-  name: 13
+  name: 17
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [5, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
+    - [ [3, 2], gluon_gluon: [[gluon, 3, +1, -k1, 0, 3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ [4, 2], top_antitop: [[top, 3, -1, k1-p3, mt, 5], [antitop, 3, -1, -k1+p3, mt, 6]] ]
+    - [ [3, 5], quark_antiquark: [[quark, 3, -1, k1+p2, 0, 7], [antiquark, 3, -1, -k1-p2, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 9], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, k1-p3, mt, 5], [gluon, 3, +1, -k1, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1-p2, 0, 8], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1+p3, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, k1-p3-p4, 0, 9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 3, -1, k1+p2, 0, 7], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 18
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 4], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [5, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
+    - [ [3, 2], gluon_gluon: [[gluon, 3, +1, -k1, 0, 3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ [2, 4], top_antitop: [[top, 3, -1, -k1+p4, mt, 5], [antitop, 3, -1, k1-p4, mt, 6]] ]
+    - [ [3, 5], quark_antiquark: [[quark, 3, -1, k1+p2, 0, 7], [antiquark, 3, -1, -k1-p2, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 9], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, k1-p4, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -k1, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1-p2, 0, 8], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, -k1+p4, mt, 5], [gluon, 3, +1, k1-p3-p4, 0, 9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 3, -1, k1+p2, 0, 7], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 19
+  external_legs:
+    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 5], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [3, 2], gluon_gluon: [[gluon, 3, +1, -k1, 0, 3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ [4, 2], top_antitop: [[top, 3, -1, k1-p3, mt, 5], [antitop, 3, -1, -k1+p3, mt, 6]] ]
+    - [ [5, 3], quark_antiquark: [[quark, 3, -1, -k1-p1, 0, 7], [antiquark, 3, -1, k1+p1, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 9], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, k1-p3, mt, 5], [gluon, 3, +1, -k1, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -k1-p1, 0, 7], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1+p3, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, k1-p3-p4, 0, 9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1+p1, 0, 8], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 20
+  external_legs:
+    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 4], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 5], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [3, 2], gluon_gluon: [[gluon, 3, +1, -k1, 0, 3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ [2, 4], top_antitop: [[top, 3, -1, -k1+p4, mt, 5], [antitop, 3, -1, k1-p4, mt, 6]] ]
+    - [ [5, 3], quark_antiquark: [[quark, 3, -1, -k1-p1, 0, 7], [antiquark, 3, -1, k1+p1, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, k1-p3-p4, 0, 9], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, k1-p4, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -k1, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -k1-p1, 0, 7], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, -k1+p4, mt, 5], [gluon, 3, +1, k1-p3-p4, 0, 9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1+p1, 0, 8], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, -k1+p3+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 21
+  external_legs:
+    - [ [-1, 2], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 1], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 1], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 4], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [5, 1], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 1], [gluon, 3, +1, p3+p4, 0, 2]] ]
+    - [ [3, 2], gluon_gluon: [[gluon, 3, +1, -k1, 0, 3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ [4, 2], quark_antiquark: [[quark, 3, -1, k1-p1, 0, 5], [antiquark, 3, -1, -k1+p1, 0, 6]] ]
+    - [ [3, 5], quark_antiquark: [[quark, 3, -1, k1+p2, 0, 7], [antiquark, 3, -1, -k1-p2, 0, 8]] ]
+    - [ [5, 4], quark_antiquark: [[quark, 3, -1, k1-p1-p5, 0, 9], [antiquark, 3, -1, -k1+p1+p5, 0, 10]] ]
+  vertices:
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 1]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, k1-p1, 0, 5], [gluon, 3, +1, -k1, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1-p2, 0, 8], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -k1+p1, 0, 6], [quark, 3, -1, k1-p1-p5, 0, 9], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p1+p5, 0, 10], [quark, 3, -1, k1+p2, 0, 7], [gluon, 3, +1, p3+p4, 0, 2]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 22
+  external_legs:
+    - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 2], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 1], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 1], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 4], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [5, 1], gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 1], [gluon, 3, +1, p3+p4, 0, 2]] ]
+    - [ [3, 2], gluon_gluon: [[gluon, 3, +1, -k1, 0, 3], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ [2, 4], quark_antiquark: [[quark, 3, -1, -k1+p2, 0, 5], [antiquark, 3, -1, k1-p2, 0, 6]] ]
+    - [ [5, 3], quark_antiquark: [[quark, 3, -1, -k1-p1, 0, 7], [antiquark, 3, -1, k1+p1, 0, 8]] ]
+    - [ [4, 5], quark_antiquark: [[quark, 3, -1, -k1+p2+p5, 0, 9], [antiquark, 3, -1, k1-p2-p5, 0, 10]] ]
+  vertices:
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -p3-p4, 0, 1]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1-p2, 0, 6], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, -k1, 0, 3]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -k1-p1, 0, 7], [gluon, 3, +1, k1, 0, 4]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, k1-p2-p5, 0, 10], [quark, 3, -1, -k1+p2, 0, 5], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1+p1, 0, 8], [quark, 3, -1, -k1+p2+p5, 0, 9], [gluon, 3, +1, p3+p4, 0, 2]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 23
   external_legs:
     - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 4], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -412,7 +690,119 @@ diagram:
 
 ---
 diagram:
-  name: 14
+  name: 24
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 2], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 3], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [2, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
+    - [ [5, 2], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 3], [gluon, 3, +1, -p3-p4, 0, 4]] ]
+    - [ [4, 3], top_antitop: [[top, 3, -1, -k1, mt, 5], [antitop, 3, -1, k1, mt, 6]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, k1-p3, 0, 7], [gluon, 3, +1, -k1+p3, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1-p4, 0, 9], [gluon, 3, +1, k1+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 3]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, -k1, mt, 5], [gluon, 3, +1, k1-p3, 0, 7]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, k1, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -k1-p4, 0, 9]] ]
+    - [ gluon_gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 4], [gluon, 3, +1, -k1+p3, 0, 8], [gluon, 3, +1, k1+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 25
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 2], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 3], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [2, 1], quark_antiquark: [[quark, 3, -1, -p1-p5, 0, 1], [antiquark, 3, -1, p1+p5, 0, 2]] ]
+    - [ [5, 2], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 3], [gluon, 3, +1, -p3-p4, 0, 4]] ]
+    - [ [4, 3], gluon_gluon: [[gluon, 3, +1, -k1, 0, 5], [gluon, 3, +1, k1, 0, 6]] ]
+    - [ [5, 3], top_antitop: [[top, 3, -1, k1-p3, mt, 7], [antitop, 3, -1, -k1+p3, mt, 8]] ]
+    - [ [4, 5], top_antitop: [[top, 3, -1, k1+p4, mt, 9], [antitop, 3, -1, -k1-p4, mt, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -p1-p5, 0, 1], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, p1+p5, 0, 2], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, p3+p4, 0, 3]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, k1-p3, mt, 7], [gluon, 3, +1, -k1, 0, 5]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1-p4, mt, 10], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, k1, 0, 6]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1+p3, mt, 8], [top, 3, -1, k1+p4, mt, 9], [gluon, 3, +1, -p3-p4, 0, 4]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 26
+  external_legs:
+    - [ [-1, 2], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 3], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 2], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [5, 2], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 3], [gluon, 3, +1, -p3-p4, 0, 4]] ]
+    - [ [4, 3], top_antitop: [[top, 3, -1, -k1, mt, 5], [antitop, 3, -1, k1, mt, 6]] ]
+    - [ [5, 3], gluon_gluon: [[gluon, 3, +1, k1-p3, 0, 7], [gluon, 3, +1, -k1+p3, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1-p4, 0, 9], [gluon, 3, +1, k1+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 3]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, -k1, mt, 5], [gluon, 3, +1, k1-p3, 0, 7]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, k1, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -k1-p4, 0, 9]] ]
+    - [ gluon_gluon_gluon: [[gluon, 3, +1, -p3-p4, 0, 4], [gluon, 3, +1, -k1+p3, 0, 8], [gluon, 3, +1, k1+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 27
+  external_legs:
+    - [ [-1, 2], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 1], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 3], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 1], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [1, 2], quark_antiquark: [[quark, 3, -1, p2+p5, 0, 1], [antiquark, 3, -1, -p2-p5, 0, 2]] ]
+    - [ [5, 2], gluon_gluon: [[gluon, 3, +1, p3+p4, 0, 3], [gluon, 3, +1, -p3-p4, 0, 4]] ]
+    - [ [4, 3], gluon_gluon: [[gluon, 3, +1, -k1, 0, 5], [gluon, 3, +1, k1, 0, 6]] ]
+    - [ [5, 3], top_antitop: [[top, 3, -1, k1-p3, mt, 7], [antitop, 3, -1, -k1+p3, mt, 8]] ]
+    - [ [4, 5], top_antitop: [[top, 3, -1, k1+p4, mt, 9], [antitop, 3, -1, -k1-p4, mt, 10]] ]
+  vertices:
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -p2-p5, 0, 2], [quark, 1, -1, p2, 0, -3], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, p2+p5, 0, 1], [gluon, 3, +1, p3+p4, 0, 3]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, k1-p3, mt, 7], [gluon, 3, +1, -k1, 0, 5]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1-p4, mt, 10], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, k1, 0, 6]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1+p3, mt, 8], [top, 3, -1, k1+p4, mt, 9], [gluon, 3, +1, -p3-p4, 0, 4]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 28
   external_legs:
     - [ [-1, 2], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 3], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -440,7 +830,7 @@ diagram:
 
 ---
 diagram:
-  name: 15
+  name: 29
   external_legs:
     - [ [-1, 3], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
     - [ [-2, 2], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
@@ -459,6 +849,62 @@ diagram:
     - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, -k1, 0, 5], [gluon, 3, +1, k1-p1, 0, 7]] ]
     - [ antiquark_quark_wboson: [[antiquark, 3, -1, k1, 0, 6], [quark, 3, -1, -k1-p5, 0, 9], [wboson, 1, +1, p5, mw, -9]] ]
     - [ antiquark_quark_gluon: [[antiquark, 3, -1, k1+p5, 0, 10], [quark, 3, -1, -p1-p5, 0, 3], [gluon, 3, +1, -k1+p1, 0, 8]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 30
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 5], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 2], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 4], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 3], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [2, 1], gluon_gluon: [[gluon, 3, +1, -k1, 0, 1], [gluon, 3, +1, k1, 0, 2]] ]
+    - [ [3, 1], quark_antiquark: [[quark, 3, -1, k1-p1, 0, 3], [antiquark, 3, -1, -k1+p1, 0, 4]] ]
+    - [ [4, 2], top_antitop: [[top, 3, -1, -k1-p3, mt, 5], [antitop, 3, -1, k1+p3, mt, 6]] ]
+    - [ [5, 3], quark_antiquark: [[quark, 3, -1, k1-p1-p5, 0, 7], [antiquark, 3, -1, -k1+p1+p5, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1-p3-p4, 0, 9], [gluon, 3, +1, k1+p3+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, k1-p1, 0, 3], [gluon, 3, +1, -k1, 0, 1]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, -k1-p3, mt, 5], [gluon, 3, +1, k1, 0, 2]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -k1+p1, 0, 4], [quark, 3, -1, k1-p1-p5, 0, 7], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, k1+p3, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, -k1-p3-p4, 0, 9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p1+p5, 0, 8], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, k1+p3+p4, 0, 10]] ]
+  symmetry_factor: 1
+  num_legs_in: 5
+  num_legs_out: 0
+  num_loops: 1
+  num_propagators: 5
+  num_vertices: 5
+
+---
+diagram:
+  name: 31
+  external_legs:
+    - [ [-1, 1], in-antiquark: [[antiquark, 1, -1, p1, 0, -1]] ]
+    - [ [-2, 5], in-quark: [[quark, 1, -1, p2, 0, -3]] ]
+    - [ [-3, 4], in-antitop: [[antitop, 1, -1, p3, mt, -5]] ]
+    - [ [-4, 2], in-top: [[top, 1, -1, p4, mt, -7]] ]
+    - [ [-5, 3], in-wboson: [[wboson, 1, +1, p5, mw, -9]] ]
+  propagators:
+    - [ [2, 1], gluon_gluon: [[gluon, 3, +1, -k1, 0, 1], [gluon, 3, +1, k1, 0, 2]] ]
+    - [ [3, 1], quark_antiquark: [[quark, 3, -1, k1-p1, 0, 3], [antiquark, 3, -1, -k1+p1, 0, 4]] ]
+    - [ [2, 4], top_antitop: [[top, 3, -1, k1+p4, mt, 5], [antitop, 3, -1, -k1-p4, mt, 6]] ]
+    - [ [5, 3], quark_antiquark: [[quark, 3, -1, k1-p1-p5, 0, 7], [antiquark, 3, -1, -k1+p1+p5, 0, 8]] ]
+    - [ [5, 4], gluon_gluon: [[gluon, 3, +1, -k1-p3-p4, 0, 9], [gluon, 3, +1, k1+p3+p4, 0, 10]] ]
+  vertices:
+    - [ antiquark_quark_gluon: [[antiquark, 1, -1, p1, 0, -1], [quark, 3, -1, k1-p1, 0, 3], [gluon, 3, +1, -k1, 0, 1]] ]
+    - [ antitop_top_gluon: [[antitop, 3, -1, -k1-p4, mt, 6], [top, 1, -1, p4, mt, -7], [gluon, 3, +1, k1, 0, 2]] ]
+    - [ antiquark_quark_wboson: [[antiquark, 3, -1, -k1+p1, 0, 4], [quark, 3, -1, k1-p1-p5, 0, 7], [wboson, 1, +1, p5, mw, -9]] ]
+    - [ antitop_top_gluon: [[antitop, 1, -1, p3, mt, -5], [top, 3, -1, k1+p4, mt, 5], [gluon, 3, +1, -k1-p3-p4, 0, 9]] ]
+    - [ antiquark_quark_gluon: [[antiquark, 3, -1, -k1+p1+p5, 0, 8], [quark, 1, -1, p2, 0, -3], [gluon, 3, +1, k1+p3+p4, 0, 10]] ]
   symmetry_factor: 1
   num_legs_in: 5
   num_legs_out: 0
