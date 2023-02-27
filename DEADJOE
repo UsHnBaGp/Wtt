@@ -1,0 +1,20 @@
+
+*** These modified files were found in JOE when it aborted on Mon Feb 27 11:12:09 2023
+*** JOE was aborted because the terminal closed
+
+*** File '/home/t30/tan/ge84fet/.gitconfig'
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Sara Ditsch
+	email = sara.ditsch@gmx.de
+*** File '(Unnamed)'
+/scratch/ge84fet/Wtt/.git/MERGE_MSG
+/scratch/ge84fet/Wtt/.git/MERGE_MSG
+/home/t30/tan/ge84fet/.gitconfig
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
