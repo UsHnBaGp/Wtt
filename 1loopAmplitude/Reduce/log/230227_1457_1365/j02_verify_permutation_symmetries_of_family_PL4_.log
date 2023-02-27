@@ -1,0 +1,15 @@
+
+Date: Mon Feb 27 14:57:13 2023
+
+
+conditional: false
+integralfamily: PL4
+abort_on_first_error: true
+dummy_output_file: ./tmp/permutation_symmetries_verified_for_PL4
+
+Verifying permutation symmetries of integral family 'PL4'
+All permutation symmetries verified
+
+Complete permutation symmetries of integral family 'PL4'
+
+Job done (total time: 0 s)

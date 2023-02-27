@@ -1,0 +1,232 @@
+________     _________
+___  __ \__________  /___  ___________
+__  /_/ /  _ \  __  /_  / / /__  /  _ \
+_  _, _//  __/ /_/ / / /_/ /__  /_  __/
+/_/ |_| \___/\__,_/  \__,_/ _____\___/ 
+
+Package:     	Reduze
+Version:     	2.5
+Authors:     	Andreas von Manteuffel, Cedric Studerus
+
+Run on Mon Feb 27 14:57:13 2023 with ID 0eb76085
+Using job file jobs_1_sectormappings.yaml
+Setting project directory to current working directory
+Log files are written to ./log/230227_1457_1365/
+Found global_options
+Setting integral ordering to rs
+Fermat successfully initialized
+Setting up job queue from jobs_1_sectormappings.yaml
+Processing jobs in serial mode (only one MPI process)
+Initialize integral family 'PL1'
+Initialize integral family 'PL2'
+Initialize integral family 'PL3'
+Initialize integral family 'PL4'
+Updated job queue:
+  [p] job(6): setup crossings  [dep: ]
+  [p] job(5): verify permutation symmetries of family 'PL1'  [dep: 6]
+  [p] job(4): verify permutation symmetries of family 'PL2'  [dep: 6]
+  [p] job(3): verify permutation symmetries of family 'PL3'  [dep: 6]
+  [p] job(2): verify permutation symmetries of family 'PL4'  [dep: 6]
+  [p] job(1): setup sector mappings  [dep: 2,3,4,5,6]
+
+Starting job(6): setup crossings
+
+Completed Job(6) [Time: 0s, CPU: 0s]
+Starting job(5): verify permutation symmetries of family 'PL1'
+
+Completed Job(5) [Time: 0s, CPU: 0s]
+Starting job(4): verify permutation symmetries of family 'PL2'
+
+Completed Job(4) [Time: 0s, CPU: 0s]
+Starting job(3): verify permutation symmetries of family 'PL3'
+
+Completed Job(3) [Time: 0s, CPU: 0s]
+Starting job(2): verify permutation symmetries of family 'PL4'
+
+Completed Job(2) [Time: 0s, CPU: 0s]
+Starting job(1): setup sector mappings
+
+Setup sector mappings for the following integral families requested:
+  1-loop:
+    PL1
+    PL2
+    PL3
+    PL4
+
+Setup sector mappings for PL1
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL1/all/:
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................  **************************************************
+Found 13 new shifts to lower sectors
+Found 18 shift target sectors.
+  shift targets contain 18 different graph(s)
+Finding zero sectors of sectors with a graph:
+   t = 1:	0x
+   t = 2:	0xxxxx
+   t = 3:	xxxxxx
+   t = 4:	xxx
+   t = 5:	x
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+Found 16 non-vanishing shift target sectors
+  non-vanishing shift targets contain 16 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................  **************************************************
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................  **************************************************
+Printing graphs of shift targets in ./graphs/PL1/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL1.ps ./graphs/PL1/all/PL1_*.dot
+  neato -Tps -o PL1_shift_targets.ps ./graphs/PL1/shift_targets/PL1_*.dot
+Printing graphs in mma format to ./graphs/PL1/shift_targets.m
+Done setup sector mappings for PL1
+Saving sector mappings for PL1
+
+Setup sector mappings for PL2
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL2/all/:
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................  **************************************************
+Found 31 new shifts to lower sectors
+Found 0 shift target sectors.
+  shift targets contain 0 different graph(s)
+Finding zero sectors of sectors with a graph:
+
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+Found 0 non-vanishing shift target sectors
+  non-vanishing shift targets contain 0 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................
+Printing graphs of shift targets in ./graphs/PL2/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL2.ps ./graphs/PL2/all/PL2_*.dot
+  neato -Tps -o PL2_shift_targets.ps ./graphs/PL2/shift_targets/PL2_*.dot
+Printing graphs in mma format to ./graphs/PL2/shift_targets.m
+Done setup sector mappings for PL2
+Saving sector mappings for PL2
+
+Setup sector mappings for PL3
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL3/all/:
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................  **************************************************
+Found 31 new shifts to lower sectors
+Found 0 shift target sectors.
+  shift targets contain 0 different graph(s)
+Finding zero sectors of sectors with a graph:
+
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+Found 0 non-vanishing shift target sectors
+  non-vanishing shift targets contain 0 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................
+Printing graphs of shift targets in ./graphs/PL3/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL3.ps ./graphs/PL3/all/PL3_*.dot
+  neato -Tps -o PL3_shift_targets.ps ./graphs/PL3/shift_targets/PL3_*.dot
+Printing graphs in mma format to ./graphs/PL3/shift_targets.m
+Done setup sector mappings for PL3
+Saving sector mappings for PL3
+
+Setup sector mappings for PL4
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL4/all/:
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................  **************************************************
+Found 31 new shifts to lower sectors
+Found 0 shift target sectors.
+  shift targets contain 0 different graph(s)
+Finding zero sectors of sectors with a graph:
+
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+Found 0 non-vanishing shift target sectors
+  non-vanishing shift targets contain 0 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................
+Printing graphs of shift targets in ./graphs/PL4/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL4.ps ./graphs/PL4/all/PL4_*.dot
+  neato -Tps -o PL4_shift_targets.ps ./graphs/PL4/shift_targets/PL4_*.dot
+Printing graphs in mma format to ./graphs/PL4/shift_targets.m
+Done setup sector mappings for PL4
+Saving sector mappings for PL4
+
+Completed Job(1) [Time: 0s, CPU: 0s]
+Completed jobs in jobqueue
+
+Completed all jobs
+Total run time: 1 s

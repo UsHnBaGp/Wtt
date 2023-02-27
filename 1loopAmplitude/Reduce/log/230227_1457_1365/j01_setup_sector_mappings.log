@@ -1,0 +1,1142 @@
+
+Date: Mon Feb 27 14:57:13 2023
+
+
+conditional: false
+find_sector_relations: true
+find_sector_symmetries: true
+examine_twists_for_symmetries: true
+find_zero_sectors: true
+find_graphless_zero_sectors: true
+minimize_graphs_by_twists: true
+construct_minimal_graphs: true
+setup_crossings: true
+minimize_target_crossings: true
+allow_general_crossings: true
+verify_permutation_symmetries: true
+
+Using integral family PL1 (id reset to 1)
+  generated crossed integral family PL1x12 (id set to 2)
+  generated crossed integral family PL1x12x34 (id set to 3)
+  generated crossed integral family PL1x34 (id set to 4)
+Using integral family PL2 (id reset to 5)
+  generated crossed integral family PL2x12 (id set to 6)
+  generated crossed integral family PL2x12x34 (id set to 7)
+  generated crossed integral family PL2x34 (id set to 8)
+Using integral family PL3 (id reset to 9)
+  generated crossed integral family PL3x12 (id set to 10)
+  generated crossed integral family PL3x12x34 (id set to 11)
+  generated crossed integral family PL3x34 (id set to 12)
+Using integral family PL4 (id reset to 13)
+  generated crossed integral family PL4x12 (id set to 14)
+  generated crossed integral family PL4x12x34 (id set to 15)
+  generated crossed integral family PL4x34 (id set to 16)
+Done loading integral families
+Setup sector mappings for the following integral families requested:
+  1-loop:
+    PL1
+    PL2
+    PL3
+    PL4
+
+Clear sector mappings and crossed mappings of family 'PL1'
+read key 'sectormappings' in file './sectormappings/sectormappings_PL1.yaml'
+Found valid sector mappings for PL1
+Setup sector mappings for PL1
+
+Kinematics '':
+Rules scalar products to invariants:
+  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+Rules invariants to scalar products:
+  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+
+Crossings for kinematics '':
+  permutation: [[1, 2]]  # name: x12
+                       # rules_momenta: {p1==p2,p2==p1}
+                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+is equivalent to 'x12'
+  permutation: [[1, 2], [3, 4]]  # name: x12x34
+                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
+                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+is equivalent to 'x12x34'
+  permutation: [[3, 4]]  # name: x34
+                       # rules_momenta: {p3==p4,p4==p3}
+                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+is equivalent to 'x34'
+
+Integral family 'PL1':
+name: PL1
+loop_momenta: [k1]
+propagators:
+  - {standard: [k1, 0]}
+  - {standard: [p1+k1, 0]}
+  - {standard: [p1+p3+k1, mt^2]}
+  - {standard: [p1+p3+k1+p4, 0]}
+  - {standard: [p1+p3+k1+p2+p4, 0]}
+cut_propagators: []
+permutation_symmetries:
+  []
+kinematics: ""
+
+Cut propagators form sector with id 0
+
+Rules scalar products to propagators:
+{SP(k1,p4)==-1/2*s34+1/2*Prop(p1+p3+k1+p4,0)^(-1)-1/2*s14+1/2*mt^2-1/2*Prop(p1+p3+k1,mt^2)^(-1),SP(p1,k1)==1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(k1,k1)==Prop(k1,0)^(-1),SP(k1,p2)==-1/2*s23-1/2*s12-1/2*Prop(p1+p3+k1+p4,0)^(-1)+1/2*Prop(p1+p3+k1+p2+p4,0)^(-1)+mt^2-1/2*s24,SP(p3,k1)==-1/2*Prop(p1+k1,0)^(-1)+1/2*mt^2+1/2*Prop(p1+p3+k1,mt^2)^(-1)-1/2*s13}
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+
+Non-equivalent sectors:
+t = 0:
+0
+t = 1:
+1, 2, 4, 8, 16
+t = 2:
+3, 5, 6, 9, 10, 12, 17, 18, 20, 24
+t = 3:
+7, 11, 13, 14, 19, 21, 22, 25, 26, 28
+t = 4:
+15, 23, 27, 29, 30
+t = 5:
+31
+
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL1/all/:
+
+Sectors without a graph:
+
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................
+  **
+Finding shift for sector (PL1:1:1)
+No shift found for sector (PL1:1:1)
+*
+Finding shift for sector (PL1:1:2)
+Found shift from (PL1:1:2) to (PL1:1:1)
+**
+Finding shift for sector (PL1:1:4)
+No shift found for sector (PL1:1:4)
+*
+Finding shift for sector (PL1:1:8)
+Found shift from (PL1:1:8) to (PL1:1:1)
+**
+Finding shift for sector (PL1:1:16)
+Found shift from (PL1:1:16) to (PL1:1:1)
+**
+Finding shift for sector (PL1:2:3)
+No shift found for sector (PL1:2:3)
+*
+Finding shift for sector (PL1:2:5)
+No shift found for sector (PL1:2:5)
+**
+Finding shift for sector (PL1:2:6)
+No shift found for sector (PL1:2:6)
+**
+Finding shift for sector (PL1:2:9)
+No shift found for sector (PL1:2:9)
+*
+Finding shift for sector (PL1:2:10)
+No shift found for sector (PL1:2:10)
+**
+Finding shift for sector (PL1:2:12)
+Found shift from (PL1:2:12) to (PL1x12x34:2:6)
+*
+Finding shift for sector (PL1:2:17)
+No shift found for sector (PL1:2:17)
+**
+Finding shift for sector (PL1:2:18)
+Found shift from (PL1:2:18) to (PL1x12:2:9)
+**
+Finding shift for sector (PL1:2:20)
+Found shift from (PL1:2:20) to (PL1x12x34:2:5)
+*
+Finding shift for sector (PL1:2:24)
+Found shift from (PL1:2:24) to (PL1x12:2:3)
+**
+Finding shift for sector (PL1:3:7)
+No shift found for sector (PL1:3:7)
+*
+Finding shift for sector (PL1:3:11)
+No shift found for sector (PL1:3:11)
+**
+Finding shift for sector (PL1:3:13)
+No shift found for sector (PL1:3:13)
+**
+Finding shift for sector (PL1:3:14)
+No shift found for sector (PL1:3:14)
+*
+Finding shift for sector (PL1:3:19)
+No shift found for sector (PL1:3:19)
+**
+Finding shift for sector (PL1:3:21)
+No shift found for sector (PL1:3:21)
+*
+Finding shift for sector (PL1:3:22)
+Found shift from (PL1:3:22) to (PL1x12x34:3:13)
+**
+Finding shift for sector (PL1:3:25)
+Found shift from (PL1:3:25) to (PL1x12:3:19)
+**
+Finding shift for sector (PL1:3:26)
+Found shift from (PL1:3:26) to (PL1x12:3:11)
+*
+Finding shift for sector (PL1:3:28)
+Found shift from (PL1:3:28) to (PL1x12x34:3:7)
+**
+Finding shift for sector (PL1:4:15)
+No shift found for sector (PL1:4:15)
+**
+Finding shift for sector (PL1:4:23)
+No shift found for sector (PL1:4:23)
+*
+Finding shift for sector (PL1:4:27)
+No shift found for sector (PL1:4:27)
+**
+Finding shift for sector (PL1:4:29)
+Found shift from (PL1:4:29) to (PL1x12x34:4:23)
+*
+Finding shift for sector (PL1:4:30)
+Found shift from (PL1:4:30) to (PL1x12x34:4:15)
+**
+Finding shift for sector (PL1:5:31)
+No shift found for sector (PL1:5:31)
+
+Found 13 new shifts to lower sectors
+Found 18 shift target sectors.
+  shift targets contain 18 different graph(s)
+Finding zero sectors of sectors with a graph:
+Loaded only default generic IBP and LI identities
+   t = 1:	0x
+   t = 2:	0xxxxx
+   t = 3:	xxxxxx
+   t = 4:	xxx
+   t = 5:	x
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+
+Non-vanishing shift targets:
+t = 1:
+4
+t = 2:
+5, 6, 9, 10, 17
+t = 3:
+7, 11, 13, 14, 19, 21
+t = 4:
+15, 23, 27
+t = 5:
+31
+
+Found 16 non-vanishing shift target sectors
+  non-vanishing shift targets contain 16 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding symmetry shifts for sector (PL1:1:1) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_1_1:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_1_1_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:1:1)
+  ***
+Finding symmetry shifts for sector (PL1:1:4) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_1_4:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_1_4_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:1:4)
+***
+Finding symmetry shifts for sector (PL1:2:3) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_2_3:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_2_3_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 2 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 1 symmetry shifts (permutations of multi-edges performed)
+Found 1 symmetry shifts
+Found 1 symmetry shifts for sector (PL1:2:3)
+**
+Finding symmetry shifts for sector (PL1:2:5) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_2_5:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_2_5_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:2:5)
+***
+Finding symmetry shifts for sector (PL1:2:6) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_2_6:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_2_6_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:2:6)
+***
+Finding symmetry shifts for sector (PL1:2:9) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_2_9:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_2_9_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 2 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 1 symmetry shifts (permutations of multi-edges performed)
+Found 1 symmetry shifts
+Found 1 symmetry shifts for sector (PL1:2:9)
+***
+Finding symmetry shifts for sector (PL1:2:10) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_2_10:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_2_10_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 2 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 1 symmetry shifts (permutations of multi-edges performed)
+Found 1 symmetry shifts
+Found 1 symmetry shifts for sector (PL1:2:10)
+**
+Finding symmetry shifts for sector (PL1:2:17) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_2_17:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_2_17_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 2 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 1 symmetry shifts (permutations of multi-edges performed)
+Found 1 symmetry shifts
+Found 1 symmetry shifts for sector (PL1:2:17)
+***
+Finding symmetry shifts for sector (PL1:3:7) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_3_7:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_3_7_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:3:7)
+***
+Finding symmetry shifts for sector (PL1:3:11) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_3_11:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_3_11_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:3:11)
+***
+Finding symmetry shifts for sector (PL1:3:13) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_3_13:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_3_13_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:3:13)
+***
+Finding symmetry shifts for sector (PL1:3:14) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_3_14:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_3_14_twisted1:
+  Found 4 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  omitting crossing: {p1==p2,p2==p1} (not equivalent to identity crossing)
+  omitting crossing: {p3==p4,p4==p3} (not equivalent to identity crossing)
+  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:3:14)
+**
+Finding symmetry shifts for sector (PL1:3:19) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_3_19:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_3_19_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:3:19)
+***
+Finding symmetry shifts for sector (PL1:3:21) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_3_21:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_3_21_twisted1:
+  Found 2 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:3:21)
+***
+Finding symmetry shifts for sector (PL1:4:15) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_4_15:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_4_15_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:4:15)
+***
+Finding symmetry shifts for sector (PL1:4:23) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_4_23:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_4_23_twisted1:
+  Found 1 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:4:23)
+**
+Finding symmetry shifts for sector (PL1:4:27) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_4_27:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_4_27_twisted1:
+  Found 4 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  omitting crossing: {p3==p4,p4==p3} (not equivalent to identity crossing)
+  omitting crossing: {p1==p2,p2==p1} (not equivalent to identity crossing)
+  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:4:27)
+***
+Finding symmetry shifts for sector (PL1:5:31) (examine twists: on)
+Finding non-isomorphic twists of graph PL1_5_31:
+Found 1 non-isomorphic twists
+Finding symmetry shifts of graph PL1_5_31_twisted1:
+  Found 2 symmetries (from node permutations) in the graph
+  performing permutations of multi edges
+  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  found 1 permutations of fundamental cycles
+  omitting empty shift (identity)
+  Found 0 symmetry shifts (permutations of multi-edges performed)
+Found 0 symmetry shifts
+Found 0 symmetry shifts for sector (PL1:5:31)
+***
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................Found shift from (PL1x12:1:1) to (PL1:1:1)
+(PL1x12:1:1)=>(PL1:1:1): (PL1:1:1)
+Found shift from (PL1x12x34:1:1) to (PL1:1:1)
+(PL1x12x34:1:1)=>(PL1:1:1): (PL1:1:1)
+Found shift from (PL1x34:1:1) to (PL1:1:1)
+(PL1x34:1:1)=>(PL1:1:1): (PL1:1:1)
+  ***Found shift from (PL1x12:1:4) to (PL1:1:4)
+(PL1x12:1:4)=>(PL1:1:4): (PL1:1:4)
+Found shift from (PL1x12x34:1:4) to (PL1:1:4)
+(PL1x12x34:1:4)=>(PL1:1:4): (PL1:1:4)
+Found shift from (PL1x34:1:4) to (PL1:1:4)
+(PL1x34:1:4)=>(PL1:1:4): (PL1:1:4)
+***Found shift from (PL1x12x34:2:3) to (PL1x12:2:3)
+(PL1x12x34:2:3)=>(PL1:2:3): (PL1x12:2:3)
+Found shift from (PL1x34:2:3) to (PL1:2:3)
+(PL1x34:2:3)=>(PL1:2:3): (PL1:2:3)
+*****Found shift from (PL1x12:2:6) to (PL1:2:6)
+(PL1x12:2:6)=>(PL1:2:6): (PL1:2:6)
+Found shift from (PL1x34:2:6) to (PL1x12x34:2:6)
+(PL1x34:2:6)=>(PL1:2:6): (PL1x12x34:2:6)
+***Found shift from (PL1x12x34:2:9) to (PL1x12:2:9)
+(PL1x12x34:2:9)=>(PL1:2:9): (PL1x12:2:9)
+Found shift from (PL1x34:2:9) to (PL1:2:9)
+(PL1x34:2:9)=>(PL1:2:9): (PL1:2:9)
+***Found shift from (PL1x12:2:10) to (PL1:2:10)
+(PL1x12:2:10)=>(PL1:2:10): (PL1:2:10)
+Found shift from (PL1x12x34:2:10) to (PL1:2:10)
+(PL1x12x34:2:10)=>(PL1:2:10): (PL1:2:10)
+Found shift from (PL1x34:2:10) to (PL1:2:10)
+(PL1x34:2:10)=>(PL1:2:10): (PL1:2:10)
+**Found shift from (PL1x12:2:17) to (PL1:2:17)
+(PL1x12:2:17)=>(PL1:2:17): (PL1:2:17)
+Found shift from (PL1x12x34:2:17) to (PL1:2:17)
+(PL1x12x34:2:17)=>(PL1:2:17): (PL1:2:17)
+Found shift from (PL1x34:2:17) to (PL1:2:17)
+(PL1x34:2:17)=>(PL1:2:17): (PL1:2:17)
+******Found shift from (PL1x12x34:3:11) to (PL1x12:3:11)
+(PL1x12x34:3:11)=>(PL1:3:11): (PL1x12:3:11)
+Found shift from (PL1x34:3:11) to (PL1:3:11)
+(PL1x34:3:11)=>(PL1:3:11): (PL1:3:11)
+******Found shift from (PL1x12:3:14) to (PL1:3:14)
+(PL1x12:3:14)=>(PL1:3:14): (PL1:3:14)
+Found shift from (PL1x12x34:3:14) to (PL1:3:14)
+(PL1x12x34:3:14)=>(PL1:3:14): (PL1:3:14)
+Found shift from (PL1x34:3:14) to (PL1:3:14)
+(PL1x34:3:14)=>(PL1:3:14): (PL1:3:14)
+**Found shift from (PL1x12x34:3:19) to (PL1x12:3:19)
+(PL1x12x34:3:19)=>(PL1:3:19): (PL1x12:3:19)
+Found shift from (PL1x34:3:19) to (PL1:3:19)
+(PL1x34:3:19)=>(PL1:3:19): (PL1:3:19)
+***Found shift from (PL1x12x34:3:21) to (PL1:3:21)
+(PL1x12x34:3:21)=>(PL1:3:21): (PL1:3:21)
+Found shift from (PL1x34:3:21) to (PL1x12:3:21)
+(PL1x34:3:21)=>(PL1:3:21): (PL1x12:3:21)
+********Found shift from (PL1x12:4:27) to (PL1:4:27)
+(PL1x12:4:27)=>(PL1:4:27): (PL1:4:27)
+Found shift from (PL1x12x34:4:27) to (PL1:4:27)
+(PL1x12x34:4:27)=>(PL1:4:27): (PL1:4:27)
+Found shift from (PL1x34:4:27) to (PL1:4:27)
+(PL1x34:4:27)=>(PL1:4:27): (PL1:4:27)
+***Found shift from (PL1x12x34:5:31) to (PL1:5:31)
+(PL1x12x34:5:31)=>(PL1:5:31): (PL1:5:31)
+Found shift from (PL1x34:5:31) to (PL1x12:5:31)
+(PL1x34:5:31)=>(PL1:5:31): (PL1x12:5:31)
+***
+Printing graphs of shift targets in ./graphs/PL1/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL1.ps ./graphs/PL1/all/PL1_*.dot
+  neato -Tps -o PL1_shift_targets.ps ./graphs/PL1/shift_targets/PL1_*.dot
+Printing graphs in mma format to ./graphs/PL1/shift_targets.m
+Done setup sector mappings for PL1
+Saving sector mappings for PL1
+
+Clear sector mappings and crossed mappings of family 'PL2'
+read key 'sectormappings' in file './sectormappings/sectormappings_PL2.yaml'
+Found valid sector mappings for PL2
+Setup sector mappings for PL2
+
+Kinematics '':
+Rules scalar products to invariants:
+  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+Rules invariants to scalar products:
+  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+
+Crossings for kinematics '':
+  permutation: [[1, 2]]  # name: x12
+                       # rules_momenta: {p1==p2,p2==p1}
+                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+is equivalent to 'x12'
+  permutation: [[1, 2], [3, 4]]  # name: x12x34
+                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
+                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+is equivalent to 'x12x34'
+  permutation: [[3, 4]]  # name: x34
+                       # rules_momenta: {p3==p4,p4==p3}
+                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+is equivalent to 'x34'
+
+Integral family 'PL2':
+name: PL2
+loop_momenta: [k1]
+propagators:
+  - {standard: [k1, 0]}
+  - {standard: [p1+k1, 0]}
+  - {standard: [p1+k1+p4, mt^2]}
+  - {standard: [p1+p3+k1+p4, 0]}
+  - {standard: [p1+p3+p2+k1+p4, 0]}
+cut_propagators: []
+permutation_symmetries:
+  []
+kinematics: ""
+
+Cut propagators form sector with id 0
+
+Rules scalar products to propagators:
+{SP(p2,k1)==-1/2*s23-1/2*s12-1/2*Prop(p1+p3+k1+p4,0)^(-1)+mt^2+1/2*Prop(p1+p3+p2+k1+p4,0)^(-1)-1/2*s24,SP(p1,k1)==1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(k1,p4)==-1/2*s14-1/2*Prop(p1+k1,0)^(-1)+1/2*mt^2+1/2*Prop(p1+k1+p4,mt^2)^(-1),SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==1/2*Prop(p1+p3+k1+p4,0)^(-1)-1/2*s34+1/2*mt^2-1/2*Prop(p1+k1+p4,mt^2)^(-1)-1/2*s13}
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+
+Non-equivalent sectors:
+t = 0:
+0
+t = 1:
+1, 2, 4, 8, 16
+t = 2:
+3, 5, 6, 9, 10, 12, 17, 18, 20, 24
+t = 3:
+7, 11, 13, 14, 19, 21, 22, 25, 26, 28
+t = 4:
+15, 23, 27, 29, 30
+t = 5:
+31
+
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL2/all/:
+
+Sectors without a graph:
+
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................
+  **
+Finding shift for sector (PL2:1:1)
+Found shift from (PL2:1:1) to (PL1:1:1)
+*
+Finding shift for sector (PL2:1:2)
+Found shift from (PL2:1:2) to (PL1:1:1)
+**
+Finding shift for sector (PL2:1:4)
+Found shift from (PL2:1:4) to (PL1:1:4)
+*
+Finding shift for sector (PL2:1:8)
+Found shift from (PL2:1:8) to (PL1:1:1)
+**
+Finding shift for sector (PL2:1:16)
+Found shift from (PL2:1:16) to (PL1:1:1)
+**
+Finding shift for sector (PL2:2:3)
+Found shift from (PL2:2:3) to (PL1:2:3)
+*
+Finding shift for sector (PL2:2:5)
+Found shift from (PL2:2:5) to (PL1x34:2:5)
+**
+Finding shift for sector (PL2:2:6)
+Found shift from (PL2:2:6) to (PL1x12x34:2:6)
+**
+Finding shift for sector (PL2:2:9)
+Found shift from (PL2:2:9) to (PL1:2:9)
+*
+Finding shift for sector (PL2:2:10)
+Found shift from (PL2:2:10) to (PL1:2:10)
+**
+Finding shift for sector (PL2:2:12)
+Found shift from (PL2:2:12) to (PL1:2:6)
+*
+Finding shift for sector (PL2:2:17)
+Found shift from (PL2:2:17) to (PL1:2:17)
+**
+Finding shift for sector (PL2:2:18)
+Found shift from (PL2:2:18) to (PL1x12:2:9)
+**
+Finding shift for sector (PL2:2:20)
+Found shift from (PL2:2:20) to (PL1x12:2:5)
+*
+Finding shift for sector (PL2:2:24)
+Found shift from (PL2:2:24) to (PL1x12:2:3)
+**
+Finding shift for sector (PL2:3:7)
+Found shift from (PL2:3:7) to (PL1x34:3:7)
+*
+Finding shift for sector (PL2:3:11)
+Found shift from (PL2:3:11) to (PL1:3:11)
+**
+Finding shift for sector (PL2:3:13)
+Found shift from (PL2:3:13) to (PL1x34:3:13)
+**
+Finding shift for sector (PL2:3:14)
+Found shift from (PL2:3:14) to (PL1:3:14)
+*
+Finding shift for sector (PL2:3:19)
+Found shift from (PL2:3:19) to (PL1:3:19)
+**
+Finding shift for sector (PL2:3:21)
+Found shift from (PL2:3:21) to (PL1x12:3:21)
+*
+Finding shift for sector (PL2:3:22)
+Found shift from (PL2:3:22) to (PL1x12:3:13)
+**
+Finding shift for sector (PL2:3:25)
+Found shift from (PL2:3:25) to (PL1x12:3:19)
+**
+Finding shift for sector (PL2:3:26)
+Found shift from (PL2:3:26) to (PL1x12:3:11)
+*
+Finding shift for sector (PL2:3:28)
+Found shift from (PL2:3:28) to (PL1x12:3:7)
+**
+Finding shift for sector (PL2:4:15)
+Found shift from (PL2:4:15) to (PL1x34:4:15)
+**
+Finding shift for sector (PL2:4:23)
+Found shift from (PL2:4:23) to (PL1x34:4:23)
+*
+Finding shift for sector (PL2:4:27)
+Found shift from (PL2:4:27) to (PL1:4:27)
+**
+Finding shift for sector (PL2:4:29)
+Found shift from (PL2:4:29) to (PL1x12:4:23)
+*
+Finding shift for sector (PL2:4:30)
+Found shift from (PL2:4:30) to (PL1x12:4:15)
+**
+Finding shift for sector (PL2:5:31)
+Found shift from (PL2:5:31) to (PL1x12:5:31)
+
+Found 31 new shifts to lower sectors
+Found 0 shift target sectors.
+  shift targets contain 0 different graph(s)
+Finding zero sectors of sectors with a graph:
+
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+
+Non-vanishing shift targets:
+
+Found 0 non-vanishing shift target sectors
+  non-vanishing shift targets contain 0 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................
+Printing graphs of shift targets in ./graphs/PL2/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL2.ps ./graphs/PL2/all/PL2_*.dot
+  neato -Tps -o PL2_shift_targets.ps ./graphs/PL2/shift_targets/PL2_*.dot
+Printing graphs in mma format to ./graphs/PL2/shift_targets.m
+Done setup sector mappings for PL2
+Saving sector mappings for PL2
+
+Clear sector mappings and crossed mappings of family 'PL3'
+read key 'sectormappings' in file './sectormappings/sectormappings_PL3.yaml'
+Found valid sector mappings for PL3
+Setup sector mappings for PL3
+
+Kinematics '':
+Rules scalar products to invariants:
+  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+Rules invariants to scalar products:
+  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+
+Crossings for kinematics '':
+  permutation: [[1, 2]]  # name: x12
+                       # rules_momenta: {p1==p2,p2==p1}
+                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+is equivalent to 'x12'
+  permutation: [[1, 2], [3, 4]]  # name: x12x34
+                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
+                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+is equivalent to 'x12x34'
+  permutation: [[3, 4]]  # name: x34
+                       # rules_momenta: {p3==p4,p4==p3}
+                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+is equivalent to 'x34'
+
+Integral family 'PL3':
+name: PL3
+loop_momenta: [k1]
+propagators:
+  - {standard: [k1, 0]}
+  - {standard: [k1+p2, 0]}
+  - {standard: [p3+k1+p2, mt^2]}
+  - {standard: [p3+k1+p2+p4, 0]}
+  - {standard: [p1+p3+k1+p2+p4, 0]}
+cut_propagators: []
+permutation_symmetries:
+  []
+kinematics: ""
+
+Cut propagators form sector with id 0
+
+Rules scalar products to propagators:
+{SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==-1/2*s23-1/2*Prop(k1+p2,0)^(-1)+1/2*Prop(p3+k1+p2,mt^2)^(-1)+1/2*mt^2,SP(k1,p4)==1/2*Prop(p3+k1+p2+p4,0)^(-1)-1/2*s34-1/2*Prop(p3+k1+p2,mt^2)^(-1)+1/2*mt^2-1/2*s24,SP(k1,p2)==1/2*Prop(k1+p2,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(p1,k1)==-1/2*Prop(p3+k1+p2+p4,0)^(-1)+1/2*Prop(p1+p3+k1+p2+p4,0)^(-1)-1/2*s12-1/2*s14+mt^2-1/2*s13}
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+
+Non-equivalent sectors:
+t = 0:
+0
+t = 1:
+1, 2, 4, 8, 16
+t = 2:
+3, 5, 6, 9, 10, 12, 17, 18, 20, 24
+t = 3:
+7, 11, 13, 14, 19, 21, 22, 25, 26, 28
+t = 4:
+15, 23, 27, 29, 30
+t = 5:
+31
+
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL3/all/:
+
+Sectors without a graph:
+
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................
+  **
+Finding shift for sector (PL3:1:1)
+Found shift from (PL3:1:1) to (PL1:1:1)
+*
+Finding shift for sector (PL3:1:2)
+Found shift from (PL3:1:2) to (PL1:1:1)
+**
+Finding shift for sector (PL3:1:4)
+Found shift from (PL3:1:4) to (PL1:1:4)
+*
+Finding shift for sector (PL3:1:8)
+Found shift from (PL3:1:8) to (PL1:1:1)
+**
+Finding shift for sector (PL3:1:16)
+Found shift from (PL3:1:16) to (PL1:1:1)
+**
+Finding shift for sector (PL3:2:3)
+Found shift from (PL3:2:3) to (PL1x12:2:3)
+*
+Finding shift for sector (PL3:2:5)
+Found shift from (PL3:2:5) to (PL1x12:2:5)
+**
+Finding shift for sector (PL3:2:6)
+Found shift from (PL3:2:6) to (PL1:2:6)
+**
+Finding shift for sector (PL3:2:9)
+Found shift from (PL3:2:9) to (PL1x12:2:9)
+*
+Finding shift for sector (PL3:2:10)
+Found shift from (PL3:2:10) to (PL1:2:10)
+**
+Finding shift for sector (PL3:2:12)
+Found shift from (PL3:2:12) to (PL1x12x34:2:6)
+*
+Finding shift for sector (PL3:2:17)
+Found shift from (PL3:2:17) to (PL1:2:17)
+**
+Finding shift for sector (PL3:2:18)
+Found shift from (PL3:2:18) to (PL1:2:9)
+**
+Finding shift for sector (PL3:2:20)
+Found shift from (PL3:2:20) to (PL1x34:2:5)
+*
+Finding shift for sector (PL3:2:24)
+Found shift from (PL3:2:24) to (PL1:2:3)
+**
+Finding shift for sector (PL3:3:7)
+Found shift from (PL3:3:7) to (PL1x12:3:7)
+*
+Finding shift for sector (PL3:3:11)
+Found shift from (PL3:3:11) to (PL1x12:3:11)
+**
+Finding shift for sector (PL3:3:13)
+Found shift from (PL3:3:13) to (PL1x12:3:13)
+**
+Finding shift for sector (PL3:3:14)
+Found shift from (PL3:3:14) to (PL1:3:14)
+*
+Finding shift for sector (PL3:3:19)
+Found shift from (PL3:3:19) to (PL1x12:3:19)
+**
+Finding shift for sector (PL3:3:21)
+Found shift from (PL3:3:21) to (PL1x12:3:21)
+*
+Finding shift for sector (PL3:3:22)
+Found shift from (PL3:3:22) to (PL1x34:3:13)
+**
+Finding shift for sector (PL3:3:25)
+Found shift from (PL3:3:25) to (PL1:3:19)
+**
+Finding shift for sector (PL3:3:26)
+Found shift from (PL3:3:26) to (PL1:3:11)
+*
+Finding shift for sector (PL3:3:28)
+Found shift from (PL3:3:28) to (PL1x34:3:7)
+**
+Finding shift for sector (PL3:4:15)
+Found shift from (PL3:4:15) to (PL1x12:4:15)
+**
+Finding shift for sector (PL3:4:23)
+Found shift from (PL3:4:23) to (PL1x12:4:23)
+*
+Finding shift for sector (PL3:4:27)
+Found shift from (PL3:4:27) to (PL1:4:27)
+**
+Finding shift for sector (PL3:4:29)
+Found shift from (PL3:4:29) to (PL1x34:4:23)
+*
+Finding shift for sector (PL3:4:30)
+Found shift from (PL3:4:30) to (PL1x34:4:15)
+**
+Finding shift for sector (PL3:5:31)
+Found shift from (PL3:5:31) to (PL1x12:5:31)
+
+Found 31 new shifts to lower sectors
+Found 0 shift target sectors.
+  shift targets contain 0 different graph(s)
+Finding zero sectors of sectors with a graph:
+
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+
+Non-vanishing shift targets:
+
+Found 0 non-vanishing shift target sectors
+  non-vanishing shift targets contain 0 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................
+Printing graphs of shift targets in ./graphs/PL3/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL3.ps ./graphs/PL3/all/PL3_*.dot
+  neato -Tps -o PL3_shift_targets.ps ./graphs/PL3/shift_targets/PL3_*.dot
+Printing graphs in mma format to ./graphs/PL3/shift_targets.m
+Done setup sector mappings for PL3
+Saving sector mappings for PL3
+
+Clear sector mappings and crossed mappings of family 'PL4'
+read key 'sectormappings' in file './sectormappings/sectormappings_PL4.yaml'
+Found valid sector mappings for PL4
+Setup sector mappings for PL4
+
+Kinematics '':
+Rules scalar products to invariants:
+  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+Rules invariants to scalar products:
+  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+
+Crossings for kinematics '':
+  permutation: [[1, 2]]  # name: x12
+                       # rules_momenta: {p1==p2,p2==p1}
+                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+is equivalent to 'x12'
+  permutation: [[1, 2], [3, 4]]  # name: x12x34
+                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
+                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+is equivalent to 'x12x34'
+  permutation: [[3, 4]]  # name: x34
+                       # rules_momenta: {p3==p4,p4==p3}
+                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+is equivalent to 'x34'
+
+Integral family 'PL4':
+name: PL4
+loop_momenta: [k1]
+propagators:
+  - {standard: [k1, 0]}
+  - {standard: [k1+p2, 0]}
+  - {standard: [k1+p2+p4, mt^2]}
+  - {standard: [p3+k1+p2+p4, 0]}
+  - {standard: [p1+p3+k1+p2+p4, 0]}
+cut_propagators: []
+permutation_symmetries:
+  []
+kinematics: ""
+
+Cut propagators form sector with id 0
+
+Rules scalar products to propagators:
+{SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==-1/2*s23-1/2*s34-1/2*Prop(k1+p2+p4,mt^2)^(-1)+1/2*Prop(p3+k1+p2+p4,0)^(-1)+1/2*mt^2,SP(k1,p2)==1/2*Prop(k1+p2,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(p1,k1)==-1/2*s12+1/2*Prop(p1+p3+k1+p2+p4,0)^(-1)-1/2*Prop(p3+k1+p2+p4,0)^(-1)-1/2*s14+mt^2-1/2*s13,SP(k1,p4)==1/2*Prop(k1+p2+p4,mt^2)^(-1)+1/2*mt^2-1/2*s24-1/2*Prop(k1+p2,0)^(-1)}
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+
+Non-equivalent sectors:
+t = 0:
+0
+t = 1:
+1, 2, 4, 8, 16
+t = 2:
+3, 5, 6, 9, 10, 12, 17, 18, 20, 24
+t = 3:
+7, 11, 13, 14, 19, 21, 22, 25, 26, 28
+t = 4:
+15, 23, 27, 29, 30
+t = 5:
+31
+
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 31 graphs
+Printing all graphs from sectors in ./graphs/PL4/all/:
+
+Sectors without a graph:
+
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................
+  **
+Finding shift for sector (PL4:1:1)
+Found shift from (PL4:1:1) to (PL1:1:1)
+*
+Finding shift for sector (PL4:1:2)
+Found shift from (PL4:1:2) to (PL1:1:1)
+**
+Finding shift for sector (PL4:1:4)
+Found shift from (PL4:1:4) to (PL1:1:4)
+*
+Finding shift for sector (PL4:1:8)
+Found shift from (PL4:1:8) to (PL1:1:1)
+**
+Finding shift for sector (PL4:1:16)
+Found shift from (PL4:1:16) to (PL1:1:1)
+**
+Finding shift for sector (PL4:2:3)
+Found shift from (PL4:2:3) to (PL1x12:2:3)
+*
+Finding shift for sector (PL4:2:5)
+Found shift from (PL4:2:5) to (PL1x12x34:2:5)
+**
+Finding shift for sector (PL4:2:6)
+Found shift from (PL4:2:6) to (PL1x12x34:2:6)
+**
+Finding shift for sector (PL4:2:9)
+Found shift from (PL4:2:9) to (PL1x12:2:9)
+*
+Finding shift for sector (PL4:2:10)
+Found shift from (PL4:2:10) to (PL1:2:10)
+**
+Finding shift for sector (PL4:2:12)
+Found shift from (PL4:2:12) to (PL1:2:6)
+*
+Finding shift for sector (PL4:2:17)
+Found shift from (PL4:2:17) to (PL1:2:17)
+**
+Finding shift for sector (PL4:2:18)
+Found shift from (PL4:2:18) to (PL1:2:9)
+**
+Finding shift for sector (PL4:2:20)
+Found shift from (PL4:2:20) to (PL1:2:5)
+*
+Finding shift for sector (PL4:2:24)
+Found shift from (PL4:2:24) to (PL1:2:3)
+**
+Finding shift for sector (PL4:3:7)
+Found shift from (PL4:3:7) to (PL1x12x34:3:7)
+*
+Finding shift for sector (PL4:3:11)
+Found shift from (PL4:3:11) to (PL1x12:3:11)
+**
+Finding shift for sector (PL4:3:13)
+Found shift from (PL4:3:13) to (PL1x12x34:3:13)
+**
+Finding shift for sector (PL4:3:14)
+Found shift from (PL4:3:14) to (PL1:3:14)
+*
+Finding shift for sector (PL4:3:19)
+Found shift from (PL4:3:19) to (PL1x12:3:19)
+**
+Finding shift for sector (PL4:3:21)
+Found shift from (PL4:3:21) to (PL1:3:21)
+*
+Finding shift for sector (PL4:3:22)
+Found shift from (PL4:3:22) to (PL1:3:13)
+**
+Finding shift for sector (PL4:3:25)
+Found shift from (PL4:3:25) to (PL1:3:19)
+**
+Finding shift for sector (PL4:3:26)
+Found shift from (PL4:3:26) to (PL1:3:11)
+*
+Finding shift for sector (PL4:3:28)
+Found shift from (PL4:3:28) to (PL1:3:7)
+**
+Finding shift for sector (PL4:4:15)
+Found shift from (PL4:4:15) to (PL1x12x34:4:15)
+**
+Finding shift for sector (PL4:4:23)
+Found shift from (PL4:4:23) to (PL1x12x34:4:23)
+*
+Finding shift for sector (PL4:4:27)
+Found shift from (PL4:4:27) to (PL1:4:27)
+**
+Finding shift for sector (PL4:4:29)
+Found shift from (PL4:4:29) to (PL1:4:23)
+*
+Finding shift for sector (PL4:4:30)
+Found shift from (PL4:4:30) to (PL1:4:15)
+**
+Finding shift for sector (PL4:5:31)
+Found shift from (PL4:5:31) to (PL1:5:31)
+
+Found 31 new shifts to lower sectors
+Found 0 shift target sectors.
+  shift targets contain 0 different graph(s)
+Finding zero sectors of sectors with a graph:
+
+Found 7 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+
+Found additional 0 zero sectors.
+
+Non-vanishing shift targets:
+
+Found 0 non-vanishing shift target sectors
+  non-vanishing shift targets contain 0 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................
+Printing graphs of shift targets in ./graphs/PL4/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL4.ps ./graphs/PL4/all/PL4_*.dot
+  neato -Tps -o PL4_shift_targets.ps ./graphs/PL4/shift_targets/PL4_*.dot
+Printing graphs in mma format to ./graphs/PL4/shift_targets.m
+Done setup sector mappings for PL4
+Saving sector mappings for PL4
+
+
+Job done (total time: 1 s)
