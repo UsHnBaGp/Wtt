@@ -1,5 +1,5 @@
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
 
 conditional: false
@@ -46,22 +46,22 @@ Setup sector mappings for PL1
 
 Kinematics '':
 Rules scalar products to invariants:
-  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+  {SP(p1,p3)==-1/2*mt^2+1/2*s13,SP(p4,p4)==mt^2,SP(p2,p1)==1/2*s12,SP(p4,p1)==-1/2*mt^2+1/2*s14,SP(p2,p2)==0,SP(p2,p4)==1/2*s24-1/2*mt^2,SP(p4,p3)==-1/2*s24+mt^2-1/2*s13+1/2*mw^2-1/2*s23-1/2*s12-1/2*s14,SP(p2,p3)==-1/2*mt^2+1/2*s23,SP(p3,p3)==mt^2,SP(p1,p1)==0}
 Rules invariants to scalar products:
-  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+  {s24==SP(p4,p4)+2*SP(p2,p4),mt^2==SP(p4,p4),mw^(-2)==1/2*(SP(p1,p3)+SP(p4,p4)+SP(p2,p1)+SP(p4,p1)+SP(p2,p4)+SP(p4,p3)+SP(p2,p3))^(-1),s13==2*SP(p1,p3)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),mw^2==2*SP(p1,p3)+2*SP(p4,p4)+2*SP(p2,p1)+2*SP(p4,p1)+2*SP(p2,p4)+2*SP(p4,p3)+2*SP(p2,p3),s23==SP(p4,p4)+2*SP(p2,p3),s12==2*SP(p2,p1),s14==SP(p4,p4)+2*SP(p4,p1)}
 
 Crossings for kinematics '':
   permutation: [[1, 2]]  # name: x12
-                       # rules_momenta: {p1==p2,p2==p1}
-                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+                       # rules_momenta: {p2==p1,p1==p2}
+                       # rules_invariants: {s24==s14,s13==s23,s23==s13,s14==s24}
 is equivalent to 'x12'
   permutation: [[1, 2], [3, 4]]  # name: x12x34
-                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
-                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+                               # rules_momenta: {p2==p1,p4==p3,p1==p2,p3==p4}
+                               # rules_invariants: {s24==s13,s13==s24,s23==s14,s14==s23}
 is equivalent to 'x12x34'
   permutation: [[3, 4]]  # name: x34
-                       # rules_momenta: {p3==p4,p4==p3}
-                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+                       # rules_momenta: {p4==p3,p3==p4}
+                       # rules_invariants: {s24==s23,s13==s14,s23==s24,s14==s13}
 is equivalent to 'x34'
 
 Integral family 'PL1':
@@ -71,8 +71,8 @@ propagators:
   - {standard: [k1, 0]}
   - {standard: [p1+k1, 0]}
   - {standard: [p1+p3+k1, mt^2]}
-  - {standard: [p1+p3+k1+p4, 0]}
-  - {standard: [p1+p3+k1+p2+p4, 0]}
+  - {standard: [p4+p1+p3+k1, 0]}
+  - {standard: [p2+p4+p1+p3+k1, 0]}
 cut_propagators: []
 permutation_symmetries:
   []
@@ -81,7 +81,7 @@ kinematics: ""
 Cut propagators form sector with id 0
 
 Rules scalar products to propagators:
-{SP(k1,p4)==-1/2*s34+1/2*Prop(p1+p3+k1+p4,0)^(-1)-1/2*s14+1/2*mt^2-1/2*Prop(p1+p3+k1,mt^2)^(-1),SP(p1,k1)==1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(k1,k1)==Prop(k1,0)^(-1),SP(k1,p2)==-1/2*s23-1/2*s12-1/2*Prop(p1+p3+k1+p4,0)^(-1)+1/2*Prop(p1+p3+k1+p2+p4,0)^(-1)+mt^2-1/2*s24,SP(p3,k1)==-1/2*Prop(p1+k1,0)^(-1)+1/2*mt^2+1/2*Prop(p1+p3+k1,mt^2)^(-1)-1/2*s13}
+{SP(k1,k1)==Prop(k1,0)^(-1),SP(p1,k1)==-1/2*Prop(k1,0)^(-1)+1/2*Prop(p1+k1,0)^(-1),SP(p3,k1)==1/2*mt^2-1/2*s13-1/2*Prop(p1+k1,0)^(-1)+1/2*Prop(p1+p3+k1,mt^2)^(-1),SP(p2,k1)==-1/2*s24+mt^2-1/2*Prop(p4+p1+p3+k1,0)^(-1)-1/2*s23-1/2*s12+1/2*Prop(p2+p4+p1+p3+k1,0)^(-1),SP(p4,k1)==1/2*s24-3/2*mt^2+1/2*s13-1/2*mw^2+1/2*Prop(p4+p1+p3+k1,0)^(-1)+1/2*s23+1/2*s12-1/2*Prop(p1+p3+k1,mt^2)^(-1)}
 
 Maximal sector id is 31.
 32 sectors occur in total
@@ -380,9 +380,9 @@ Found 1 non-isomorphic twists
 Finding symmetry shifts of graph PL1_3_14_twisted1:
   Found 4 symmetries (from node permutations) in the graph
   performing permutations of multi edges
-  omitting crossing: {p1==p2,p2==p1} (not equivalent to identity crossing)
-  omitting crossing: {p3==p4,p4==p3} (not equivalent to identity crossing)
-  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  omitting crossing: {p2==p1,p1==p2} (not equivalent to identity crossing)
+  omitting crossing: {p4==p3,p3==p4} (not equivalent to identity crossing)
+  omitting crossing: {p2==p1,p4==p3,p1==p2,p3==p4} (not equivalent to identity crossing)
   found 1 permutations of fundamental cycles
   omitting empty shift (identity)
   Found 0 symmetry shifts (permutations of multi-edges performed)
@@ -407,7 +407,7 @@ Found 1 non-isomorphic twists
 Finding symmetry shifts of graph PL1_3_21_twisted1:
   Found 2 symmetries (from node permutations) in the graph
   performing permutations of multi edges
-  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  omitting crossing: {p2==p1,p4==p3,p1==p2,p3==p4} (not equivalent to identity crossing)
   found 1 permutations of fundamental cycles
   omitting empty shift (identity)
   Found 0 symmetry shifts (permutations of multi-edges performed)
@@ -444,9 +444,9 @@ Found 1 non-isomorphic twists
 Finding symmetry shifts of graph PL1_4_27_twisted1:
   Found 4 symmetries (from node permutations) in the graph
   performing permutations of multi edges
-  omitting crossing: {p3==p4,p4==p3} (not equivalent to identity crossing)
-  omitting crossing: {p1==p2,p2==p1} (not equivalent to identity crossing)
-  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  omitting crossing: {p4==p3,p3==p4} (not equivalent to identity crossing)
+  omitting crossing: {p2==p1,p1==p2} (not equivalent to identity crossing)
+  omitting crossing: {p2==p1,p4==p3,p1==p2,p3==p4} (not equivalent to identity crossing)
   found 1 permutations of fundamental cycles
   omitting empty shift (identity)
   Found 0 symmetry shifts (permutations of multi-edges performed)
@@ -459,7 +459,7 @@ Found 1 non-isomorphic twists
 Finding symmetry shifts of graph PL1_5_31_twisted1:
   Found 2 symmetries (from node permutations) in the graph
   performing permutations of multi edges
-  omitting crossing: {p1==p2,p3==p4,p2==p1,p4==p3} (not equivalent to identity crossing)
+  omitting crossing: {p2==p1,p4==p3,p1==p2,p3==p4} (not equivalent to identity crossing)
   found 1 permutations of fundamental cycles
   omitting empty shift (identity)
   Found 0 symmetry shifts (permutations of multi-edges performed)
@@ -548,22 +548,22 @@ Setup sector mappings for PL2
 
 Kinematics '':
 Rules scalar products to invariants:
-  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+  {SP(p1,p3)==-1/2*mt^2+1/2*s13,SP(p4,p4)==mt^2,SP(p2,p1)==1/2*s12,SP(p4,p1)==-1/2*mt^2+1/2*s14,SP(p2,p2)==0,SP(p2,p4)==1/2*s24-1/2*mt^2,SP(p4,p3)==-1/2*s24+mt^2-1/2*s13+1/2*mw^2-1/2*s23-1/2*s12-1/2*s14,SP(p2,p3)==-1/2*mt^2+1/2*s23,SP(p3,p3)==mt^2,SP(p1,p1)==0}
 Rules invariants to scalar products:
-  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+  {s24==SP(p4,p4)+2*SP(p2,p4),mt^2==SP(p4,p4),mw^(-2)==1/2*(SP(p1,p3)+SP(p4,p4)+SP(p2,p1)+SP(p4,p1)+SP(p2,p4)+SP(p4,p3)+SP(p2,p3))^(-1),s13==2*SP(p1,p3)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),mw^2==2*SP(p1,p3)+2*SP(p4,p4)+2*SP(p2,p1)+2*SP(p4,p1)+2*SP(p2,p4)+2*SP(p4,p3)+2*SP(p2,p3),s23==SP(p4,p4)+2*SP(p2,p3),s12==2*SP(p2,p1),s14==SP(p4,p4)+2*SP(p4,p1)}
 
 Crossings for kinematics '':
   permutation: [[1, 2]]  # name: x12
-                       # rules_momenta: {p1==p2,p2==p1}
-                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+                       # rules_momenta: {p2==p1,p1==p2}
+                       # rules_invariants: {s24==s14,s13==s23,s23==s13,s14==s24}
 is equivalent to 'x12'
   permutation: [[1, 2], [3, 4]]  # name: x12x34
-                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
-                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+                               # rules_momenta: {p2==p1,p4==p3,p1==p2,p3==p4}
+                               # rules_invariants: {s24==s13,s13==s24,s23==s14,s14==s23}
 is equivalent to 'x12x34'
   permutation: [[3, 4]]  # name: x34
-                       # rules_momenta: {p3==p4,p4==p3}
-                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+                       # rules_momenta: {p4==p3,p3==p4}
+                       # rules_invariants: {s24==s23,s13==s14,s23==s24,s14==s13}
 is equivalent to 'x34'
 
 Integral family 'PL2':
@@ -572,9 +572,9 @@ loop_momenta: [k1]
 propagators:
   - {standard: [k1, 0]}
   - {standard: [p1+k1, 0]}
-  - {standard: [p1+k1+p4, mt^2]}
-  - {standard: [p1+p3+k1+p4, 0]}
-  - {standard: [p1+p3+p2+k1+p4, 0]}
+  - {standard: [p4+p1+k1, mt^2]}
+  - {standard: [p4+p1+p3+k1, 0]}
+  - {standard: [p2+p4+p1+p3+k1, 0]}
 cut_propagators: []
 permutation_symmetries:
   []
@@ -583,7 +583,7 @@ kinematics: ""
 Cut propagators form sector with id 0
 
 Rules scalar products to propagators:
-{SP(p2,k1)==-1/2*s23-1/2*s12-1/2*Prop(p1+p3+k1+p4,0)^(-1)+mt^2+1/2*Prop(p1+p3+p2+k1+p4,0)^(-1)-1/2*s24,SP(p1,k1)==1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(k1,p4)==-1/2*s14-1/2*Prop(p1+k1,0)^(-1)+1/2*mt^2+1/2*Prop(p1+k1+p4,mt^2)^(-1),SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==1/2*Prop(p1+p3+k1+p4,0)^(-1)-1/2*s34+1/2*mt^2-1/2*Prop(p1+k1+p4,mt^2)^(-1)-1/2*s13}
+{SP(p1,k1)==1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==1/2*s24-3/2*mt^2-1/2*Prop(p4+p1+k1,mt^2)^(-1)-1/2*mw^2+1/2*s23+1/2*s12+1/2*s14+1/2*Prop(p4+p1+p3+k1,0)^(-1),SP(p2,k1)==-1/2*s24+mt^2+1/2*Prop(p2+p4+p1+p3+k1,0)^(-1)-1/2*s23-1/2*s12-1/2*Prop(p4+p1+p3+k1,0)^(-1),SP(p4,k1)==1/2*mt^2-1/2*Prop(p1+k1,0)^(-1)+1/2*Prop(p4+p1+k1,mt^2)^(-1)-1/2*s14}
 
 Maximal sector id is 31.
 32 sectors occur in total
@@ -747,22 +747,22 @@ Setup sector mappings for PL3
 
 Kinematics '':
 Rules scalar products to invariants:
-  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+  {SP(p1,p3)==-1/2*mt^2+1/2*s13,SP(p4,p4)==mt^2,SP(p2,p1)==1/2*s12,SP(p4,p1)==-1/2*mt^2+1/2*s14,SP(p2,p2)==0,SP(p2,p4)==1/2*s24-1/2*mt^2,SP(p4,p3)==-1/2*s24+mt^2-1/2*s13+1/2*mw^2-1/2*s23-1/2*s12-1/2*s14,SP(p2,p3)==-1/2*mt^2+1/2*s23,SP(p3,p3)==mt^2,SP(p1,p1)==0}
 Rules invariants to scalar products:
-  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+  {s24==SP(p4,p4)+2*SP(p2,p4),mt^2==SP(p4,p4),mw^(-2)==1/2*(SP(p1,p3)+SP(p4,p4)+SP(p2,p1)+SP(p4,p1)+SP(p2,p4)+SP(p4,p3)+SP(p2,p3))^(-1),s13==2*SP(p1,p3)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),mw^2==2*SP(p1,p3)+2*SP(p4,p4)+2*SP(p2,p1)+2*SP(p4,p1)+2*SP(p2,p4)+2*SP(p4,p3)+2*SP(p2,p3),s23==SP(p4,p4)+2*SP(p2,p3),s12==2*SP(p2,p1),s14==SP(p4,p4)+2*SP(p4,p1)}
 
 Crossings for kinematics '':
   permutation: [[1, 2]]  # name: x12
-                       # rules_momenta: {p1==p2,p2==p1}
-                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+                       # rules_momenta: {p2==p1,p1==p2}
+                       # rules_invariants: {s24==s14,s13==s23,s23==s13,s14==s24}
 is equivalent to 'x12'
   permutation: [[1, 2], [3, 4]]  # name: x12x34
-                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
-                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+                               # rules_momenta: {p2==p1,p4==p3,p1==p2,p3==p4}
+                               # rules_invariants: {s24==s13,s13==s24,s23==s14,s14==s23}
 is equivalent to 'x12x34'
   permutation: [[3, 4]]  # name: x34
-                       # rules_momenta: {p3==p4,p4==p3}
-                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+                       # rules_momenta: {p4==p3,p3==p4}
+                       # rules_invariants: {s24==s23,s13==s14,s23==s24,s14==s13}
 is equivalent to 'x34'
 
 Integral family 'PL3':
@@ -770,10 +770,10 @@ name: PL3
 loop_momenta: [k1]
 propagators:
   - {standard: [k1, 0]}
-  - {standard: [k1+p2, 0]}
-  - {standard: [p3+k1+p2, mt^2]}
-  - {standard: [p3+k1+p2+p4, 0]}
-  - {standard: [p1+p3+k1+p2+p4, 0]}
+  - {standard: [p2+k1, 0]}
+  - {standard: [p2+k1+p3, mt^2]}
+  - {standard: [p2+p4+k1+p3, 0]}
+  - {standard: [p2+p4+p1+k1+p3, 0]}
 cut_propagators: []
 permutation_symmetries:
   []
@@ -782,7 +782,7 @@ kinematics: ""
 Cut propagators form sector with id 0
 
 Rules scalar products to propagators:
-{SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==-1/2*s23-1/2*Prop(k1+p2,0)^(-1)+1/2*Prop(p3+k1+p2,mt^2)^(-1)+1/2*mt^2,SP(k1,p4)==1/2*Prop(p3+k1+p2+p4,0)^(-1)-1/2*s34-1/2*Prop(p3+k1+p2,mt^2)^(-1)+1/2*mt^2-1/2*s24,SP(k1,p2)==1/2*Prop(k1+p2,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(p1,k1)==-1/2*Prop(p3+k1+p2+p4,0)^(-1)+1/2*Prop(p1+p3+k1+p2+p4,0)^(-1)-1/2*s12-1/2*s14+mt^2-1/2*s13}
+{SP(k1,p3)==1/2*mt^2+1/2*Prop(p2+k1+p3,mt^2)^(-1)-1/2*Prop(p2+k1,0)^(-1)-1/2*s23,SP(p2,k1)==1/2*Prop(p2+k1,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(p4,k1)==-3/2*mt^2+1/2*s13-1/2*Prop(p2+k1+p3,mt^2)^(-1)-1/2*mw^2+1/2*Prop(p2+p4+k1+p3,0)^(-1)+1/2*s23+1/2*s12+1/2*s14,SP(p1,k1)==mt^2-1/2*s13-1/2*Prop(p2+p4+k1+p3,0)^(-1)-1/2*s12-1/2*s14+1/2*Prop(p2+p4+p1+k1+p3,0)^(-1),SP(k1,k1)==Prop(k1,0)^(-1)}
 
 Maximal sector id is 31.
 32 sectors occur in total
@@ -946,22 +946,22 @@ Setup sector mappings for PL4
 
 Kinematics '':
 Rules scalar products to invariants:
-  {SP(p2,p4)==-1/2*mt^2+1/2*s24,SP(p1,p2)==1/2*s12,SP(p2,p2)==0,SP(p3,p3)==mt^2,SP(p1,p4)==1/2*s14-1/2*mt^2,SP(p3,p2)==1/2*s23-1/2*mt^2,SP(p4,p4)==mt^2,SP(p1,p1)==0,SP(p3,p4)==1/2*s34-mt^2,SP(p1,p3)==-1/2*mt^2+1/2*s13}
+  {SP(p1,p3)==-1/2*mt^2+1/2*s13,SP(p4,p4)==mt^2,SP(p2,p1)==1/2*s12,SP(p4,p1)==-1/2*mt^2+1/2*s14,SP(p2,p2)==0,SP(p2,p4)==1/2*s24-1/2*mt^2,SP(p4,p3)==-1/2*s24+mt^2-1/2*s13+1/2*mw^2-1/2*s23-1/2*s12-1/2*s14,SP(p2,p3)==-1/2*mt^2+1/2*s23,SP(p3,p3)==mt^2,SP(p1,p1)==0}
 Rules invariants to scalar products:
-  {s23==2*SP(p3,p2)+SP(p4,p4),s12==2*SP(p1,p2),s34==2*SP(p4,p4)+2*SP(p3,p4),s14==2*SP(p1,p4)+SP(p4,p4),mt^2==SP(p4,p4),s24==2*SP(p2,p4)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),s13==SP(p4,p4)+2*SP(p1,p3)}
+  {s24==SP(p4,p4)+2*SP(p2,p4),mt^2==SP(p4,p4),mw^(-2)==1/2*(SP(p1,p3)+SP(p4,p4)+SP(p2,p1)+SP(p4,p1)+SP(p2,p4)+SP(p4,p3)+SP(p2,p3))^(-1),s13==2*SP(p1,p3)+SP(p4,p4),mt^(-2)==SP(p4,p4)^(-1),mw^2==2*SP(p1,p3)+2*SP(p4,p4)+2*SP(p2,p1)+2*SP(p4,p1)+2*SP(p2,p4)+2*SP(p4,p3)+2*SP(p2,p3),s23==SP(p4,p4)+2*SP(p2,p3),s12==2*SP(p2,p1),s14==SP(p4,p4)+2*SP(p4,p1)}
 
 Crossings for kinematics '':
   permutation: [[1, 2]]  # name: x12
-                       # rules_momenta: {p1==p2,p2==p1}
-                       # rules_invariants: {s23==s13,s14==s24,s24==s14,s13==s23}
+                       # rules_momenta: {p2==p1,p1==p2}
+                       # rules_invariants: {s24==s14,s13==s23,s23==s13,s14==s24}
 is equivalent to 'x12'
   permutation: [[1, 2], [3, 4]]  # name: x12x34
-                               # rules_momenta: {p1==p2,p3==p4,p2==p1,p4==p3}
-                               # rules_invariants: {s23==s14,s14==s23,s24==s13,s13==s24}
+                               # rules_momenta: {p2==p1,p4==p3,p1==p2,p3==p4}
+                               # rules_invariants: {s24==s13,s13==s24,s23==s14,s14==s23}
 is equivalent to 'x12x34'
   permutation: [[3, 4]]  # name: x34
-                       # rules_momenta: {p3==p4,p4==p3}
-                       # rules_invariants: {s23==s24,s14==s13,s24==s23,s13==s14}
+                       # rules_momenta: {p4==p3,p3==p4}
+                       # rules_invariants: {s24==s23,s13==s14,s23==s24,s14==s13}
 is equivalent to 'x34'
 
 Integral family 'PL4':
@@ -969,10 +969,10 @@ name: PL4
 loop_momenta: [k1]
 propagators:
   - {standard: [k1, 0]}
-  - {standard: [k1+p2, 0]}
-  - {standard: [k1+p2+p4, mt^2]}
-  - {standard: [p3+k1+p2+p4, 0]}
-  - {standard: [p1+p3+k1+p2+p4, 0]}
+  - {standard: [p2+k1, 0]}
+  - {standard: [p2+p4+k1, mt^2]}
+  - {standard: [p2+p4+k1+p3, 0]}
+  - {standard: [p2+p4+k1+p1+p3, 0]}
 cut_propagators: []
 permutation_symmetries:
   []
@@ -981,7 +981,7 @@ kinematics: ""
 Cut propagators form sector with id 0
 
 Rules scalar products to propagators:
-{SP(k1,k1)==Prop(k1,0)^(-1),SP(p3,k1)==-1/2*s23-1/2*s34-1/2*Prop(k1+p2+p4,mt^2)^(-1)+1/2*Prop(p3+k1+p2+p4,0)^(-1)+1/2*mt^2,SP(k1,p2)==1/2*Prop(k1+p2,0)^(-1)-1/2*Prop(k1,0)^(-1),SP(p1,k1)==-1/2*s12+1/2*Prop(p1+p3+k1+p2+p4,0)^(-1)-1/2*Prop(p3+k1+p2+p4,0)^(-1)-1/2*s14+mt^2-1/2*s13,SP(k1,p4)==1/2*Prop(k1+p2+p4,mt^2)^(-1)+1/2*mt^2-1/2*s24-1/2*Prop(k1+p2,0)^(-1)}
+{SP(p2,k1)==-1/2*Prop(k1,0)^(-1)+1/2*Prop(p2+k1,0)^(-1),SP(k1,p3)==1/2*s24-3/2*mt^2+1/2*s13-1/2*mw^2+1/2*Prop(p2+p4+k1+p3,0)^(-1)+1/2*s12+1/2*s14-1/2*Prop(p2+p4+k1,mt^2)^(-1),SP(p4,k1)==-1/2*s24+1/2*mt^2-1/2*Prop(p2+k1,0)^(-1)+1/2*Prop(p2+p4+k1,mt^2)^(-1),SP(k1,k1)==Prop(k1,0)^(-1),SP(k1,p1)==1/2*Prop(p2+p4+k1+p1+p3,0)^(-1)+mt^2-1/2*s13-1/2*Prop(p2+p4+k1+p3,0)^(-1)-1/2*s12-1/2*s14}
 
 Maximal sector id is 31.
 32 sectors occur in total

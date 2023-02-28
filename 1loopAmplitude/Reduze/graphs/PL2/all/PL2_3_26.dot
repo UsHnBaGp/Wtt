@@ -6,10 +6,10 @@ digraph PL2_3_26 {
     -2 -> 2 [label="(p2,0;2)"];
     -3 -> 1 [label="(p3,mt^2;3)"];
     -4 -> 1 [label="(p4,mt^2;4)"];
-    -5 -> 3 [label="(-p1-p3-p2-p4,s23+s12+s34+s14-4*mt^2+s24+s13;5)"];
+    -5 -> 3 [label="(-p2-p4-p1-p3,mw^2;5)"];
     3 -> 1 [label="(p1+k1,0;7)"];
-    1 -> 2 [label="(p1+p3+k1+p4,0;9)"];
-    2 -> 3 [label="(p1+p3+p2+k1+p4,0;10)"];
+    1 -> 2 [label="(p4+p1+p3+k1,0;9)"];
+    2 -> 3 [label="(p2+p4+p1+p3+k1,0;10)"];
   }
   subgraph incoming { rank="source"; -1; -2; -3; -4; -5; }
 -5 [shape=point];

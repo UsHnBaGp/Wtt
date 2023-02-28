@@ -1,5 +1,5 @@
 
-Date: Mon Feb 27 14:57:14 2023
+Date: Tue Feb 28 14:30:39 2023
 
 
 conditional: false
@@ -77,7 +77,7 @@ rename negative field indices
 Loaded diagram 30
 rename negative field indices
 Loaded diagram 31
-Diagrams loaded. Time: 0.0250884s
+Diagrams loaded. Time: 0.0251538s
   preparing graphs:
   ..................................................  **************************************************
 Loaded 31 diagrams.
@@ -110,34 +110,42 @@ Finding shift targets (with graph and canonical label):
 Matching diagrams:
 Analyzing diagram 07
 
-n  no match for diagram 07
+x  => matched diagram 07 to sector (PL1:2:10)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 08
 n  no match for diagram 08
 
 Analyzing diagram 09
-n  no match for diagram 09
+x  => matched diagram 09 to sector (PL1:2:10)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 10
-n  no match for diagram 10
+x  => matched diagram 10 to sector (PL1:2:10)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 11
-n  no match for diagram 11
+x  => matched diagram 11 to sector (PL1:2:10)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 12
 n  no match for diagram 12
 
 Analyzing diagram 13
-n  no match for diagram 13
+x  => matched diagram 13 to sector (PL1:2:10)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 14
-n  no match for diagram 14
+x  => matched diagram 14 to sector (PL1:2:10)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 15
-n  no match for diagram 15
+x  => matched diagram 15 to sector (PL1x12:2:9)
+     via shift: {k1==k1}
 
 Analyzing diagram 16
-n  no match for diagram 16
+x  => matched diagram 16 to sector (PL1:2:9)
+     via shift: {k1==k1}
 
 Analyzing diagram 01
 n  no match for diagram 01
@@ -146,46 +154,58 @@ Analyzing diagram 02
 n  no match for diagram 02
 
 Analyzing diagram 03
-n  no match for diagram 03
+x  => matched diagram 03 to sector (PL1x12:3:11)
+     via shift: {k1==-k1}
 
 Analyzing diagram 04
-n  no match for diagram 04
+x  => matched diagram 04 to sector (PL1x12:3:11)
+     via shift: {k1==-k1}
 
 Analyzing diagram 05
-n  no match for diagram 05
+x  => matched diagram 05 to sector (PL1:3:11)
+     via shift: {k1==-k1}
 
 Analyzing diagram 06
-n  no match for diagram 06
+x  => matched diagram 06 to sector (PL1:3:11)
+     via shift: {k1==-k1}
 
 Analyzing diagram 24
-n  no match for diagram 24
+x  => matched diagram 24 to sector (PL1:3:14)
+     via shift: {k1==p1+p3+k1}
 
 Analyzing diagram 25
 n  no match for diagram 25
 
 Analyzing diagram 26
-n  no match for diagram 26
+x  => matched diagram 26 to sector (PL1:3:14)
+     via shift: {k1==p1+p3+k1}
 
 Analyzing diagram 27
 n  no match for diagram 27
 
 Analyzing diagram 28
-n  no match for diagram 28
+x  => matched diagram 28 to sector (PL1x12:3:19)
+     via shift: {k1==-k1}
 
 Analyzing diagram 29
-n  no match for diagram 29
+x  => matched diagram 29 to sector (PL1:3:19)
+     via shift: {k1==-k1}
 
 Analyzing diagram 17
-n  no match for diagram 17
+x  => matched diagram 17 to sector (PL1x12:4:15)
+     via shift: {k1==-p2-k1}
 
 Analyzing diagram 18
-n  no match for diagram 18
+x  => matched diagram 18 to sector (PL1x12x34:4:15)
+     via shift: {k1==-p2-k1}
 
 Analyzing diagram 19
-n  no match for diagram 19
+x  => matched diagram 19 to sector (PL1:4:15)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 20
-n  no match for diagram 20
+x  => matched diagram 20 to sector (PL1x34:4:15)
+     via shift: {k1==-p1-k1}
 
 Analyzing diagram 21
 n  no match for diagram 21
@@ -194,52 +214,58 @@ Analyzing diagram 22
 n  no match for diagram 22
 
 Analyzing diagram 23
-n  no match for diagram 23
+x  => matched diagram 23 to sector (PL1:4:27)
+     via shift: {k1==k1}
 
 Analyzing diagram 30
-n  no match for diagram 30
+x  => matched diagram 30 to sector (PL1:5:31)
+     via shift: {k1==p1+k1}
 
 Analyzing diagram 31
-n  no match for diagram 31
+x  => matched diagram 31 to sector (PL1x12:5:31)
+     via shift: {k1==-p2-p4-p3-k1}
 
 Finalizing output file my_tmp/shifts
 
-Unmatched diagrams: 31
-  07 (7)
+Unmatched diagrams: 8
   08 (8)
-  09 (9)
-  10 (10)
-  11 (11)
   12 (12)
-  13 (13)
-  14 (14)
-  15 (15)
-  16 (16)
   01 (1)
   02 (2)
-  03 (3)
-  04 (4)
-  05 (5)
-  06 (6)
-  24 (24)
   25 (25)
-  26 (26)
   27 (27)
-  28 (28)
-  29 (29)
-  17 (17)
-  18 (18)
-  19 (19)
-  20 (20)
   21 (21)
   22 (22)
-  23 (23)
-  30 (30)
-  31 (31)
 
-Matched diagrams: 0
+Matched diagrams: 23
 
-Sectors: 0
+Sectors: 15
+family PL1:
+t = 2: 9 
+family PL1x12:
+t = 2: 9 
+family PL1:
+t = 2: 10 
+t = 3: 11 
+family PL1x12:
+t = 3: 11 
+family PL1:
+t = 3: 14 19 
+family PL1x12:
+t = 3: 19 
+family PL1:
+t = 4: 15 
+family PL1x12:
+t = 4: 15 
+family PL1x12x34:
+t = 4: 15 
+family PL1x34:
+t = 4: 15 
+family PL1:
+t = 4: 27 
+t = 5: 31 
+family PL1x12:
+t = 5: 31 
 Determining compact recursive sector selection
 
 This selection of sectors should be reduced for the matched diagrams:
@@ -250,7 +276,7 @@ This selection of sectors should be reduced for the matched diagrams:
         select:
           []
         select_recursively:
-          []
+          - [PL1, 31]
         deselect:
           []
         deselect_recursively:

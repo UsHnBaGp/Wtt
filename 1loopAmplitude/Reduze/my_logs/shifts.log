@@ -8,10 +8,10 @@ Package:     	Reduze
 Version:     	2.5
 Authors:     	Andreas von Manteuffel, Cedric Studerus
 
-Run on Mon Feb 27 14:57:14 2023 with ID 0eb760f5
+Run on Tue Feb 28 14:30:39 2023 with ID 0f38c7a0
 Using job file jobs_2_shifts.yaml
 Setting project directory to current working directory
-Log files are written to ./log/230227_1457_1477/
+Log files are written to ./log/230228_1430_3904/
 Found global_options
 Setting integral ordering to rs
 Fermat successfully initialized
@@ -28,7 +28,7 @@ Starting job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/out
 
 Read diagrams from file '/scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce'
 Reading diagrams from file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce
-Diagrams loaded. Time: 0.0250973s
+Diagrams loaded. Time: 0.0251623s
   preparing graphs:
   ..................................................  **************************************************
 Loaded 31 diagrams.
@@ -51,14 +51,40 @@ Finding shift targets (with graph and canonical label):
   ..................................................  **************************************************
 
 Matching diagrams:
-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+xnxxxnxxxxnnxxxxxnxnxxxxxxnnxxx
 Finalizing output file my_tmp/shifts
 
-Unmatched diagrams: 31
+Unmatched diagrams: 8
 
-Matched diagrams: 0
+Matched diagrams: 23
 
-Sectors: 0
+Sectors: 15
+family PL1:
+t = 2: 9 
+family PL1x12:
+t = 2: 9 
+family PL1:
+t = 2: 10 
+t = 3: 11 
+family PL1x12:
+t = 3: 11 
+family PL1:
+t = 3: 14 19 
+family PL1x12:
+t = 3: 19 
+family PL1:
+t = 4: 15 
+family PL1x12:
+t = 4: 15 
+family PL1x12x34:
+t = 4: 15 
+family PL1x34:
+t = 4: 15 
+family PL1:
+t = 4: 27 
+t = 5: 31 
+family PL1x12:
+t = 5: 31 
 Determining compact recursive sector selection
 
 This selection of sectors should be reduced for the matched diagrams:
@@ -69,7 +95,7 @@ This selection of sectors should be reduced for the matched diagrams:
         select:
           []
         select_recursively:
-          []
+          - [PL1, 31]
         deselect:
           []
         deselect_recursively:

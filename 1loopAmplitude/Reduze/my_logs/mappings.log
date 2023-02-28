@@ -8,10 +8,10 @@ Package:     	Reduze
 Version:     	2.5
 Authors:     	Andreas von Manteuffel, Cedric Studerus
 
-Run on Mon Feb 27 14:57:13 2023 with ID 0eb76085
+Run on Tue Feb 28 14:30:37 2023 with ID 0f38c72e
 Using job file jobs_1_sectormappings.yaml
 Setting project directory to current working directory
-Log files are written to ./log/230227_1457_1365/
+Log files are written to ./log/230228_1430_3790/
 Found global_options
 Setting integral ordering to rs
 Fermat successfully initialized

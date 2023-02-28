@@ -1,5 +1,5 @@
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
 Setting up job queue from jobs_1_sectormappings.yaml
 Updating job queue dependencies
@@ -36,49 +36,49 @@ Updated job queue:
   [p] job(1): setup sector mappings  [dep: 2,3,4,5,6]
 
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
-Run ID: 0eb76085
+Run ID: 0f38c72e
 
 Starting job(6): setup crossings
 Completed Job(6) [Time: 0s, CPU: 0s]
 Updating job queue dependencies
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
-Run ID: 0eb76085
+Run ID: 0f38c72e
 
 Starting job(5): verify permutation symmetries of family 'PL1'
 Completed Job(5) [Time: 0s, CPU: 0s]
 Updating job queue dependencies
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
-Run ID: 0eb76085
+Run ID: 0f38c72e
 
 Starting job(4): verify permutation symmetries of family 'PL2'
 Completed Job(4) [Time: 0s, CPU: 0s]
 Updating job queue dependencies
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
-Run ID: 0eb76085
+Run ID: 0f38c72e
 
 Starting job(3): verify permutation symmetries of family 'PL3'
 Completed Job(3) [Time: 0s, CPU: 0s]
 Updating job queue dependencies
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
-Run ID: 0eb76085
+Run ID: 0f38c72e
 
 Starting job(2): verify permutation symmetries of family 'PL4'
 Completed Job(2) [Time: 0s, CPU: 0s]
 Updating job queue dependencies
 
-Date: Mon Feb 27 14:57:13 2023
+Date: Tue Feb 28 14:30:37 2023
 
-Run ID: 0eb76085
+Run ID: 0f38c72e
 
 Starting job(1): setup sector mappings
 Completed Job(1) [Time: 0s, CPU: 0s]
