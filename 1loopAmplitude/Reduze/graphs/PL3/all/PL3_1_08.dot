@@ -1,0 +1,21 @@
+digraph PL3_1_8 {
+  label="PL3_1_8";
+  rankdir="LR";
+  subgraph edges {
+    -1 -> 1 [label="(p1,0;1)"];
+    -2 -> 1 [label="(p2,0;2)"];
+    -3 -> 1 [label="(p3,mt^2;3)"];
+    -4 -> 1 [label="(p4,mt^2;4)"];
+    -5 -> 1 [label="(-p2-p4-p1-p3,mw^2;5)"];
+    2 -> 2 [label="(-p2+k1,0;9)"];
+  }
+  subgraph incoming { rank="source"; -1; -2; -3; -4; -5; }
+-5 [shape=point];
+-4 [shape=point];
+-3 [shape=point];
+-2 [shape=point];
+-1 [shape=point];
+1 [shape=point];
+2 [shape=point];
+}
+

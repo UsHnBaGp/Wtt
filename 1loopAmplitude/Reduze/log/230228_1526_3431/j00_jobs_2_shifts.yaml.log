@@ -1,5 +1,5 @@
 
-Date: Tue Feb 28 14:57:14 2023
+Date: Tue Feb 28 15:26:34 2023
 
 Setting up job queue from jobs_2_shifts.yaml
 Updating job queue dependencies
@@ -9,14 +9,18 @@ Updating job queue dependencies
 Loading uncrossed integral families from file ./config/integralfamilies.yaml
 Initialize integral family 'PL1'
 Loaded integral family PL1
-Loaded 1 (uncrossed) integral families
+Initialize integral family 'PL2'
+Loaded integral family PL2
+Initialize integral family 'PL3'
+Loaded integral family PL3
+Loaded 3 (uncrossed) integral families
 Done loading uncrossed integral families
 Using integral family PL1 (id reset to 1)
 Loading crossings from file ./sectormappings/crossings.yaml
 Crossing equivalence: '' -> ''
-using crossing x12 (invs: {s14==s24,s24==s14,s13==s23,s23==s13}, mom: {p2==p1,p1==p2})
-using crossing x12x34 (invs: {s14==s23,s24==s13,s13==s24,s23==s14}, mom: {p2==p1,p4==p3,p1==p2,p3==p4})
-using crossing x34 (invs: {s14==s13,s24==s23,s13==s14,s23==s24}, mom: {p4==p3,p3==p4})
+using crossing x12 (invs: {s13==s23,s23==s13,s14==s24,s24==s14}, mom: {p1==p2,p2==p1})
+using crossing x12x34 (invs: {s13==s24,s23==s14,s14==s23,s24==s13}, mom: {p4==p3,p1==p2,p3==p4,p2==p1})
+using crossing x34 (invs: {s13==s14,s23==s24,s14==s13,s24==s23}, mom: {p4==p3,p3==p4})
 Crossing equivalence: 'x34' -> 'x34'
 Crossing equivalence: 'x12x34' -> 'x12x34'
 Crossing equivalence: 'x12' -> 'x12'
@@ -27,14 +31,22 @@ Done loading crossings
   generated crossed integral family PL1x12 (id set to 2)
   generated crossed integral family PL1x12x34 (id set to 3)
   generated crossed integral family PL1x34 (id set to 4)
+Using integral family PL2 (id reset to 5)
+  generated crossed integral family PL2x12 (id set to 6)
+  generated crossed integral family PL2x12x34 (id set to 7)
+  generated crossed integral family PL2x34 (id set to 8)
+Using integral family PL3 (id reset to 9)
+  generated crossed integral family PL3x12 (id set to 10)
+  generated crossed integral family PL3x12x34 (id set to 11)
+  generated crossed integral family PL3x34 (id set to 12)
 Done loading integral families
 Updated job queue:
   [p] job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze  [dep: ]
 
 
-Date: Tue Feb 28 14:57:14 2023
+Date: Tue Feb 28 15:26:34 2023
 
-Run ID: 0f3b36ae
+Run ID: 0f3de647
 
 Starting job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze
 Completed Job(1) [Time: 0s, CPU: 0s]

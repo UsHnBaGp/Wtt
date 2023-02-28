@@ -8,25 +8,35 @@ Package:     	Reduze
 Version:     	2.5
 Authors:     	Andreas von Manteuffel, Cedric Studerus
 
-Run on Tue Feb 28 14:57:13 2023 with ID 0f3b3657
+Run on Tue Feb 28 15:26:33 2023 with ID 0f3de5d3
 Using job file jobs_1_sectormappings.yaml
 Setting project directory to current working directory
-Log files are written to ./log/230228_1457_1319/
+Log files are written to ./log/230228_1526_3315/
 Found global_options
 Setting integral ordering to rs
 Fermat successfully initialized
 Setting up job queue from jobs_1_sectormappings.yaml
 Processing jobs in serial mode (only one MPI process)
 Initialize integral family 'PL1'
+Initialize integral family 'PL2'
+Initialize integral family 'PL3'
 Updated job queue:
-  [p] job(3): setup crossings  [dep: ]
-  [p] job(2): verify permutation symmetries of family 'PL1'  [dep: 3]
-  [p] job(1): setup sector mappings  [dep: 2,3]
+  [p] job(5): setup crossings  [dep: ]
+  [p] job(4): verify permutation symmetries of family 'PL1'  [dep: 5]
+  [p] job(3): verify permutation symmetries of family 'PL2'  [dep: 5]
+  [p] job(2): verify permutation symmetries of family 'PL3'  [dep: 5]
+  [p] job(1): setup sector mappings  [dep: 2,3,4,5]
 
-Starting job(3): setup crossings
+Starting job(5): setup crossings
+
+Completed Job(5) [Time: 0s, CPU: 0s]
+Starting job(4): verify permutation symmetries of family 'PL1'
+
+Completed Job(4) [Time: 0s, CPU: 0s]
+Starting job(3): verify permutation symmetries of family 'PL2'
 
 Completed Job(3) [Time: 0s, CPU: 0s]
-Starting job(2): verify permutation symmetries of family 'PL1'
+Starting job(2): verify permutation symmetries of family 'PL3'
 
 Completed Job(2) [Time: 0s, CPU: 0s]
 Starting job(1): setup sector mappings
@@ -34,6 +44,8 @@ Starting job(1): setup sector mappings
 Setup sector mappings for the following integral families requested:
   1-loop:
     PL1
+    PL2
+    PL3
 
 Setup sector mappings for PL1
 
@@ -81,8 +93,101 @@ Printing graphs in mma format to ./graphs/PL1/shift_targets.m
 Done setup sector mappings for PL1
 Saving sector mappings for PL1
 
+Setup sector mappings for PL2
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 11 graphs
+Printing all graphs from sectors in ./graphs/PL2/all/:
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................  **************************************************
+Found 8 new shifts to lower sectors
+Found 3 shift target sectors.
+  shift targets contain 3 different graph(s)
+Finding zero sectors of sectors with a graph:
+   t = 2:	xx
+   t = 3:	x
+Found 4 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+   t = 2:	xxxxx
+   t = 3:	xxxxxxxxx
+   t = 4:	xxxxx
+   t = 5:	x
+Found additional 0 zero sectors.
+Found 3 non-vanishing shift target sectors
+  non-vanishing shift targets contain 3 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................  **************************************************
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................  **************************************************
+Printing graphs of shift targets in ./graphs/PL2/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL2.ps ./graphs/PL2/all/PL2_*.dot
+  neato -Tps -o PL2_shift_targets.ps ./graphs/PL2/shift_targets/PL2_*.dot
+Printing graphs in mma format to ./graphs/PL2/shift_targets.m
+Done setup sector mappings for PL2
+Saving sector mappings for PL2
+
+Setup sector mappings for PL3
+
+Maximal sector id is 31.
+32 sectors occur in total
+Finding non-equivalent sectors using permutation symmetries:
+32 non-equivalent sectors were found
+Finding representing graphs of sectors (twists on / construct minimal on):
+  finding graphs
+  ..................................................  **************************************************
+Found 19 graphs
+Printing all graphs from sectors in ./graphs/PL3/all/:
+Finding canonical labels:
+  canonical labels:
+  ..................................................  **************************************************
+Finding sector shifts:
+  sector shifts:
+  ..................................................  **************************************************
+Found 12 new shifts to lower sectors
+Found 7 shift target sectors.
+  shift targets contain 7 different graph(s)
+Finding zero sectors of sectors with a graph:
+   t = 2:	xxx
+   t = 3:	xxx
+   t = 4:	x
+Found 8 zero sectors (isomorphics included).
+Finding zero sectors for sectors without a graph:
+   t = 2:	xx
+   t = 3:	xxxxx
+   t = 4:	xxxx
+   t = 5:	x
+Found additional 0 zero sectors.
+Found 7 non-vanishing shift target sectors
+  non-vanishing shift targets contain 7 different graph(s)
+Finding symmetry shift relations:
+  finding symmetry shifts
+  ..................................................  **************************************************
+Finding crossed sector relations for non-zero shift targets
+  crossed relations:
+  ..................................................  **************************************************
+Printing graphs of shift targets in ./graphs/PL3/shift_targets/:
+To generate a postscript file from the graphs in the dot format type e.g.
+  dot -Tps -o PL3.ps ./graphs/PL3/all/PL3_*.dot
+  neato -Tps -o PL3_shift_targets.ps ./graphs/PL3/shift_targets/PL3_*.dot
+Printing graphs in mma format to ./graphs/PL3/shift_targets.m
+Done setup sector mappings for PL3
+Saving sector mappings for PL3
+
 Completed Job(1) [Time: 0s, CPU: 0s]
 Completed jobs in jobqueue
 
 Completed all jobs
-Total run time: 0 s
+Total run time: 1 s

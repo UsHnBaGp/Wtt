@@ -6,9 +6,9 @@ digraph PL1_2_12 {
     -2 -> 2 [label="(p2,0;2)"];
     -3 -> 2 [label="(p3,mt^2;3)"];
     -4 -> 1 [label="(p4,mt^2;4)"];
-    -5 -> 2 [label="(-p4-p1-p3-p2,mw^2;5)"];
-    2 -> 1 [label="(p1+p3+k1,mt^2;8)"];
-    1 -> 2 [label="(p4+p1+p3+k1,0;9)"];
+    -5 -> 2 [label="(-p2-p4-p1-p3,mw^2;5)"];
+    2 -> 1 [label="(k1+p1+p3,mt^2;8)"];
+    1 -> 2 [label="(k1+p4+p1+p3,0;9)"];
   }
   subgraph incoming { rank="source"; -1; -2; -3; -4; -5; }
 -5 [shape=point];
