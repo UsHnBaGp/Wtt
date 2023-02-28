@@ -8,44 +8,29 @@ Package:     	Reduze
 Version:     	2.5
 Authors:     	Andreas von Manteuffel, Cedric Studerus
 
-Run on Tue Feb 28 14:30:39 2023 with ID 0f38c7a0
+Run on Tue Feb 28 14:57:14 2023 with ID 0f3b36ae
 Using job file jobs_2_shifts.yaml
 Setting project directory to current working directory
-Log files are written to ./log/230228_1430_3904/
+Log files are written to ./log/230228_1457_1406/
 Found global_options
 Setting integral ordering to rs
 Fermat successfully initialized
 Setting up job queue from jobs_2_shifts.yaml
 Processing jobs in serial mode (only one MPI process)
 Initialize integral family 'PL1'
-Initialize integral family 'PL2'
-Initialize integral family 'PL3'
-Initialize integral family 'PL4'
 Updated job queue:
-  [p] job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce  [dep: ]
+  [p] job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze  [dep: ]
 
-Starting job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce
+Starting job(1): find diagram shifts for [...]tch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze
 
-Read diagrams from file '/scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce'
-Reading diagrams from file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce
-Diagrams loaded. Time: 0.0251623s
+Read diagrams from file '/scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze'
+Reading diagrams from file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze
+Diagrams loaded. Time: 0.0254472s
   preparing graphs:
   ..................................................  **************************************************
 Loaded 31 diagrams.
 Finding sectors and their graphs to match with diagrams:
 Finding graphs of shift target sectors from integral family PL1:
-Finding shift targets (with graph and canonical label):
-  finding graphs: (twists on / construct minimal off)
-  ..................................................  **************************************************
-Finding graphs of shift target sectors from integral family PL2:
-Finding shift targets (with graph and canonical label):
-  finding graphs: (twists on / construct minimal off)
-  ..................................................  **************************************************
-Finding graphs of shift target sectors from integral family PL3:
-Finding shift targets (with graph and canonical label):
-  finding graphs: (twists on / construct minimal off)
-  ..................................................  **************************************************
-Finding graphs of shift target sectors from integral family PL4:
 Finding shift targets (with graph and canonical label):
   finding graphs: (twists on / construct minimal off)
   ..................................................  **************************************************

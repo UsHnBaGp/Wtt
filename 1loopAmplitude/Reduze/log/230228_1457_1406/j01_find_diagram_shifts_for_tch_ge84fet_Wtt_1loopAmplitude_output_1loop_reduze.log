@@ -1,9 +1,9 @@
 
-Date: Tue Feb 28 14:30:39 2023
+Date: Tue Feb 28 14:57:14 2023
 
 
 conditional: false
-qgraf_file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce
+qgraf_file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze
 output_file: my_tmp/shifts
 info_file_form: my_results/shifts.inc
 names:
@@ -13,8 +13,8 @@ amputate_external_legs: false
 join_external_legs: false
 kinematics: ""
 
-Read diagrams from file '/scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce'
-Reading diagrams from file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduce
+Read diagrams from file '/scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze'
+Reading diagrams from file: /scratch/ge84fet/Wtt/1loopAmplitude/output_1loop_reduze
 rename negative field indices
 Loaded diagram 1
 rename negative field indices
@@ -77,7 +77,7 @@ rename negative field indices
 Loaded diagram 30
 rename negative field indices
 Loaded diagram 31
-Diagrams loaded. Time: 0.0251538s
+Diagrams loaded. Time: 0.0254406s
   preparing graphs:
   ..................................................  **************************************************
 Loaded 31 diagrams.
@@ -88,56 +88,38 @@ Finding graphs of shift target sectors from integral family PL1:
 Finding shift targets (with graph and canonical label):
   finding graphs: (twists on / construct minimal off)
   ..................................................  **************************************************
-read key 'sectormappings' in file './sectormappings/sectormappings_PL2.yaml'
-Found valid sector mappings for PL2
-Finding graphs of shift target sectors from integral family PL2:
-Finding shift targets (with graph and canonical label):
-  finding graphs: (twists on / construct minimal off)
-  ..................................................  **************************************************
-read key 'sectormappings' in file './sectormappings/sectormappings_PL3.yaml'
-Found valid sector mappings for PL3
-Finding graphs of shift target sectors from integral family PL3:
-Finding shift targets (with graph and canonical label):
-  finding graphs: (twists on / construct minimal off)
-  ..................................................  **************************************************
-read key 'sectormappings' in file './sectormappings/sectormappings_PL4.yaml'
-Found valid sector mappings for PL4
-Finding graphs of shift target sectors from integral family PL4:
-Finding shift targets (with graph and canonical label):
-  finding graphs: (twists on / construct minimal off)
-  ..................................................  **************************************************
 
 Matching diagrams:
 Analyzing diagram 07
 
 x  => matched diagram 07 to sector (PL1:2:10)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 08
 n  no match for diagram 08
 
 Analyzing diagram 09
 x  => matched diagram 09 to sector (PL1:2:10)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 10
 x  => matched diagram 10 to sector (PL1:2:10)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 11
 x  => matched diagram 11 to sector (PL1:2:10)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 12
 n  no match for diagram 12
 
 Analyzing diagram 13
 x  => matched diagram 13 to sector (PL1:2:10)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 14
 x  => matched diagram 14 to sector (PL1:2:10)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 15
 x  => matched diagram 15 to sector (PL1x12:2:9)
@@ -171,14 +153,14 @@ x  => matched diagram 06 to sector (PL1:3:11)
 
 Analyzing diagram 24
 x  => matched diagram 24 to sector (PL1:3:14)
-     via shift: {k1==p1+p3+k1}
+     via shift: {k1==k1+p1+p3}
 
 Analyzing diagram 25
 n  no match for diagram 25
 
 Analyzing diagram 26
 x  => matched diagram 26 to sector (PL1:3:14)
-     via shift: {k1==p1+p3+k1}
+     via shift: {k1==k1+p1+p3}
 
 Analyzing diagram 27
 n  no match for diagram 27
@@ -193,19 +175,19 @@ x  => matched diagram 29 to sector (PL1:3:19)
 
 Analyzing diagram 17
 x  => matched diagram 17 to sector (PL1x12:4:15)
-     via shift: {k1==-p2-k1}
+     via shift: {k1==-k1-p2}
 
 Analyzing diagram 18
 x  => matched diagram 18 to sector (PL1x12x34:4:15)
-     via shift: {k1==-p2-k1}
+     via shift: {k1==-k1-p2}
 
 Analyzing diagram 19
 x  => matched diagram 19 to sector (PL1:4:15)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 20
 x  => matched diagram 20 to sector (PL1x34:4:15)
-     via shift: {k1==-p1-k1}
+     via shift: {k1==-k1-p1}
 
 Analyzing diagram 21
 n  no match for diagram 21
@@ -219,11 +201,11 @@ x  => matched diagram 23 to sector (PL1:4:27)
 
 Analyzing diagram 30
 x  => matched diagram 30 to sector (PL1:5:31)
-     via shift: {k1==p1+k1}
+     via shift: {k1==k1+p1}
 
 Analyzing diagram 31
 x  => matched diagram 31 to sector (PL1x12:5:31)
-     via shift: {k1==-p2-p4-p3-k1}
+     via shift: {k1==-k1-p2-p4-p3}
 
 Finalizing output file my_tmp/shifts
 
