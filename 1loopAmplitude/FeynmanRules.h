@@ -95,14 +95,19 @@ id helperfctTopLine*vrtx(antitop(helperidx1?,helpervec1?),top('LabelT',helpervec
 ***** Wvertex ****
 id vrtx(wboson)=-i_*gW*g_(1,muw);
 
+
 *** 3gluon vertex ***
 id vrtx (gluon (helperidx1?, helpervec1?),gluon (helperidx2?, helpervec2?),gluon (helperidx3?, helpervec3?)) = gs*f (cidx (helperidx1), cidx (helperidx2), cidx (helperidx3))*((-helperfct (helpervec1)*helperfct (lidx (helperidx3)) +helperfct (helpervec2)*helperfct (lidx ((helperidx3)))*del (lidx (helperidx1), lidx (helperidx2)) + (-helperfct (helpervec2)*helperfct (lidx (helperidx1)) +helperfct (helpervec3)*helperfct (lidx (helperidx1)))*del (lidx (helperidx2),lidx (helperidx3)) + (-helperfct (helpervec3)*helperfctlidx (helperidx2) +helperfct (helpervec1)*helperfct (lidx (helperidx2)))*del (lidx (helperidx3), lidx (helperidx1))));
 
+*** ghost gluon vertex ***
+id vrtx((antighost (helperidx1?, helpervec1?),ghost (helperidx2?, helpervec2?),gluon (helperidx3?, helpervec3?))=gs*f(cidx(helperidx),cidx(helperidx,cidx(helperidx)))
 
 
-*replace propagators (deltafct in quark propagator already included above)*
+
+*** propagators (deltafct in quark propagator already included above) ***
 
 id prop(gluon(helperidx1?,helperidx2?,helpervec?))=-i_*del(cidx(helperidx1),cidx(helperidx2))*(del(lidx(helperidx1),lidx(helperidx2))*den(helpervec.helpervec)-(1-xi)*helperfctvec(helpervec)*helperfct(lidx(helperidx1))*helperfctvec(helpervec)*helperfct(lidx(helperidx2))*den((helpervec.helpervec)^2));
+id prop(ghost(helperidx1?,helperidx2?,helpervec?))=i_*del(cidx(helperidx1),cidx(helperidx2))*den(helpervec.helpervec);
 
 
 .sort
