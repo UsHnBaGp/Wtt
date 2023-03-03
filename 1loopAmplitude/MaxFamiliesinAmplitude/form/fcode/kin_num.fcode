@@ -1,0 +1,11 @@
+repeat id p4 = -p1 - p2 - p3;
+repeat id p1.p1 = 0;
+repeat id p1.p2 = half*s12;
+repeat id p1.p3 = -(half*mt^2) + half*s13;
+repeat id p1.p4 = -(half*mt^2) + half*s14;
+repeat id p2.p2 = 0;
+repeat id p2.p3 = -(half*mt^2) + half*s23;
+repeat id p2.p4 = -(half*mt^2) + half*s24;
+repeat id p3.p3 = mt^2;
+repeat id p4.p4 = mt^2;
+repeat id p5.p5 = mw^2;

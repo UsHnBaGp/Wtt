@@ -1,0 +1,77 @@
+repeat id Sector(PL1,?argsS)*Prop(k1,0,?argsP) = D1*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(-k1,0,?argsP) = D1*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(k1+p1,0,?argsP) = D2*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(-k1-p1,0,?argsP) = D2*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(k1+p1+p3,-mt + mt*(k1 + p1 + p3)*#1,?argsP) = D3*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(-k1-p1-p3,-mt + mt*(k1 + p1 + p3)*#1,?argsP) = D3*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(k1+p1+p3+p4,0,?argsP) = D4*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(-k1-p1-p3-p4,0,?argsP) = D4*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(k1+p1+p2+p3+p4,0,?argsP) = D5*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*Prop(-k1-p1-p2-p3-p4,0,?argsP) = D5*Sector(PL1,?argsS);
+
+repeat id Sector(PL1x12,?argsS)*Prop(k1,0,?argsP) = D1*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(-k1,0,?argsP) = D1*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(k1+p2,0,?argsP) = D2*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(-k1-p2,0,?argsP) = D2*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(k1+p2+p3,-mt + mt*(k1 + p2 + p3)*#1,?argsP) = D3*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(-k1-p2-p3,-mt + mt*(k1 + p2 + p3)*#1,?argsP) = D3*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(k1+p2+p3+p4,0,?argsP) = D4*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(-k1-p2-p3-p4,0,?argsP) = D4*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(k1+p1+p2+p3+p4,0,?argsP) = D5*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*Prop(-k1-p1-p2-p3-p4,0,?argsP) = D5*Sector(PL1x12,?argsS);
+
+repeat id Sector(PL1x12x34,?argsS)*Prop(k1,0,?argsP) = D1*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(-k1,0,?argsP) = D1*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(k1+p2,0,?argsP) = D2*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(-k1-p2,0,?argsP) = D2*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(k1+p2+p4,-mt + mt*(k1 + p2 + p4)*#1,?argsP) = D3*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(-k1-p2-p4,-mt + mt*(k1 + p2 + p4)*#1,?argsP) = D3*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(k1+p2+p3+p4,0,?argsP) = D4*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(-k1-p2-p3-p4,0,?argsP) = D4*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(k1+p1+p2+p3+p4,0,?argsP) = D5*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*Prop(-k1-p1-p2-p3-p4,0,?argsP) = D5*Sector(PL1x12x34,?argsS);
+
+repeat id Sector(PL1x34,?argsS)*Prop(k1,0,?argsP) = D1*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(-k1,0,?argsP) = D1*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(k1+p1,0,?argsP) = D2*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(-k1-p1,0,?argsP) = D2*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(k1+p1+p4,-mt + mt*(k1 + p1 + p4)*#1,?argsP) = D3*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(-k1-p1-p4,-mt + mt*(k1 + p1 + p4)*#1,?argsP) = D3*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(k1+p1+p3+p4,0,?argsP) = D4*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(-k1-p1-p3-p4,0,?argsP) = D4*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(k1+p1+p2+p3+p4,0,?argsP) = D5*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*Prop(-k1-p1-p2-p3-p4,0,?argsP) = D5*Sector(PL1x34,?argsS);
+
+repeat id Sector(PL2,?argsS)*Prop(k1,mt,?argsP) = D1*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(-k1,mt,?argsP) = D1*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(k1+p3,0,?argsP) = D2*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(-k1-p3,0,?argsP) = D2*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(k1+p3+p4,mt,?argsP) = D3*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(-k1-p3-p4,mt,?argsP) = D3*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(k1+p1,0,?argsP) = D4*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(-k1-p1,0,?argsP) = D4*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(k1+p2,0,?argsP) = D5*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*Prop(-k1-p2,0,?argsP) = D5*Sector(PL2,?argsS);
+
+repeat id Sector(PL3,?argsS)*Prop(k1,0,?argsP) = D1*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(-k1,0,?argsP) = D1*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(k1+p1,0,?argsP) = D2*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(-k1-p1,0,?argsP) = D2*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(k1-p2-p3-p4,0,?argsP) = D3*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(-k1+p2+p3+p4,0,?argsP) = D3*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(k1-p2,0,?argsP) = D4*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(-k1+p2,0,?argsP) = D4*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(k1+p3,0,?argsP) = D5*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*Prop(-k1-p3,0,?argsP) = D5*Sector(PL3,?argsS);
+
+repeat id Sector(PL3x12,?argsS)*Prop(k1,0,?argsP) = D1*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(-k1,0,?argsP) = D1*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(k1+p2,0,?argsP) = D2*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(-k1-p2,0,?argsP) = D2*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(k1-p1-p3-p4,0,?argsP) = D3*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(-k1+p1+p3+p4,0,?argsP) = D3*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(k1-p1,0,?argsP) = D4*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(-k1+p1,0,?argsP) = D4*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(k1+p3,0,?argsP) = D5*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*Prop(-k1-p3,0,?argsP) = D5*Sector(PL3x12,?argsS);
+

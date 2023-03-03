@@ -30,15 +30,14 @@ autodeclare symbol d;
 autodeclare vector k;
 vector p1,p2,p3,p4,p5,pL;
 vector eps;
-symbol gs,gW,e,xi,imag;
-cfunction sqrt,den;
-autodeclare symbol s,m,epsmuw;
+symbol gs,gW,e,xi,imag,[];
+autodeclare symbol s,m,epsmuw,PL;
 autodeclare index mu,ci;
 function vbar,u,Vbar,U,T,gamma,f;
 
 autodeclare function pol, prop, vrtx;
 cfunction quark, antiquark, top, antitop, wboson, gluon,ghost,antighost;
-cfunction num,den,ratio;
+cfunction num,den,ratio,DiaMatch,Sector,Shift;
 
 **** Declare Dummys ***
 autodeclare function helperfct;
@@ -83,12 +82,13 @@ Table,relax cidxext(1:'MaxExternal');
 *** Define diagrams ***
 
 #do i=1, 'NrDiag'
-	global diag'i'=d'i';
+	global diag'i'=d'i'*DiaMatch('i');
 #enddo
 
 *** Import qgraph output ***
 
 #include output_1loop_form.h
+#include Reduze/my_results/shifts.inc
 
 .sort
 

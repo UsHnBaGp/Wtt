@@ -1,0 +1,42 @@
+repeat id Sector(PL1,?argsS)*k1.k1 = (den(D1))*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*k1.p1 = (-(half*den(D1)) + half*den(D2))*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*k1.p2 = (mt^2 - half*s12 - half*s23 - half*s24 - half*den(D4) + half*den(D5))*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*k1.p3 = (-(half*s13) - half*den(D2) + half*den(D3))*Sector(PL1,?argsS);
+repeat id Sector(PL1,?argsS)*k1.p4 = (-(half*s14) - half*den(D3) + half*den(D4))*Sector(PL1,?argsS);
+
+repeat id Sector(PL1x12,?argsS)*k1.k1 = (den(D1))*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*k1.p1 = (mt^2 - half*s12 - half*s13 - half*s14 - half*den(D4) + half*den(D5))*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*k1.p2 = (-(half*den(D1)) + half*den(D2))*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*k1.p3 = (-(half*s23) - half*den(D2) + half*den(D3))*Sector(PL1x12,?argsS);
+repeat id Sector(PL1x12,?argsS)*k1.p4 = (-(half*s24) - half*den(D3) + half*den(D4))*Sector(PL1x12,?argsS);
+
+repeat id Sector(PL1x12x34,?argsS)*k1.k1 = (den(D1))*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*k1.p1 = (mt^2 - half*s12 - half*s13 - half*s14 - half*den(D4) + half*den(D5))*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*k1.p2 = (-(half*den(D1)) + half*den(D2))*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*k1.p3 = (-(half*s23) - half*den(D3) + half*den(D4))*Sector(PL1x12x34,?argsS);
+repeat id Sector(PL1x12x34,?argsS)*k1.p4 = (-(half*s24) - half*den(D2) + half*den(D3))*Sector(PL1x12x34,?argsS);
+
+repeat id Sector(PL1x34,?argsS)*k1.k1 = (den(D1))*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*k1.p1 = (-(half*den(D1)) + half*den(D2))*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*k1.p2 = (mt^2 - half*s12 - half*s23 - half*s24 - half*den(D4) + half*den(D5))*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*k1.p3 = (-(half*s13) - half*den(D3) + half*den(D4))*Sector(PL1x34,?argsS);
+repeat id Sector(PL1x34,?argsS)*k1.p4 = (-(half*s14) - half*den(D2) + half*den(D3))*Sector(PL1x34,?argsS);
+
+repeat id Sector(PL2,?argsS)*k1.k1 = (mt^2 + den(D1))*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*k1.p1 = (-(half*mt^2) - half*den(D1) + half*den(D4))*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*k1.p2 = (-(half*mt^2) - half*den(D1) + half*den(D5))*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*k1.p3 = (-mt^2 - half*den(D1) + half*den(D2))*Sector(PL2,?argsS);
+repeat id Sector(PL2,?argsS)*k1.p4 = (-(half*den(D2)) + half*den(D3))*Sector(PL2,?argsS);
+
+repeat id Sector(PL3,?argsS)*k1.k1 = (den(D1))*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*k1.p1 = (-(half*den(D1)) + half*den(D2))*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*k1.p2 = (half*den(D1) - half*den(D4))*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*k1.p3 = (-(half*mt^2) - half*den(D1) + half*den(D5))*Sector(PL3,?argsS);
+repeat id Sector(PL3,?argsS)*k1.p4 = (half*mt^2 + half*s23 + half*s24 + half*den(D1) - half*den(D3) + half*den(D4) - half*den(D5))*Sector(PL3,?argsS);
+
+repeat id Sector(PL3x12,?argsS)*k1.k1 = (den(D1))*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*k1.p1 = (half*den(D1) - half*den(D4))*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*k1.p2 = (-(half*den(D1)) + half*den(D2))*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*k1.p3 = (-(half*mt^2) - half*den(D1) + half*den(D5))*Sector(PL3x12,?argsS);
+repeat id Sector(PL3x12,?argsS)*k1.p4 = (half*mt^2 + half*s13 + half*s14 + half*den(D1) - half*den(D3) + half*den(D4) - half*den(D5))*Sector(PL3x12,?argsS);
+

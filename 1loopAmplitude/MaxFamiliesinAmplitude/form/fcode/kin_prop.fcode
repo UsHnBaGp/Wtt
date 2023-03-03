@@ -1,0 +1,17 @@
+argument Prop;
+  id p4 = -p1 - p2 - p3;
+endargument;
+repeat id Prop(p1,0,?args) = den(0);
+repeat id Prop(-p1,0,?args) = den(0);
+repeat id Prop(p2,0,?args) = den(0);
+repeat id Prop(-p2,0,?args) = den(0);
+repeat id Prop(p3,0,?args) = den(mtsq);
+repeat id Prop(-p3,0,?args) = den(mtsq);
+repeat id Prop(p1 + p2,0,?args) = den(s12);
+repeat id Prop(-p1 - p2,0,?args) = den(s12);
+repeat id Prop(p1 + p3,0,?args) = den(s13);
+repeat id Prop(-p1 - p3,0,?args) = den(s13);
+repeat id Prop(p2 + p3,0,?args) = den(s23);
+repeat id Prop(-p2 - p3,0,?args) = den(s23);
+repeat id Prop(p1 + p2 + p3,0,?args) = den(-mtsq + s12 + s13 + s23);
+repeat id Prop(-p1 - p2 - p3,0,?args) = den(-mtsq + s12 + s13 + s23);

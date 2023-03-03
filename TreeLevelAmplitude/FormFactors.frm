@@ -1,13 +1,19 @@
 #-
+#:maxtermsize 2000000
+#:workspace 2G
+off statistics;
+
+#-
 off statistics;
 
 ***************************
 **** To adjust **********
 ************************
 
+#define FormFactor "2"
+
 #define NrDiag "2"
 #define lengthT "24"
-#define FormFactor "1"
 
 *************************
 *** Definitions ***
@@ -132,7 +138,7 @@ Trace4, 2;
 *************************
 
 #do i = 1, 'lengthT'
-	#write <Pre-Formfactors.txt> "A'i' =  %e ", A'i';
+	#write <PreFormfactors.txt> "A'i' =  %e ", A'i';
 #enddo
 .sort
 
@@ -175,8 +181,6 @@ id num(helpersym?)=helpersym;
 ********************************
 *** Simplify ***
 ********************************
-
-*****+ POlyratfun on Newton*******
 bracket gs,gW,den,d_,i_,num;  
 .sort
 
@@ -184,7 +188,6 @@ collect num;
 .sort
 id num(helpersym?) = ratio(helpersym,1);
 id den(helpersym?) = ratio(1,helpersym);
-print;
 .sort
 PolyRatFun ratio;
 .sort
@@ -195,45 +198,52 @@ id ratio(helpersym1?,helpersym2?) = num(helpersym1)*den(helpersym2);
 factarg den;
 chainout den;
 id den(helpersym1?number_) = 1/helpersym1 ;
-.sort
-id num(helpersym?)=helpersym;
+id num(helpersym1?number_) = helpersym1;
 .sort
 
-*argument den;
-*#include Denominator.h
-*endargument;
+id num(-4*mt^4*mW^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mW^2*s12^2 + mW^4*s12^2 - 4*mt^2*s12^3 - 2*mW^2*s12^3 + s12^4 + 4*mt^4*s12*s13 + 2*mt^2*mW^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mW^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mW^2*s12*s14 - 6*mt^2*s12^2*s14 - 2*mW^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mW^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mW^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 - 8*mt^2*s12*s14*s23 - 2*mW^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mW^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mW^2*s12^2*s24 + 2*s12^3*s24 + 2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mW^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 - 2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 + 2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 - 2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2)=num(gram);
 .sort
 
 
-*********Make look nice and Mathematica friendly *********
-id d_(?arg)=del(?arg);
-id i_=imag;
+id num(helpersym?) = ratio(helpersym,1);
+id den(helpersym?) = ratio(1,helpersym);
+.sort
+PolyRatFun ratio;
+.sort
+PolyRatFun ;
+.sort
+id ratio(helpersym1?,helpersym2?) = num(helpersym1)*den(helpersym2);
+.sort
+factarg num;
+chainout num;
+factarg den;
+chainout den;
+id den(helpersym1?number_) = 1/helpersym1 ;
+id num(helpersym1?number_) = helpersym1;
 .sort
 
-Format Mathematica;
-.sort
-bracket gs,gW,den,del,imag;
-.sort 
+
 
 *********************
 *** Write down formfactor ***
 *************************
 bracket gs,gW,den,del,imag;
-#write <Formfactor'FormFactor'.txt> "F'FormFactor'=  %E ", F'FormFactor';
+#write <Formfactors/Formfactor'FormFactor'.h> "id F'FormFactor'=  %e ", F'FormFactor';
 .sort
 
+*********Make look nice and Mathematica friendly *********
+id d_(helperidx1?,helperidx2?)=del(helperidx1,helperidx2);
+id i_=imag;
+.sort
+
+Format Mathematica;
+.sort
+
+*********************
+*** Write down formfactor ***
+*************************
 bracket gs,gW,den,del,imag;
-print+s F1;
+#write <Formfactors/Formfactor'FormFactor'.m> "id F'FormFactor'=  %E ", F'FormFactor';
+.sort
 .end
-
-
-
-
-
-
-
-
-
-
-
 

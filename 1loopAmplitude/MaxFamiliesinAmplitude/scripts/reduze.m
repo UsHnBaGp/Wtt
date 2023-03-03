@@ -1,0 +1,10 @@
+stripINT:=INT[a_,b__,c_]:>ToExpression[StringTake[a, {1, StringLength[a]-1}]][ToExpression[StringTake[a, -1]]][ToExpression[c]];
+stripINT:=INT[a_,b__,c_]:>INT[a,c];
+tReduce[b_List]:=Count[b,x_/;x>0];
+rReduce[b_List]:=Total[Cases[b,x_/;x>0]];
+sReduce[b_List]:=Count[b,x_/;x<0];
+BinaryIDReduce[b_List]:=FromDigits[Reverse[ b/.{x_/;x<0->0,x_/;x>0->1}],2];
+ListReduce[b_List]:=FromDigits[Map[Abs[#]&,b],10];
+IDstringReduce[b_List]:=(ToString[tReduce[b]]<>ToString[BinaryIDReduce[b]]<>ToString[rReduce[b]]<>ToString[sReduce[b]]<>ToString[ListReduce[b]]);
+prependScal[head_]:=head[a_Integer][b_List]:>ToExpression["scalingINT"<>ToString[head]<>ToString[a]<>IDstringReduce[b]];
+prependDiff[head_,var_]:=head[a_Integer][b_List]:>ToExpression["dINT"<>ToString[head]<>ToString[a]<>IDstringReduce[b]<>"d"<>ToString[var]];
