@@ -10,7 +10,7 @@ off statistics;
 **** To adjust **********
 ************************
 
-#define FormFactor "2"
+#define FormFactor "1"
 
 #define NrDiag "2"
 #define lengthT "24"
@@ -20,14 +20,16 @@ off statistics;
 **************************
 
 autodeclare function vbaru,VbarU,vbar,u,Vbar,U,eps,diagram,MInvFct;
-autodeclare vector p;
-function T,AA;
+function AA;
 cfunction den,sqrt,num,ratio,del;
 autodeclare symbol s,gram,m,g,d,MInv,helpersym,D;
 autodeclare index helperidx;
 index i,j;
 Dimension D;
-autodeclare index mu,epsmuw;
+autodeclare index mu;
+Dimension D;
+autodeclare index epsmuw;
+autodeclare vector p;
 Dimension 3;
 autodeclare index ci;
 
@@ -52,7 +54,7 @@ global amp=diagram(i);
 sum i,1,...,'NrDiag';
 .sort
 #do i=1,'NrDiag'
-	id diagram(i?)=diag'i';
+	id diagram('i')=diag'i';
 #enddo
 .sort
 
@@ -83,8 +85,6 @@ id vbaru(p?) = vbaruC(p);
 id VbarU = VbarUC;
 id VbarU(p?) = VbarUC(p);
 id VbarU(pi?,pj?) = VbarUC(pj,pi);
-id vbaru(mui?) = vbaruC(mui);
-id VbarU(pi?,mui?) = VbarUC(mui,pi);
 .store
 .sort
 
@@ -101,8 +101,8 @@ id VbarU(pi?,mui?) = VbarUC(mui,pi);
 *** Polarization sum ***
 **************************
 id epsmuw=1;
-id epsC(p?)=-p(muw)+p.p5*p5(muw)/mw^2;
-
+id epsC(p?)=(-p(muw)+p.p5*p5(muw)/mw^2);
+print;
 
 **************************************+
 *** Fermion spinsums ****
@@ -112,19 +112,16 @@ id vbaruC(p?)= g_(1,p2,p);
 id VbarUC = g_(2,p4)+mt*gi_(2);
 id VbarUC(p?) = (g_(2,p4)+mt*gi_(2))*g_(2,p);
 id VbarUC(pi?,pj?) = (g_(2,p4)+mt*gi_(2))*g_(2,pi,pj);
-id vbaruC(mui?)= g_(1,p2,mui);
-id VbarUC(mui?,pi?) = (g_(2,p4)+mt*gi_(2))*g_(2,mui,pi);
 
 id vbar(p1)=g_(1,p1);
 id u(p2)=1;
-id Vbar(p3)=g_(2,p3);
+id Vbar(p3)=(g_(2,p3)-mt*gi_(2));
 id U(p4)=1;
 
-.sort;
+.sort
 
-Trace4, 1;
-Trace4, 2;
-
+tracen,1;
+tracen,2;
 .sort
 
 *********************
@@ -141,7 +138,7 @@ Trace4, 2;
 	#write <PreFormfactors.txt> "A'i' =  %e ", A'i';
 #enddo
 .sort
-
+.end
 
 **************************************
 *** Define Formfactors and Import Matrix *****
@@ -201,9 +198,12 @@ id den(helpersym1?number_) = 1/helpersym1 ;
 id num(helpersym1?number_) = helpersym1;
 .sort
 
-id num(-4*mt^4*mW^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mW^2*s12^2 + mW^4*s12^2 - 4*mt^2*s12^3 - 2*mW^2*s12^3 + s12^4 + 4*mt^4*s12*s13 + 2*mt^2*mW^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mW^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mW^2*s12*s14 - 6*mt^2*s12^2*s14 - 2*mW^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mW^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mW^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 - 8*mt^2*s12*s14*s23 - 2*mW^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mW^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mW^2*s12^2*s24 + 2*s12^3*s24 + 2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mW^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 - 2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 + 2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 - 2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2)=num(gram);
+id num(--4*mt^4*mw^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mw^2*s12^2 + mw^4*s12^2 - 4*mt^2*s12^3 - 2*mw^2*s12^3 + s12^4 +4*mt^4*s12*s13 + 2*mt^2*mw^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mw^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mw^2*s12*s14 - 6*mt^2*s12^2*s14 -  2*mw^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mw^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mw^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 - 8*mt^2*s12*s14*s23 - 2*mw^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mw^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mw^2*s12^2*s24 + 2*s12^3*s24 +2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mw^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 -2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 +2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 - 2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2)=num(gram);
+id num(s14^2*s23^2 - 2*s13*s14*s23*s24 + s13^2*s24^2 + 2*s12*s14*s23*s24 + 2*s12*s14*s23^2 + 2*s12*s14^2*s23 + 2*s12*s13*s24^2 + 2*s12*s13*s23*s24 + 2*s12*s13*s14*s24 + 2*s12*s13*s14*s23 + 2*s12*s13^2*s24 + s12^2*s24^2 + 2*s12^2*s23*s24 + s12^2*s23^2 + 2*s12^2*s14*s24 + 4*s12^2*s14*s23 + s12^2*s14^2 + 4*s12^2*s13*s24 + 2*s12^2*s13*s23 + 2*s12^2*s13*s14 + s12^2*s13^2 + 2*s12^3*s24 + 2*s12^3*s23 + 2*s12^3*s14 + 2*s12^3*s13 + s12^4 - 2*mw^2*s12*s14*s23 - 2*mw^2*s12*s13*s24 - 2*mw^2*s12^2*s24 - 2*mw^2*s12^2*s23 - 2*mw^2*s12^2*s14 - 2*mw^2*s12^2*s13 - 2*mw^2*s12^3 + mw^4*s12^2 + 2*mt^2*s14*s23*s24 - 2*mt^2*s14*s23^2 - 2*mt^2*s14^2*s23 - 2*mt^2*s13*s24^2 + 2*mt^2*s13*s23*s24 + 2*mt^2*s13*s14*s24 + 2*mt^2*s13*s14*s23 - 2*mt^2*s13^2*s24 - 2*mt^2*s12*s24^2 - 4*mt^2*s12*s23*s24 - 2*mt^2*s12*s23^2 - 8*mt^2*s12*s14*s23 - 2*mt^2*s12*s14^2 - 8*mt^2*s12*s13*s24 - 4*mt^2*s12*s13*s14- 2*mt^2*s12*s13^2 - 6*mt^2*s12^2*s24 - 6*mt^2*s12^2*s23 - 6*mt^2*s12^2*s14 - 6*mt^2*s12^2*s13 - 4*mt^2*s12^3 + 2*mt^2*mw^2*s12*s24 + 2*mt^2*mw^2*s12*s23 + 2*mt^2*mw^2*s12*s14 + 2*mt^2*mw^2*s12*s13 + 4*mt^2*mw^2*s12^2 + mt^4*s24^2 - 2*mt^4*s23*s24 + mt^4*s23^2 - 2*mt^4*s14*s24 + 2*mt^4*s14*s23 + mt^4*s14^2 + 2*mt^4*s13*s24 - 2*mt^4*s13*s23 - 2*mt^4*s13*s14 + mt^4*s13^2 + 4*mt^4*s12*s24 + 4*mt^4*s12*s23+ 4*mt^4*s12*s14 + 4*mt^4*s12*s13 + 4*mt^4*s12^2 - 4*mt^4*mw^2*s12)=num(gram);
 .sort
 
+id num(mt^4*s23^2 - 2*mt^4*s24*s23 + mt^4*s24^2 - 2*s12*mt^2*s23^2- 4*s12*mt^2*s24*s23 - 2*s12*mt^2*s24^2 + 4*s12*mt^4*s23 + 4*s12*mt^4*s24 + 2*s12*mw^2*mt^2*s23 + 2*s12*mw^2*mt^2*s24 - 4*s12*mw^2*mt^4 + s12^2*s23^2 + 2*s12^2*s24*s23 + s12^2*s24^2 - 6*s12^2*mt^2*s23 - 6*s12^2*mt^2*s24 + 4*s12^2*mt^4 - 2*s12^2*mw^2*s23 - 2*s12^2*mw^2*s24 + 4*s12^2*mw^2*mt^2 + s12^2*mw^4 + 2*s12^3*s23 + 2*s12^3*s24 - 4*s12^3*mt^2 - 2*s12^3*mw^2 + s12^4 + 2*s13*mt^2*s24*s23 - 2*s13*mt^2*s24^2 - 2*s13*mt^4*s23 + 2*s13*mt^4*s24 + 2*s13*s12*s24*s23 + 2*s13*s12*s24^2 - 8*s13*s12*mt^2*s24 + 4*s13*s12*mt^4 - 2*s13*s12*mw^2*s24 + 2*s13*s12*mw^2*mt^2 + 2*s13*s12^2*s23 + 4*s13*s12^2*s24 - 6*s13*s12^2*mt^2 - 2*s13*s12^2*mw^2+ 2*s13*s12^3 + s13^2*s24^2 - 2*s13^2*mt^2*s24 + s13^2*mt^4 + 2*s13^2*s12*s24 - 2*s13^2*s12*mt^2 + s13^2*s12^2 - 2*s14*mt^2*s23^2 + 2*s14*mt^2*s24*s23 + 2*s14*mt^4*s23 - 2*s14*mt^4*s24 + 2*s14*s12*s23^2 + 2*s14*s12*s24*s23 - 8*s14*s12*mt^2*s23 + 4*s14*s12*mt^4 - 2*s14*s12*mw^2*s23 + 2*s14*s12*mw^2*mt^2 + 4*s14*s12^2*s23 + 2*s14*s12^2*s24 - 6*s14*s12^2*mt^2- 2*s14*s12^2*mw^2 + 2*s14*s12^3 - 2*s14*s13*s24*s23 + 2*s14*s13*mt^2*s23 + 2*s14*s13*mt^2*s24 - 2*s14*s13*mt^4 + 2*s14*s13*s12*s23 + 2*s14*s13*s12*s24 - 4*s14*s13*s12*mt^2 + 2*s14*s13*s12^2 + s14^2*s23^2 - 2*s14^2*mt^2*s23 + s14^2*mt^4 + 2*s14^2*s12*s23 - 2*s14^2*s12*mt^2 + s14^2*s12^2)=num(gram);
+.sort
 
 id num(helpersym?) = ratio(helpersym,1);
 id den(helpersym?) = ratio(1,helpersym);
@@ -227,7 +227,7 @@ id num(helpersym1?number_) = helpersym1;
 *********************
 *** Write down formfactor ***
 *************************
-bracket gs,gW,den,del,imag;
+bracket gs,gW,den,d_,i_;
 #write <Formfactors/Formfactor'FormFactor'.h> "id F'FormFactor'=  %e ", F'FormFactor';
 .sort
 
@@ -243,7 +243,7 @@ Format Mathematica;
 *** Write down formfactor ***
 *************************
 bracket gs,gW,den,del,imag;
-#write <Formfactors/Formfactor'FormFactor'.m> "id F'FormFactor'=  %E ", F'FormFactor';
+#write <Formfactors/Formfactor'FormFactor'.m> "F'FormFactor'=  %E ", F'FormFactor';
 .sort
 .end
 

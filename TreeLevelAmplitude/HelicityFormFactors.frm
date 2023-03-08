@@ -1,13 +1,14 @@
 #-
 #:maxtermsize 2000000
-#:workspace 2G
+#:workspace 5G
 off statistics;
 
 ***************************
 **** To adjust **********
 ************************
 
-#define lengthT "2"
+#define lengthT "24"
+#define NrH "12"
 
 *************************
 *** Definitions ***
@@ -101,9 +102,7 @@ endargument;
 *** Combine Formfactors *****
 ***********************************
 
-#do i=1,'lengthT'/2
-global H'i'=f(2*'i'-1)+prefac*f(2*'i');
-#enddo
+global H'NrH'=f(2*'NrH'-1)+prefac*f(2*'NrH');
 #do i=1,'lengthT'
 id f('i')=F'i';
 #enddo
@@ -129,13 +128,8 @@ factarg num;
 chainout num;
 .sort
 
-id num(-4*mt^4*mW^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mW^2*s12^2 + mW^4*s12^2 - 4*mt^2*s12^3 - 2*mW^2*s12^3 + s12^4 + 4*mt^4*s12*s13 + 2*mt^2*mW^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mW^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mW^2*s12*s14 - 6*mt^2*s12^2*s14 - 2*mW^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mW^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mW^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 - 8*mt^2*s12*s14*s23 - 2*mW^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mW^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mW^2*s12^2*s24 + 2*s12^3*s24 + 2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mW^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 - 2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 + 2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 - 2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2)=num(gram);
+id num(s14^2*s23^2 - 2*s13*s14*s23*s24 + s13^2*s24^2 + 2*s12*s14*s23*s24 + 2*s12*s14*s23^2 + 2*s12*s14^2*s23 + 2*s12*s13*s24^2 + 2*s12*s13*s23*s24 + 2*s12*s13*s14*s24 + 2*s12*s13*s14*s23 + 2*s12*s13^2*s24 + s12^2*s24^2 + 2*s12^2*s23*s24 + s12^2*s23^2 + 2*s12^2*s14*s24 + 4*s12^2*s14*s23 + s12^2*s14^2 + 4*s12^2*s13*s24 + 2*s12^2*s13*s23 + 2*s12^2*s13*s14 + s12^2*s13^2 + 2*s12^3*s24 + 2*s12^3*s23 + 2*s12^3*s14 + 2*s12^3*s13 + s12^4 - 2*mw^2*s12*s14*s23 - 2*mw^2*s12*s13*s24 - 2*mw^2*s12^2*s24 - 2*mw^2*s12^2*s23 - 2*mw^2*s12^2*s14 - 2*mw^2*s12^2*s13 - 2*mw^2*s12^3 + mw^4*s12^2 + 2*mt^2*s14*s23*s24 - 2*mt^2*s14*s23^2 - 2*mt^2*s14^2*s23 - 2*mt^2*s13*s24^2 + 2*mt^2*s13*s23*s24 + 2*mt^2*s13*s14*s24 + 2*mt^2*s13*s14*s23 - 2*mt^2*s13^2*s24 - 2*mt^2*s12*s24^2 - 4*mt^2*s12*s23*s24 - 2*mt^2*s12*s23^2 - 8*mt^2*s12*s14*s23 - 2*mt^2*s12*s14^2 - 8*mt^2*s12*s13*s24 - 4*mt^2*s12*s13*s14- 2*mt^2*s12*s13^2 - 6*mt^2*s12^2*s24 - 6*mt^2*s12^2*s23 - 6*mt^2*s12^2*s14 - 6*mt^2*s12^2*s13 - 4*mt^2*s12^3 + 2*mt^2*mw^2*s12*s24 + 2*mt^2*mw^2*s12*s23 + 2*mt^2*mw^2*s12*s14 + 2*mt^2*mw^2*s12*s13 + 4*mt^2*mw^2*s12^2 + mt^4*s24^2 - 2*mt^4*s23*s24 + mt^4*s23^2 - 2*mt^4*s14*s24 + 2*mt^4*s14*s23 + mt^4*s14^2 + 2*mt^4*s13*s24 - 2*mt^4*s13*s23 - 2*mt^4*s13*s14 + mt^4*s13^2 + 4*mt^4*s12*s24 + 4*mt^4*s12*s23+ 4*mt^4*s12*s14 + 4*mt^4*s12*s13 + 4*mt^4*s12^2 - 4*mt^4*mw^2*s12)=num(gram);
 .sort
-
-#write <Trial.h> "id H1=  %E ", H1;
-.end
-
-
 
 id num(helpersym?) = ratio(helpersym,1);
 id den(helpersym?) = ratio(1,helpersym);
@@ -153,9 +147,8 @@ chainout den;
 id den(helpersym1?number_) = 1/helpersym1 ;
 .sort
 
-
-i
-
+id num(s14^2*s23^2 - 2*s13*s14*s23*s24 + s13^2*s24^2 + 2*s12*s14*s23*s24 + 2*s12*s14*s23^2 + 2*s12*s14^2*s23 + 2*s12*s13*s24^2 + 2*s12*s13*s23*s24 + 2*s12*s13*s14*s24 + 2*s12*s13*s14*s23 + 2*s12*s13^2*s24 + s12^2*s24^2 + 2*s12^2*s23*s24 + s12^2*s23^2 + 2*s12^2*s14*s24 + 4*s12^2*s14*s23 + s12^2*s14^2 + 4*s12^2*s13*s24 + 2*s12^2*s13*s23 + 2*s12^2*s13*s14 + s12^2*s13^2 + 2*s12^3*s24 + 2*s12^3*s23 + 2*s12^3*s14 + 2*s12^3*s13 + s12^4 - 2*mw^2*s12*s14*s23 - 2*mw^2*s12*s13*s24 - 2*mw^2*s12^2*s24 - 2*mw^2*s12^2*s23 - 2*mw^2*s12^2*s14 - 2*mw^2*s12^2*s13 - 2*mw^2*s12^3 + mw^4*s12^2 + 2*mt^2*s14*s23*s24 - 2*mt^2*s14*s23^2 - 2*mt^2*s14^2*s23 - 2*mt^2*s13*s24^2 + 2*mt^2*s13*s23*s24 + 2*mt^2*s13*s14*s24 + 2*mt^2*s13*s14*s23 - 2*mt^2*s13^2*s24 - 2*mt^2*s12*s24^2 - 4*mt^2*s12*s23*s24 - 2*mt^2*s12*s23^2 - 8*mt^2*s12*s14*s23 - 2*mt^2*s12*s14^2 - 8*mt^2*s12*s13*s24 - 4*mt^2*s12*s13*s14- 2*mt^2*s12*s13^2 - 6*mt^2*s12^2*s24 - 6*mt^2*s12^2*s23 - 6*mt^2*s12^2*s14 - 6*mt^2*s12^2*s13 - 4*mt^2*s12^3 + 2*mt^2*mw^2*s12*s24 + 2*mt^2*mw^2*s12*s23 + 2*mt^2*mw^2*s12*s14 + 2*mt^2*mw^2*s12*s13 + 4*mt^2*mw^2*s12^2 + mt^4*s24^2 - 2*mt^4*s23*s24 + mt^4*s23^2 - 2*mt^4*s14*s24 + 2*mt^4*s14*s23 + mt^4*s14^2 + 2*mt^4*s13*s24 - 2*mt^4*s13*s23 - 2*mt^4*s13*s14 + mt^4*s13^2 + 4*mt^4*s12*s24 + 4*mt^4*s12*s23+ 4*mt^4*s12*s14 + 4*mt^4*s12*s13 + 4*mt^4*s12^2 - 4*mt^4*mw^2*s12)=num(gram);
+.sort
 
 id num(helpersym?) = ratio(helpersym,1);
 id den(helpersym?) = ratio(1,helpersym);
@@ -174,8 +167,8 @@ id den(helpersym1?number_) = 1/helpersym1 ;
 id num(helpersym1?number_) = helpersym1;
 .sort
 
-print;
-.end
+#write <HelicityFormFactors/H'NrH'.h> "id H'NrH'=  %E ", H'NrH';
+.sort
 
 *********Make look nice and Mathematica friendly *********
 id d_(helperidx1?,helperidx2?)=del(helperidx1,helperidx2);
@@ -187,6 +180,7 @@ Format Mathematica;
 bracket gs,gW,den,del,imag;
 .sort 
 
+#write <HelicityFormFactors/H'NrH'.m> "H'NrH'=  %E", H'NrH'
 
 .end
 
