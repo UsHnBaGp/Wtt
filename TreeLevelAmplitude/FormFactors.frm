@@ -10,7 +10,7 @@ off statistics;
 **** To adjust **********
 ************************
 
-#define FormFactor "1"
+#define FormFactor "24"
 
 #define NrDiag "2"
 #define lengthT "24"
@@ -22,7 +22,7 @@ off statistics;
 autodeclare function vbaru,VbarU,vbar,u,Vbar,U,eps,diagram,MInvFct;
 function AA;
 cfunction den,sqrt,num,ratio,del;
-autodeclare symbol s,gram,m,g,d,MInv,helpersym,D;
+autodeclare symbol s,gram,m,g,d,MInv,helpersym,D,I;
 autodeclare index helperidx;
 index i,j;
 Dimension D;
@@ -102,7 +102,6 @@ id VbarU(pi?,pj?) = VbarUC(pj,pi);
 **************************
 id epsmuw=1;
 id epsC(p?)=(-p(muw)+p.p5*p5(muw)/mw^2);
-print;
 
 **************************************+
 *** Fermion spinsums ****
@@ -124,6 +123,7 @@ tracen,1;
 tracen,2;
 .sort
 
+
 *********************
 **** Kinematics ***
 *********************
@@ -134,11 +134,23 @@ tracen,2;
 *** Write down prestep of formfactors ***
 *************************
 
+id i_=I;
+id d_(helperidx1?,helperidx2?)=del(helperidx1,helperidx2);
+.sort
+format Mathematica;
+.sort
+
 #do i = 1, 'lengthT'
-	#write <PreFormfactors.txt> "A'i' =  %e ", A'i';
+	#write <Preformfactors/PreFormfactors'i'.m> "(%E) ", A'i';
 #enddo
 .sort
-.end
+
+id I=i_;
+id del(helperidx1?,helperidx2?)=d_(helperidx1,helperidx2);
+.sort
+
+format normal;
+.sort
 
 **************************************
 *** Define Formfactors and Import Matrix *****
@@ -198,11 +210,10 @@ id den(helpersym1?number_) = 1/helpersym1 ;
 id num(helpersym1?number_) = helpersym1;
 .sort
 
-id num(--4*mt^4*mw^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mw^2*s12^2 + mw^4*s12^2 - 4*mt^2*s12^3 - 2*mw^2*s12^3 + s12^4 +4*mt^4*s12*s13 + 2*mt^2*mw^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mw^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mw^2*s12*s14 - 6*mt^2*s12^2*s14 -  2*mw^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mw^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mw^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 - 8*mt^2*s12*s14*s23 - 2*mw^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mw^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mw^2*s12^2*s24 + 2*s12^3*s24 +2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mw^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 -2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 +2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 - 2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2)=num(gram);
-id num(s14^2*s23^2 - 2*s13*s14*s23*s24 + s13^2*s24^2 + 2*s12*s14*s23*s24 + 2*s12*s14*s23^2 + 2*s12*s14^2*s23 + 2*s12*s13*s24^2 + 2*s12*s13*s23*s24 + 2*s12*s13*s14*s24 + 2*s12*s13*s14*s23 + 2*s12*s13^2*s24 + s12^2*s24^2 + 2*s12^2*s23*s24 + s12^2*s23^2 + 2*s12^2*s14*s24 + 4*s12^2*s14*s23 + s12^2*s14^2 + 4*s12^2*s13*s24 + 2*s12^2*s13*s23 + 2*s12^2*s13*s14 + s12^2*s13^2 + 2*s12^3*s24 + 2*s12^3*s23 + 2*s12^3*s14 + 2*s12^3*s13 + s12^4 - 2*mw^2*s12*s14*s23 - 2*mw^2*s12*s13*s24 - 2*mw^2*s12^2*s24 - 2*mw^2*s12^2*s23 - 2*mw^2*s12^2*s14 - 2*mw^2*s12^2*s13 - 2*mw^2*s12^3 + mw^4*s12^2 + 2*mt^2*s14*s23*s24 - 2*mt^2*s14*s23^2 - 2*mt^2*s14^2*s23 - 2*mt^2*s13*s24^2 + 2*mt^2*s13*s23*s24 + 2*mt^2*s13*s14*s24 + 2*mt^2*s13*s14*s23 - 2*mt^2*s13^2*s24 - 2*mt^2*s12*s24^2 - 4*mt^2*s12*s23*s24 - 2*mt^2*s12*s23^2 - 8*mt^2*s12*s14*s23 - 2*mt^2*s12*s14^2 - 8*mt^2*s12*s13*s24 - 4*mt^2*s12*s13*s14- 2*mt^2*s12*s13^2 - 6*mt^2*s12^2*s24 - 6*mt^2*s12^2*s23 - 6*mt^2*s12^2*s14 - 6*mt^2*s12^2*s13 - 4*mt^2*s12^3 + 2*mt^2*mw^2*s12*s24 + 2*mt^2*mw^2*s12*s23 + 2*mt^2*mw^2*s12*s14 + 2*mt^2*mw^2*s12*s13 + 4*mt^2*mw^2*s12^2 + mt^4*s24^2 - 2*mt^4*s23*s24 + mt^4*s23^2 - 2*mt^4*s14*s24 + 2*mt^4*s14*s23 + mt^4*s14^2 + 2*mt^4*s13*s24 - 2*mt^4*s13*s23 - 2*mt^4*s13*s14 + mt^4*s13^2 + 4*mt^4*s12*s24 + 4*mt^4*s12*s23+ 4*mt^4*s12*s14 + 4*mt^4*s12*s13 + 4*mt^4*s12^2 - 4*mt^4*mw^2*s12)=num(gram);
-.sort
+id num(-4*mt^4*mw^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mw^2*s12^2 + mw^4*s12^2 - 4*mt^2*s12^3 - 2*mw^2*s12^3 + s12^4 + 4*mt^4*s12*s13 + 2*mt^2*mw^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mw^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mw^2*s12*s14 - 6*mt^2*s12^2*s14 - 2*mw^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mw^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mw^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 -8*mt^2*s12*s14*s23 -2*mw^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mw^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mw^2*s12^2*s24 + 2*s12^3*s24 + 2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mw^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 - 2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 + 2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 -2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2)=num(gram);
 
-id num(mt^4*s23^2 - 2*mt^4*s24*s23 + mt^4*s24^2 - 2*s12*mt^2*s23^2- 4*s12*mt^2*s24*s23 - 2*s12*mt^2*s24^2 + 4*s12*mt^4*s23 + 4*s12*mt^4*s24 + 2*s12*mw^2*mt^2*s23 + 2*s12*mw^2*mt^2*s24 - 4*s12*mw^2*mt^4 + s12^2*s23^2 + 2*s12^2*s24*s23 + s12^2*s24^2 - 6*s12^2*mt^2*s23 - 6*s12^2*mt^2*s24 + 4*s12^2*mt^4 - 2*s12^2*mw^2*s23 - 2*s12^2*mw^2*s24 + 4*s12^2*mw^2*mt^2 + s12^2*mw^4 + 2*s12^3*s23 + 2*s12^3*s24 - 4*s12^3*mt^2 - 2*s12^3*mw^2 + s12^4 + 2*s13*mt^2*s24*s23 - 2*s13*mt^2*s24^2 - 2*s13*mt^4*s23 + 2*s13*mt^4*s24 + 2*s13*s12*s24*s23 + 2*s13*s12*s24^2 - 8*s13*s12*mt^2*s24 + 4*s13*s12*mt^4 - 2*s13*s12*mw^2*s24 + 2*s13*s12*mw^2*mt^2 + 2*s13*s12^2*s23 + 4*s13*s12^2*s24 - 6*s13*s12^2*mt^2 - 2*s13*s12^2*mw^2+ 2*s13*s12^3 + s13^2*s24^2 - 2*s13^2*mt^2*s24 + s13^2*mt^4 + 2*s13^2*s12*s24 - 2*s13^2*s12*mt^2 + s13^2*s12^2 - 2*s14*mt^2*s23^2 + 2*s14*mt^2*s24*s23 + 2*s14*mt^4*s23 - 2*s14*mt^4*s24 + 2*s14*s12*s23^2 + 2*s14*s12*s24*s23 - 8*s14*s12*mt^2*s23 + 4*s14*s12*mt^4 - 2*s14*s12*mw^2*s23 + 2*s14*s12*mw^2*mt^2 + 4*s14*s12^2*s23 + 2*s14*s12^2*s24 - 6*s14*s12^2*mt^2- 2*s14*s12^2*mw^2 + 2*s14*s12^3 - 2*s14*s13*s24*s23 + 2*s14*s13*mt^2*s23 + 2*s14*s13*mt^2*s24 - 2*s14*s13*mt^4 + 2*s14*s13*s12*s23 + 2*s14*s13*s12*s24 - 4*s14*s13*s12*mt^2 + 2*s14*s13*s12^2 + s14^2*s23^2 - 2*s14^2*mt^2*s23 + s14^2*mt^4 + 2*s14^2*s12*s23 - 2*s14^2*s12*mt^2 + s14^2*s12^2)=num(gram);
+id num(-(-4*mt^4*mw^2*s12 + 4*mt^4*s12^2 + 4*mt^2*mw^2*s12^2 + mw^4*s12^2 - 4*mt^2*s12^3 - 2*mw^2*s12^3 + s12^4 + 4*mt^4*s12*s13 + 2*mt^2*mw^2*s12*s13 - 6*mt^2*s12^2*s13 - 2*mw^2*s12^2*s13 + 2*s12^3*s13 + mt^4*s13^2 - 2*mt^2*s12*s13^2 + s12^2*s13^2 + 4*mt^4*s12*s14 + 2*mt^2*mw^2*s12*s14 - 6*mt^2*s12^2*s14 - 2*mw^2*s12^2*s14 + 2*s12^3*s14 - 2*mt^4*s13*s14 - 4*mt^2*s12*s13*s14 + 2*s12^2*s13*s14 + mt^4*s14^2 - 2*mt^2*s12*s14^2 + s12^2*s14^2 + 4*mt^4*s12*s23 + 2*mt^2*mw^2*s12*s23 - 6*mt^2*s12^2*s23 - 2*mw^2*s12^2*s23 + 2*s12^3*s23 - 2*mt^4*s13*s23 + 2*s12^2*s13*s23 + 2*mt^4*s14*s23 -8*mt^2*s12*s14*s23 -2*mw^2*s12*s14*s23 + 4*s12^2*s14*s23 + 2*mt^2*s13*s14*s23 + 2*s12*s13*s14*s23 - 2*mt^2*s14^2*s23 + 2*s12*s14^2*s23 + mt^4*s23^2 - 2*mt^2*s12*s23^2 + s12^2*s23^2 - 2*mt^2*s14*s23^2 + 2*s12*s14*s23^2 + s14^2*s23^2 + 4*mt^4*s12*s24 + 2*mt^2*mw^2*s12*s24 - 6*mt^2*s12^2*s24 - 2*mw^2*s12^2*s24 + 2*s12^3*s24 + 2*mt^4*s13*s24 - 8*mt^2*s12*s13*s24 - 2*mw^2*s12*s13*s24 + 4*s12^2*s13*s24 - 2*mt^2*s13^2*s24 + 2*s12*s13^2*s24 - 2*mt^4*s14*s24 + 2*s12^2*s14*s24 + 2*mt^2*s13*s14*s24 + 2*s12*s13*s14*s24 - 2*mt^4*s23*s24 - 4*mt^2*s12*s23*s24 + 2*s12^2*s23*s24 + 2*mt^2*s13*s23*s24 + 2*s12*s13*s23*s24 + 2*mt^2*s14*s23*s24 + 2*s12*s14*s23*s24 - 2*s13*s14*s23*s24 + mt^4*s24^2 - 2*mt^2*s12*s24^2 + s12^2*s24^2 -2*mt^2*s13*s24^2 + 2*s12*s13*s24^2 + s13^2*s24^2))=-num(gram);
+
 .sort
 
 id num(helpersym?) = ratio(helpersym,1);
@@ -233,7 +244,7 @@ bracket gs,gW,den,d_,i_;
 
 *********Make look nice and Mathematica friendly *********
 id d_(helperidx1?,helperidx2?)=del(helperidx1,helperidx2);
-id i_=imag;
+id i_=I;
 .sort
 
 Format Mathematica;
@@ -243,7 +254,7 @@ Format Mathematica;
 *** Write down formfactor ***
 *************************
 bracket gs,gW,den,del,imag;
-#write <Formfactors/Formfactor'FormFactor'.m> "F'FormFactor'=  %E ", F'FormFactor';
+#write <Formfactors/Formfactor'FormFactor'.m> "(%E) ", F'FormFactor';
 .sort
 .end
 

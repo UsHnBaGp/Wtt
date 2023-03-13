@@ -64,6 +64,7 @@ id vbar(p1)=vbarCC(p1)*helperfct;
 id u(p2)=uCC(p2);
 id Vbar(p3)=VbarCC(p3)*helperfct;
 id U(p4)=UCC(p4);
+id i_=-i_;
 .sort
 
 
@@ -116,6 +117,7 @@ id VbarCC(p3)=1;
 id U(p4)=g_(2,p4)+mt*gi_(2);
 id UCC(p4)=1;
 .sort
+
 
 tracen,1;
 tracen,2;

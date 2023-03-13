@@ -6,18 +6,20 @@ off statistics;
 ***************************
 **** To adjust **********
 ************************
+#define NrH "12"
+
 
 #define lengthT "24"
-#define NrH "12"
+
 
 *************************
 *** Definitions ***
 **************************
 
-autodeclare function diagram;
-autodeclare vector p;
+autodeclare function diagram,E;
+autodeclare vector p,helpervec;
 cfunction den,sqrt,num,ratio,del;
-autodeclare symbol s,gram,m,g,d,helpersym,D,prefac,F;
+autodeclare symbol s,gram,m,g,d,helpersym,D,prefac,F,I;
 autodeclare index helperidx;
 function PL,PR,f;
 index i,j;
@@ -35,25 +37,20 @@ symbol imag;
 *** Define Prefactor *****
 ***********************************
 
-********************
-**** even part ****
-*******************
-
-global prefac=num(g_(1,p1)*PR(1)*g_(1,p4)*PL(1)*g_(1,p2)*PR(1)*g_(1,p3)*PL(1)+32*e_(p1,p4,p2,p3))*den(g_(2,p1)*PR(2)*g_(2,p3)*PL(2)*g_(2,p2)*PR(2)*g_(2,p3)*PL(2));
-argument;
+global prefac3=g_(1,p1)*PR(1)*g_(1,p3,p2,p3);
+global prefac4=g_(1,p1)*PR(1)*g_(1,p4,p2,p3);
 id PL(helperidx?)=g7_(helperidx);
 id PR(helperidx?)=g6_(helperidx);
-endargument;
 .sort
-argument;
 trace4,1;
-trace4,2;
-endargument;
 .sort
 
+id e_(helpervec1?,helpervec2?,helpervec3?,helpervec4?)=E(helpervec1,helpervec2,helpervec3,helpervec4);
+.sort
 **** Kinematics ***
 #include FivePointKinematics.h
 .sort
+
 
 *** Polyratfun ****
 
@@ -75,38 +72,16 @@ id num(helpersym1?number_) = helpersym1 ;
 .sort
 .store
 
-
-******************
-**** odd Part ***
-****************
-
-
-global prefacTr5=num(-2*e_(p1,p4,p2,p3))*den(1/16*g_(2,p1)*PR(2)*g_(2,p3)*PL(2)*g_(2,p2)*PR(2)*g_(2,p3)*PL(2));
-argument;
-id PL(helperidx?)=g7_(helperidx);
-id PR(helperidx?)=g6_(helperidx);
-endargument;
-.sort
-argument;
-trace4,1;
-trace4,2;
-endargument;
-.sort
-
-**** Kinematics ***
-#include FivePointKinematics.h
-.sort
-.store
-
 **************************************
 *** Combine Formfactors *****
 ***********************************
 
-global H'NrH'=f(2*'NrH'-1)+prefac*f(2*'NrH');
+global H'NrH'=prefac3*f(2*'NrH'-1)+prefac4*f(2*'NrH');
 #do i=1,'lengthT'
 id f('i')=F'i';
 #enddo
 .sort
+
 
 **************************************
 *** Import Formfactors *****
@@ -180,7 +155,7 @@ Format Mathematica;
 bracket gs,gW,den,del,imag;
 .sort 
 
-#write <HelicityFormFactors/H'NrH'.m> "H'NrH'=  %E", H'NrH'
+#write <HelicityFormFactors/H'NrH'.m> "(%E)", H'NrH'
 
 .end
 

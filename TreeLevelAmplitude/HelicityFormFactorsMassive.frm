@@ -6,17 +6,19 @@ off statistics;
 ***************************
 **** To adjust **********
 ************************
+#define NrHM "1"
+
 
 #define lengthT "24"
 #define NrH "9"
-#define NrHM "3"
+
 
 *************************
 *** Definitions ***
 **************************
 
-autodeclare function diagram;
-autodeclare vector p;
+autodeclare function diagram,E;
+autodeclare vector p,helpervec;
 cfunction den,sqrt,num,ratio,del;
 autodeclare symbol s,gram,m,g,d,helpersym,D,prefac,F,H;
 autodeclare index helperidx;
@@ -36,37 +38,19 @@ symbol imag;
 *** Define Prefactor *****
 ***********************************
 
-********************
-**** even part ****
-*******************
+******* Same helicity, e.g. LL, only vbar p v contributes
+global prefacLL1=(g_(1,p3)-mt)*PR(1)*g_(1,p1)*(g_(1,p4)+mt)*g_(1,p1)+(g_(1,p3)-mt)*PR(1)*g_(1,p1)*(g_(1,p4)+mt)*g_(1,p2);
+global prefacLL2=(g_(1,p3)-mt)*PR(1)*g_(1,p2)*(g_(1,p4)+mt)*g_(1,p1)+(g_(1,p3)-mt)*PR(1)*g_(1,p2)*(g_(1,p4)+mt)*g_(1,p2);
 
-*** for LL pull out v_L(p1+p2)vbar_L***
-global prefacLL1=num((g_(1,p3)-mt)*PR(1)*PL(1)*(g_(1,p4)+mt)*PR(1)*(g_(1,p1)+g_(1,p2))*PL(1))*den((g_(2,p3)-mt)*PR(2)*(g_(2,p1)+g_(2,p2))*PL(2)*(g_(2,p4)+mt)*PR(2)*(g_(2,p1)+g_(2,p2))*PL(2));
-global prefacLLP1=num((g_(1,p3)-mt)*PR(1)*g_(1,p1)*PL(1)*(g_(1,p4)+mt)*PR(1)*(g_(1,p1)+g_(1,p2))*PL(1)-32*e_(p3,p4,p1,p2))*den((g_(2,p3)-mt)*PR(2)*(g_(2,p1)+g_(2,p2))*PL(2)*(g_(2,p4)+mt)*PR(2)*(g_(2,p1)+g_(2,p2))*PL(2));
-global prefacLLP2=num((g_(1,p3)-mt)*PR(1)*g_(1,p2)*PL(1)*(g_(1,p4)+mt)*PR(1)*(g_(1,p1)+g_(1,p2))*PL(1)+32*e_(p3,p4,p1,p2))*den((g_(2,p3)-mt)*PR(2)*(g_(2,p1)+g_(2,p2))*PL(2)*(g_(2,p4)+mt)*PR(2)*(g_(2,p1)+g_(2,p2))*PL(2));
-argument;
-id PL(helperidx?)=g7_(helperidx);
-endargument;
-.sort
+******* Same helicity, e.g. LR, only vbar v contributes
+global prefacLR=(g_(1,p3)-mt)*PR(1)*(g_(1,p4)+mt);
 
-*** for RL pull out v_Lvbar_R**
-global prefacRL1=1;
-global prefacRLP1=num((g_(1,p3)-mt)*PR(1)*g_(1,p1)*PL(1)*(g_(1,p4)+mt)*PR(1)*PL(1))*den((g_(2,p3)-mt)*PR(2)*PL(2)*(g_(2,p4)+mt)*PR(2)*PL(2));
-global prefacRLP2=num((g_(1,p3)-mt)*PR(1)*g_(1,p2)*PL(1)*(g_(1,p4)+mt)*PR(1)*PL(1))*den((g_(2,p3)-mt)*PR(2)*PL(2)*(g_(2,p4)+mt)*PR(2)*PL(2));
-argument;
-id PL(helperidx?)=PR(helperidx);
-endargument;
-.sort
-
-
-argument;
 id PR(helperidx?)=g6_(helperidx);
-endargument;
 .sort
-argument;
 trace4,1;
 trace4,2;
-endargument;
+.sort
+id e_(helpervec1?,helpervec2?,helpervec3?,helpervec4?)=E(helpervec1,helpervec2,helpervec3,helpervec4);
 .sort
 
 **** Kinematics ***
@@ -97,8 +81,8 @@ id num(helpersym1?number_) = helpersym1;
 *** Combine Formfactors *****
 ***********************************
 
-global HMassiveLL'NrHM'=prefacLL1*h('NrHM')+prefacLLP1*h('NrHM'+3)+prefacLLP2*h('NrHM'+6);
-global HMassiveRL'NrHM'=prefacRL1*h('NrHM')+prefacRLP1*h('NrHM'+3)+prefacRLP2*h('NrHM'+6);
+global HMassiveLL'NrHM'=prefacLL1*h('NrHM'+3)+prefacLL2*h('NrHM'+6);
+global HMassiveRL'NrHM'=prefacLR*h('NrHM');
 #do i=1,'NrH'
 id h('i')=H'i'sym;
 #enddo
@@ -179,8 +163,8 @@ bracket gs,gW,den,del,imag;
 .sort 
 
 
-#write <HelicityFormFactors/HMassiveLL'NrHM'.m> "HMassiveLL'NrHM'=  %E", HMassiveLL'NrHM'
-#write <HelicityFormFactors/HMassiveRL'NrHM'.m> "HMassiveRL'NrHM'=  %E", HMassiveRL'NrHM'
+#write <HelicityFormFactors/HMassiveLL'NrHM'.m> "(%E)", HMassiveLL'NrHM'
+#write <HelicityFormFactors/HMassiveRL'NrHM'.m> "(%E)", HMassiveRL'NrHM'
 
 .end
 
